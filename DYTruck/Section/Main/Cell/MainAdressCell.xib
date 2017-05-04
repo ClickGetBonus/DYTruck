@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" id="KGk-i7-Jjw" customClass="MainAdressCell" customModule="DYTruck" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7zI-Y4-khP" userLabel="indicator">
+                        <rect key="frame" x="18" y="18" width="8" height="8"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="8" id="fYV-Ce-bJu"/>
+                            <constraint firstAttribute="height" constant="8" id="rW9-t5-faY"/>
+                        </constraints>
+                    </button>
+                    <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入您的货物位置" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7s4-WZ-eI3">
+                        <rect key="frame" x="44" y="11" width="252" height="20"/>
+                        <color key="textColor" red="0.20392156862745098" green="0.20392156862745098" blue="0.20392156862745098" alpha="1" colorSpace="calibratedRGB"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <textInputTraits key="textInputTraits"/>
+                    </textField>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Jk-gM-jMG">
+                        <rect key="frame" x="306" y="6" width="0.0" height="32"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="32" id="Zte-SV-gSo"/>
+                            <constraint firstAttribute="width" id="gGH-ac-YHW"/>
+                        </constraints>
+                        <state key="normal" image="wd_tj_icn"/>
+                        <connections>
+                            <action selector="onRightButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="mA9-gE-yP6"/>
+                        </connections>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qCy-Rf-srh" userLabel="seperator">
+                        <rect key="frame" x="44" y="42" width="276" height="1"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="fiA-P6-qHO"/>
+                        </constraints>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="0Jk-gM-jMG" secondAttribute="trailing" constant="14" id="0Wo-MJ-fUF"/>
+                    <constraint firstItem="7s4-WZ-eI3" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="2q1-4i-400"/>
+                    <constraint firstItem="7zI-Y4-khP" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="AD8-bd-Df8"/>
+                    <constraint firstItem="0Jk-gM-jMG" firstAttribute="leading" secondItem="7s4-WZ-eI3" secondAttribute="trailing" constant="10" id="GO5-x3-2CL"/>
+                    <constraint firstItem="0Jk-gM-jMG" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="P1Z-Jp-X9c"/>
+                    <constraint firstAttribute="trailing" secondItem="qCy-Rf-srh" secondAttribute="trailing" id="RCk-gg-ylg"/>
+                    <constraint firstAttribute="bottom" secondItem="qCy-Rf-srh" secondAttribute="bottom" id="YTS-e8-d0r"/>
+                    <constraint firstItem="qCy-Rf-srh" firstAttribute="leading" secondItem="7s4-WZ-eI3" secondAttribute="leading" id="dZo-HR-xXJ"/>
+                    <constraint firstItem="7s4-WZ-eI3" firstAttribute="leading" secondItem="7zI-Y4-khP" secondAttribute="trailing" constant="18" id="vJQ-R8-Nx7"/>
+                    <constraint firstItem="7zI-Y4-khP" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="18" id="zFx-fC-jmc"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="indicator" destination="7zI-Y4-khP" id="eB5-QO-n7G"/>
+                <outlet property="rightButton" destination="0Jk-gM-jMG" id="46z-Q6-7XI"/>
+                <outlet property="rightButtonWidthConstraint" destination="gGH-ac-YHW" id="k7Y-7h-acA"/>
+                <outlet property="seperator" destination="qCy-Rf-srh" id="rf7-S0-Yvj"/>
+                <outlet property="textField" destination="7s4-WZ-eI3" id="EQo-CS-Djc"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="wd_tj_icn" width="32" height="32"/>
+    </resources>
+</document>

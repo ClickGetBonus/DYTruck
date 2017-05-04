@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AddressCell" rowHeight="75" id="Cmw-xa-RER" customClass="AddressCell" customModule="DYTruck" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="75"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Cmw-xa-RER" id="VId-rA-BpQ">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="74"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home_ddo_icn" translatesAutoresizingMaskIntoConstraints="NO" id="ear-LD-OoK">
+                        <rect key="frame" x="11" y="21" width="32" height="32"/>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="科韵路棠安路口-公车站" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SKr-SK-m2f">
+                        <rect key="frame" x="51" y="16" width="206" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="0.1215686275" green="0.1137254902" blue="0.1137254902" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="天河区,棠下,棠安路科韵中路 (路口)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kjv-Ss-ZbH">
+                        <rect key="frame" x="51" y="44" width="206" height="16"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Kjv-Ss-ZbH" firstAttribute="top" secondItem="SKr-SK-m2f" secondAttribute="bottom" constant="7" id="6CL-D5-lXj"/>
+                    <constraint firstItem="SKr-SK-m2f" firstAttribute="top" secondItem="ear-LD-OoK" secondAttribute="top" constant="-5" id="C6e-o1-Jfr"/>
+                    <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="SKr-SK-m2f" secondAttribute="trailing" constant="5" id="Cd9-3a-NTW"/>
+                    <constraint firstItem="ear-LD-OoK" firstAttribute="centerY" secondItem="VId-rA-BpQ" secondAttribute="centerY" id="HB5-6g-LdM"/>
+                    <constraint firstItem="ear-LD-OoK" firstAttribute="leading" secondItem="VId-rA-BpQ" secondAttribute="leading" constant="11" id="eXK-ny-qDc"/>
+                    <constraint firstItem="SKr-SK-m2f" firstAttribute="leading" secondItem="ear-LD-OoK" secondAttribute="trailing" constant="8" id="fh7-ic-50L"/>
+                    <constraint firstItem="Kjv-Ss-ZbH" firstAttribute="trailing" secondItem="SKr-SK-m2f" secondAttribute="trailing" id="icS-sp-XfQ"/>
+                    <constraint firstItem="Kjv-Ss-ZbH" firstAttribute="leading" secondItem="SKr-SK-m2f" secondAttribute="leading" id="tgF-E6-8oE"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="subTitleLabel" destination="Kjv-Ss-ZbH" id="AJe-fk-SyR"/>
+                <outlet property="titleLabel" destination="SKr-SK-m2f" id="2RY-hC-aCX"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="home_ddo_icn" width="32" height="32"/>
+    </resources>
+</document>
