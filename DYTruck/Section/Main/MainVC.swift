@@ -72,8 +72,8 @@ class MainVC: UIViewController {
         mapView.delegate = self
         mapView.showsUserLocation = true;
         mapView.userTrackingMode = .follow;
-//        mapView.zoomLevel = 17
-//        mapView.centerCoordinate = mapView.userLocation.coordinate
+        //        mapView.zoomLevel = 17
+        //        mapView.centerCoordinate = mapView.userLocation.coordinate
         
         
         self.bottomView.frame = self.mapView.frame
@@ -158,7 +158,7 @@ class MainVC: UIViewController {
 extension MainVC: TLCityPickerDelegate {
     
     func showCityPicker() {
-        self.titleIndicator.rotation(by: M_PI)
+        self.titleIndicator.rotation(by: Double(M_PI))
         
         self.cityVC = TLCityPickerController()
         self.cityVC.delegate = self
@@ -184,7 +184,7 @@ extension MainVC: TLCityPickerDelegate {
     }
     
     func hideCityPicker() {
-        self.titleIndicator.rotation(by: -M_PI)
+        self.titleIndicator.rotation(by: Double(-M_PI))
         
         self.cityView.transitionOut(UIOffset(horizontal: 0, vertical: self.mapView.height), complete: {
             self.cityVC.delegate = nil
@@ -219,7 +219,7 @@ extension MainVC {
         }
         
         panRecognizer = UIPanGestureRecognizer(target: self,
-                                                   action: #selector(handlePanRecognizer(_:)))
+                                               action: #selector(handlePanRecognizer(_:)))
         self.view.addGestureRecognizer(panRecognizer)
     }
     
@@ -416,6 +416,10 @@ extension MainVC {
         
         bottomView.completeEditBehavior = { bottomView in
             print("地址输入完毕!! 出发点: \(bottomView.departureArray) \n 目的地: \(bottomView.destination)")
+            let vc = UIStoryboard(name: "Order", bundle: nil).instantiateViewController(withIdentifier: "SpecialOrderVC") as! SpecialOrderVC
+            vc.configure(bottomView.departureTimeString, location: bottomView.departureArray, destination: bottomView.destination)
+            self.navigationController?.present(UINavigationController(rootViewController: vc),
+                                               animated: true, completion: nil)
         }
     }
     
@@ -460,7 +464,7 @@ extension MainVC {
             UIView.animate(withDuration: 0.3, animations: {
                 self.topView.layoutSubviews()
             }, completion: nil)
-
+            
         }
     }
     

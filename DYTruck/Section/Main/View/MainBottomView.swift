@@ -25,6 +25,7 @@ class MainBottomView: BaseXibView {
     var completeEditBehavior: (MainBottomView) -> Swift.Void = { _ in}
     var requestSelectAddressBehavior: (Int) -> Swift.Void = { _ in }
     
+    var departureTimeString: String = NSDate().string(withFormat: "YYYY年MM月dd日 HH:mm:ss")!
     var departureArray: [String] = [""]
     var destination: String = ""
     
@@ -40,17 +41,13 @@ class MainBottomView: BaseXibView {
             count += 1
         }
         
-        return count + departureCount + 1
+        return count + departureArray.count + 1
     }
     
-    var departureCount: Int = 1
     
     var rowHeight: CGFloat = 50
     
     var cellIdentifiers: [String] = [MainAdressCell.className, MainAdressCell.className]
-    let timeSelection: [[String]] = [["今天", "明天", "后天"],
-                                     ["00点", "01点", "02点", "03点", "04点", "05点", "06点", "07点", "08点", "09点", "10点", "11点", "12点", "13点", "14点", "15点", "16点", "17点", "18点", "19点", "20点", "21点", "22点", "23点"],
-                                     ["00", "10", "20", "30", "40", "50"]]
     
     
     
@@ -146,22 +143,39 @@ class MainBottomView: BaseXibView {
         }
     }
     func setAddress( _ address: String, in index: Int) {
-        if index < departureCount {
+        if index < departureArray.count {
             self.departureArray[index] = address
         } else {
             self.destination = address
         }
         
         self.tableView.reloadData()
+        
+        if self.isCompleteSelect() {
+            self.completeEditBehavior(self)
+        }
+    }
+    
+    func isCompleteSelect() -> Bool {
+        for v in departureArray {
+            if v.isEmpty {
+                return false
+            }
+        }
+        
+        if destination.isEmpty {
+            return false
+        }
+        
+        return true
     }
     
     fileprivate func addNewDepartureCell() {
         
-        guard departureCount < 5 else {
+        guard departureArray.count < 5 else {
             return
         }
         
-        departureCount += 1
         cellIdentifiers.insert(MainAdressCell.className, at: self.rowCount - 2)
         departureArray.append("")
         UIView.animate(withDuration: 0.2) {
@@ -175,11 +189,10 @@ class MainBottomView: BaseXibView {
     
     fileprivate func removeDepartureCell( at indexPath: IndexPath) {
         
-        guard departureCount > 1 else {
+        guard departureArray.count > 1 else {
             return
         }
         
-        departureCount -= 1
         cellIdentifiers.remove(at: indexPath.row)
         departureArray.remove(at: (timePattern == .order) ? indexPath.row+1 : indexPath.row)
         UIView.animate(withDuration: 0.2) {
@@ -266,21 +279,21 @@ extension MainBottomView: UITableViewDelegate, UITableViewDataSource {
                 let cell = tableView.dequeueReusableCell(withIdentifier: MainDateCell.className) as! MainDateCell
                 let dateFormat = DateFormatter()
                 dateFormat.dateFormat = "YYYY-MM-dd HH:mm"
-                cell.dateLabel.text = dateFormat.string(from: Date())
+                cell.dateLabel.text = self.departureTimeString
                 return cell
             } else {
                 
                 let cell = tableView.dequeueReusableCell(withIdentifier: MainAdressCell.className) as! MainAdressCell
                 
                 let index = (self.timePattern == .order) ? indexPath.row-1 : indexPath.row
-                if index < departureCount {
-                    if departureCount > 1 && indexPath.row > 0 {
+                if index < departureArray.count {
+                    if departureArray.count > 1 && indexPath.row > 0 {
                         cell.style = .departureAdd
                     } else {
                         cell.style = .departure
                     }
                     
-                    cell.textField.text = self.departureArray[indexPath.row]
+                    cell.textField.text = self.departureArray[index]
                 } else {
                     cell.style = .destination
                     cell.textField.text = self.destination
@@ -310,6 +323,9 @@ extension MainBottomView: UITableViewDelegate, UITableViewDataSource {
         
         if cellIdentifiers[indexPath.row] == MainDateCell.className {
             
+            let timeSelection: [[String]] = [["今天", "明天", "后天"],
+                                             ["00点", "01点", "02点", "03点", "04点", "05点", "06点", "07点", "08点", "09点", "10点", "11点", "12点", "13点", "14点", "15点", "16点", "17点", "18点", "19点", "20点", "21点", "22点", "23点"],
+                                             ["00", "10", "20", "30", "40", "50"]]
             let dateFormat = DateFormatter()
             dateFormat.dateFormat = "YYYY-MM-dd HH:mm"
             let cell = tableView.cellForRow(at: indexPath) as! MainDateCell
@@ -326,8 +342,16 @@ extension MainBottomView: UITableViewDelegate, UITableViewDataSource {
                 let index = hour.index(hour.endIndex, offsetBy: -1)
                 let timeString = "\((selections?[0])!) \(hour.substring(to: index)):\((selections?[2])!)"
                 cell.dateLabel.text = timeString
+                self.departureTimeString = timeString
+                
                 return true
             }).show(true)
+            
+            
+            
+            
+            
+            
         } else if cellIdentifiers[indexPath.row] == MainAdressCell.className {
             
             let index = (self.timePattern == .order) ? indexPath.row-1 : indexPath.row

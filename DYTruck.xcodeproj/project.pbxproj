@@ -11,6 +11,13 @@
 		3F0298EF1EB0CA62003ABF40 /* AccountOrderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F0298ED1EB0CA62003ABF40 /* AccountOrderCell.xib */; };
 		3F0298F21EB0CA81003ABF40 /* AccountRechargeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0298F01EB0CA81003ABF40 /* AccountRechargeCell.swift */; };
 		3F0298F31EB0CA81003ABF40 /* AccountRechargeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F0298F11EB0CA81003ABF40 /* AccountRechargeCell.xib */; };
+		3F06C0DE1EBD83260084D2A9 /* DashedBorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F06C0DD1EBD83260084D2A9 /* DashedBorderView.swift */; };
+		3F06C0E01EBD88770084D2A9 /* SpecialOrderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F06C0DF1EBD88770084D2A9 /* SpecialOrderVC.swift */; };
+		3F06C0E31EBDC9790084D2A9 /* OrderAddressCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F06C0E11EBDC9790084D2A9 /* OrderAddressCell.swift */; };
+		3F06C0E41EBDC9790084D2A9 /* OrderAddressCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F06C0E21EBDC9790084D2A9 /* OrderAddressCell.xib */; };
+		3F06C0ED1EBF0BF70084D2A9 /* FillOutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F06C0EB1EBF0BF70084D2A9 /* FillOutVC.swift */; };
+		3F06C0F31EC02EB30084D2A9 /* ExtNeedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F06C0F21EC02EB30084D2A9 /* ExtNeedVC.swift */; };
+		3F06C0F51EC03BBD0084D2A9 /* ConfirmOrderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F06C0F41EC03BBD0084D2A9 /* ConfirmOrderVC.swift */; };
 		3F1F94191EB81D5100499372 /* AddressVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1F94181EB81D5100499372 /* AddressVC.swift */; };
 		3F1F941B1EB8246400499372 /* AddressHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1F941A1EB8246400499372 /* AddressHeaderView.swift */; };
 		3F1F941D1EB8246D00499372 /* AddressHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F1F941C1EB8246D00499372 /* AddressHeaderView.xib */; };
@@ -94,6 +101,9 @@
 		3F8EB9621EA07EB6000D9C9C /* ColorMacro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8EB9611EA07EB6000D9C9C /* ColorMacro.swift */; };
 		3F8EB96A1EA0A78B000D9C9C /* ViewUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8EB9691EA0A78B000D9C9C /* ViewUtil.swift */; };
 		3F8EB9D21EA0BFD6000D9C9C /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F8EB9D11EA0BFD6000D9C9C /* libz.tbd */; };
+		3FAAE1F71EBC178300E4097F /* Order.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FAAE1F61EBC178300E4097F /* Order.storyboard */; };
+		3FAAE1FC1EBC188D00E4097F /* OrderLinkmanCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAAE1FA1EBC188D00E4097F /* OrderLinkmanCell.swift */; };
+		3FAAE1FD1EBC188D00E4097F /* OrderLinkmanCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FAAE1FB1EBC188D00E4097F /* OrderLinkmanCell.xib */; };
 		3FABB7491EA6F814003559EA /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FABB7471EA6F814003559EA /* MainVC.swift */; };
 		3FABB74F1EA6F829003559EA /* ForgetVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FABB74C1EA6F829003559EA /* ForgetVC.swift */; };
 		3FABB7501EA6F829003559EA /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FABB74D1EA6F829003559EA /* LoginVC.swift */; };
@@ -133,6 +143,13 @@
 		3F0298ED1EB0CA62003ABF40 /* AccountOrderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccountOrderCell.xib; sourceTree = "<group>"; };
 		3F0298F01EB0CA81003ABF40 /* AccountRechargeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountRechargeCell.swift; sourceTree = "<group>"; };
 		3F0298F11EB0CA81003ABF40 /* AccountRechargeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccountRechargeCell.xib; sourceTree = "<group>"; };
+		3F06C0DD1EBD83260084D2A9 /* DashedBorderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashedBorderView.swift; sourceTree = "<group>"; };
+		3F06C0DF1EBD88770084D2A9 /* SpecialOrderVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpecialOrderVC.swift; sourceTree = "<group>"; };
+		3F06C0E11EBDC9790084D2A9 /* OrderAddressCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderAddressCell.swift; sourceTree = "<group>"; };
+		3F06C0E21EBDC9790084D2A9 /* OrderAddressCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OrderAddressCell.xib; sourceTree = "<group>"; };
+		3F06C0EB1EBF0BF70084D2A9 /* FillOutVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FillOutVC.swift; sourceTree = "<group>"; };
+		3F06C0F21EC02EB30084D2A9 /* ExtNeedVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtNeedVC.swift; sourceTree = "<group>"; };
+		3F06C0F41EC03BBD0084D2A9 /* ConfirmOrderVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmOrderVC.swift; sourceTree = "<group>"; };
 		3F1F94181EB81D5100499372 /* AddressVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressVC.swift; sourceTree = "<group>"; };
 		3F1F941A1EB8246400499372 /* AddressHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressHeaderView.swift; sourceTree = "<group>"; };
 		3F1F941C1EB8246D00499372 /* AddressHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddressHeaderView.xib; sourceTree = "<group>"; };
@@ -261,6 +278,9 @@
 		3F8EB9651EA0A643000D9C9C /* DYTruck-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DYTruck-Bridging-Header.h"; sourceTree = "<group>"; };
 		3F8EB9691EA0A78B000D9C9C /* ViewUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewUtil.swift; sourceTree = "<group>"; };
 		3F8EB9D11EA0BFD6000D9C9C /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		3FAAE1F61EBC178300E4097F /* Order.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Order.storyboard; sourceTree = "<group>"; };
+		3FAAE1FA1EBC188D00E4097F /* OrderLinkmanCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderLinkmanCell.swift; sourceTree = "<group>"; };
+		3FAAE1FB1EBC188D00E4097F /* OrderLinkmanCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OrderLinkmanCell.xib; sourceTree = "<group>"; };
 		3FABB7471EA6F814003559EA /* MainVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		3FABB74C1EA6F829003559EA /* ForgetVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgetVC.swift; sourceTree = "<group>"; };
 		3FABB74D1EA6F829003559EA /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
@@ -440,6 +460,7 @@
 				3F58D0361EA1F95600B87F16 /* PatternSelectView.xib */,
 				3FB8901E1EAE39B900811A09 /* SelectView.swift */,
 				3F85C8131EB1945400E84E70 /* TLScrollTableView.swift */,
+				3F06C0DD1EBD83260084D2A9 /* DashedBorderView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -447,6 +468,12 @@
 		3F7D75E41EBACF45008E0116 /* Order */ = {
 			isa = PBXGroup;
 			children = (
+				3FAAE1F81EBC185700E4097F /* Cell */,
+				3FAAE1F91EBC185700E4097F /* View */,
+				3F06C0DF1EBD88770084D2A9 /* SpecialOrderVC.swift */,
+				3F06C0EB1EBF0BF70084D2A9 /* FillOutVC.swift */,
+				3F06C0F21EC02EB30084D2A9 /* ExtNeedVC.swift */,
+				3F06C0F41EC03BBD0084D2A9 /* ConfirmOrderVC.swift */,
 			);
 			path = Order;
 			sourceTree = "<group>";
@@ -554,6 +581,7 @@
 			children = (
 				3F8EB9591EA063B1000D9C9C /* Login.storyboard */,
 				3FB890151EACA51600811A09 /* Main.storyboard */,
+				3FAAE1F61EBC178300E4097F /* Order.storyboard */,
 			);
 			path = UserInterface;
 			sourceTree = "<group>";
@@ -608,6 +636,24 @@
 				3F8248141EA8A5C6006C54A9 /* MainDateCell.xib */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		3FAAE1F81EBC185700E4097F /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				3FAAE1FA1EBC188D00E4097F /* OrderLinkmanCell.swift */,
+				3FAAE1FB1EBC188D00E4097F /* OrderLinkmanCell.xib */,
+				3F06C0E11EBDC9790084D2A9 /* OrderAddressCell.swift */,
+				3F06C0E21EBDC9790084D2A9 /* OrderAddressCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		3FAAE1F91EBC185700E4097F /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		3FABB7461EA6F814003559EA /* Main */ = {
@@ -819,10 +865,13 @@
 				3FB890161EACA51600811A09 /* Main.storyboard in Resources */,
 				3FF28C0B1EA5116800F23016 /* MainAdressCell.xib in Resources */,
 				3F8EB95A1EA063B1000D9C9C /* Login.storyboard in Resources */,
+				3F06C0E41EBDC9790084D2A9 /* OrderAddressCell.xib in Resources */,
 				3F58D0371EA1F95600B87F16 /* PatternSelectView.xib in Resources */,
 				3FB890271EAE445900811A09 /* AppraiseCell.xib in Resources */,
 				3F82480E1EA75026006C54A9 /* MainUserView.xib in Resources */,
 				3FB8901D1EADDBBE00811A09 /* OrderCell.xib in Resources */,
+				3FAAE1F71EBC178300E4097F /* Order.storyboard in Resources */,
+				3FAAE1FD1EBC188D00E4097F /* OrderLinkmanCell.xib in Resources */,
 				3F8EB9451E9F9029000D9C9C /* Assets.xcassets in Resources */,
 				3F1F941D1EB8246D00499372 /* AddressHeaderView.xib in Resources */,
 				3F8248161EA8A5C6006C54A9 /* MainDateCell.xib in Resources */,
@@ -899,6 +948,7 @@
 				3F82481D1EA8AB79006C54A9 /* Extracter.m in Sources */,
 				3F8248311EA8D650006C54A9 /* TLCityPickerSearchResultController.m in Sources */,
 				3F1F941F1EB82AD500499372 /* AddressTableView.swift in Sources */,
+				3F06C0E01EBD88770084D2A9 /* SpecialOrderVC.swift in Sources */,
 				3F1F94211EB82CCD00499372 /* PushSetVC.swift in Sources */,
 				3F1F942B1EB8357400499372 /* AddressCell.swift in Sources */,
 				3F82482D1EA8D650006C54A9 /* TLCity.m in Sources */,
@@ -921,13 +971,16 @@
 				3F8248111EA8A1B6006C54A9 /* MessageVC.swift in Sources */,
 				3F4CA1891EA1D1CE00B19B46 /* NSBundle+YYAdd.m in Sources */,
 				3F85C8101EB193C400E84E70 /* SettingVC.swift in Sources */,
+				3F06C0E31EBDC9790084D2A9 /* OrderAddressCell.swift in Sources */,
 				3F4CA19C1EA1D1CE00B19B46 /* UIControl+YYAdd.m in Sources */,
 				3F4CA18D1EA1D1CE00B19B46 /* NSKeyedUnarchiver+YYAdd.m in Sources */,
 				3F8EB93E1E9F9029000D9C9C /* AppDelegate.swift in Sources */,
 				3FABB7501EA6F829003559EA /* LoginVC.swift in Sources */,
 				3F8248151EA8A5C6006C54A9 /* MainDateCell.swift in Sources */,
+				3F06C0F51EC03BBD0084D2A9 /* ConfirmOrderVC.swift in Sources */,
 				3F4CA18B1EA1D1CE00B19B46 /* NSDate+YYAdd.m in Sources */,
 				3F82481E1EA8AB79006C54A9 /* TLPicker.m in Sources */,
+				3F06C0DE1EBD83260084D2A9 /* DashedBorderView.swift in Sources */,
 				3F8248301EA8D650006C54A9 /* TLCityPickerController.m in Sources */,
 				3F4CA1A01EA1D1CE00B19B46 /* UIImage+YYAdd.m in Sources */,
 				3F4CA1A31EA1D1CE00B19B46 /* UITableView+YYAdd.m in Sources */,
@@ -958,9 +1011,11 @@
 				3F85C8141EB1945400E84E70 /* TLScrollTableView.swift in Sources */,
 				3FABB74F1EA6F829003559EA /* ForgetVC.swift in Sources */,
 				3F4CA19A1EA1D1CE00B19B46 /* UIBezierPath+YYAdd.m in Sources */,
+				3F06C0F31EC02EB30084D2A9 /* ExtNeedVC.swift in Sources */,
 				3F58D0391EA1F9DD00B87F16 /* DYEnum.swift in Sources */,
 				3F82482E1EA8D650006C54A9 /* TLCityGroupCell.m in Sources */,
 				3F4CA1981EA1D1CE00B19B46 /* UIApplication+YYAdd.m in Sources */,
+				3FAAE1FC1EBC188D00E4097F /* OrderLinkmanCell.swift in Sources */,
 				3F4CA1931EA1D1CE00B19B46 /* NSString+YYAdd.m in Sources */,
 				3FB8901C1EADDBBE00811A09 /* OrderCell.swift in Sources */,
 				3FB8902E1EAF75E000811A09 /* IntegralCell.swift in Sources */,
@@ -970,6 +1025,7 @@
 				3F1F941B1EB8246400499372 /* AddressHeaderView.swift in Sources */,
 				3F0298F21EB0CA81003ABF40 /* AccountRechargeCell.swift in Sources */,
 				3FABB7511EA6F829003559EA /* RegistVC.swift in Sources */,
+				3F06C0ED1EBF0BF70084D2A9 /* FillOutVC.swift in Sources */,
 				3FF28C0D1EA5E43C00F23016 /* MainInfoView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1120,6 +1176,7 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "DYTruck/Supporting Files/DYTruck-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1174,6 +1231,7 @@
 				SWIFT_INSTALL_OBJC_HEADER = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "DYTruck/Supporting Files/DYTruck-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
