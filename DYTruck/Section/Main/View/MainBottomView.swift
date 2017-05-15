@@ -21,6 +21,8 @@ class MainBottomView: BaseXibView {
     @IBOutlet weak var topViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var tableViewHeightConstraint: NSLayoutConstraint!
     
+    var rowHeight: CGFloat = 50
+    
     var locationBehavior: () -> Swift.Void = {}
     var completeEditBehavior: (MainBottomView) -> Swift.Void = { _ in}
     var requestSelectAddressBehavior: (Int) -> Swift.Void = { _ in }
@@ -30,6 +32,8 @@ class MainBottomView: BaseXibView {
     var destination: String = ""
     
     let topViewHeight: CGFloat = 50
+    
+    var cellIdentifiers: [String] = [MainAdressCell.className, MainAdressCell.className]
     var rowCount: Int {
         
         if self.pattern == .storage {
@@ -45,11 +49,16 @@ class MainBottomView: BaseXibView {
     }
     
     
-    var rowHeight: CGFloat = 50
-    
-    var cellIdentifiers: [String] = [MainAdressCell.className, MainAdressCell.className]
-    
-    
+    func deleteAllSelection() {
+        self.departureTimeString = NSDate().string(withFormat: "YYYY年MM月dd日 HH:mm:ss")!
+        self.departureArray = [""]
+        self.cellIdentifiers = [MainAdressCell.className, MainAdressCell.className]
+        self.destination = ""
+        self.tableView.reloadData()
+        self.tableViewHeightConstraint.constant = CGFloat(self.rowCount) * self.rowHeight
+        self.topView.layoutSubviews()
+        self.contentView.layoutSubviews()
+    }
     
     init(_ patter: Pattern) {
         super.init(frame: CGRect.zero)
@@ -60,8 +69,6 @@ class MainBottomView: BaseXibView {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    
     func initSubviews() {
         
         switch self.pattern {
@@ -87,7 +94,7 @@ class MainBottomView: BaseXibView {
         self.updateTableViewHeight()
     }
     
-    fileprivate var pattern: Pattern = .specialCar
+    fileprivate var pattern: Pattern = .special
     
     private var _isShowTopView: Bool = true
     private var isShowTopView: Bool {

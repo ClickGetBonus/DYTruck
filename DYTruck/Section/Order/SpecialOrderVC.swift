@@ -23,27 +23,8 @@ class SpecialOrderVC: UITableViewController {
     @IBOutlet weak var overPriceLabel: UILabel!
     
     
-    var goodsParameters: [FillOutVC.CellType: String] = [.name: "", .quantity: ""] {
-        didSet {
-            
-            let withoutName = goodsParameters[.name]!.isEmpty
-            let withoutQuantity = goodsParameters[.quantity]!.isEmpty
-            
-            self.goodsNameButton.setTitle(goodsParameters[.name]!, for: .normal)
-            self.goodsNameButton.isHidden = withoutName ? true : false
-            self.goodsQuantityButton.setTitle("\(goodsParameters[.quantity]!)件", for: .normal)
-            self.goodsQuantityButton.isHidden = withoutQuantity ? true : false
-            
-            if withoutName && withoutQuantity {
-                self.goodsEditScrollView.isHidden = true
-                self.goodsEditPlaceholderLabel.isHidden = false
-            } else {
-                
-                self.goodsEditScrollView.isHidden = false
-                self.goodsEditPlaceholderLabel.isHidden = true
-            }
-        }
-    }
+    var goodsParameters: [GoodsParameterType: String] = [.name: "", .quantity: ""]
+
     @IBOutlet weak var goodsEditScrollView: UIScrollView!
     @IBOutlet weak var goodsEditPlaceholderLabel: UILabel!
     @IBOutlet weak var goodsNameButton: UIButton!
@@ -51,6 +32,39 @@ class SpecialOrderVC: UITableViewController {
     @IBOutlet weak var goodsQuantityButton: UIButton!
     @IBOutlet weak var goodsWeightButton: UIButton!
     @IBOutlet weak var goodsVolumeButton: UIButton!
+    
+    @IBOutlet weak var carSelectScrollView: UIScrollView!
+    @IBOutlet weak var smallCarView: UIView!
+    @IBOutlet weak var middleCarView: UIView!
+    @IBOutlet weak var smallTruckView: UIView!
+    @IBOutlet weak var middleTruckView: UIView!
+    let imageViewTag = 11
+    let labelTag = 12
+    
+    var carSelection: Int = 0 {
+        didSet {
+            guard carSelection <= 3 else {
+                return
+            }
+            let views = [smallCarView, middleCarView, smallTruckView, middleTruckView]
+            
+            for (index, parentView) in views.enumerated() {
+                
+                let imageView = parentView?.viewWithTag(imageViewTag) as! UIImageView
+                let label = parentView?.viewWithTag(labelTag) as! UILabel
+                
+                var imageName = "dd_car_0"
+                imageName.append("\(index+1)")
+                if index == carSelection {
+                    imageName.append("a")
+                    label.textColor = kRGBColorFromHex(0xf6a224)
+                } else {
+                    label.textColor = kRGBColorFromHex(0x333333)
+                }
+                imageView.image = UIImage(named: imageName)
+            }
+        }
+    }
     
     var departureDateString: String = ""
     var departureDate: Date = Date()
@@ -66,6 +80,7 @@ class SpecialOrderVC: UITableViewController {
         
         self.tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: CGFloat.leastNormalMagnitude))
         self.tableView.register(OrderAddressCell.nib, forCellReuseIdentifier: OrderAddressCell.className)
+        self.tableView.register(GoodsEditCell.nib, forCellReuseIdentifier: GoodsEditCell.className)
     }
     
     
@@ -101,6 +116,9 @@ class SpecialOrderVC: UITableViewController {
             vc.completeBehavior = { results in
                 self.goodsParameters[.name] = results[0] ?? ""
                 self.goodsParameters[.quantity] = results[1] ?? ""
+                
+                let cell = self.tableView.cellForRow(at: IndexPath(row: 2, section: 1)) as! GoodsEditCell
+                cell.updateBy(parameters: self.goodsParameters)
             }
         } else if segue.identifier == "goDeliveryEdit" {
             let vc = segue.destination as! FillOutVC
@@ -121,6 +139,11 @@ class SpecialOrderVC: UITableViewController {
                 self.receiverPhoneLabel.text = results[1] ?? ""
             }
         }
+    }
+    
+    
+    @IBAction func onCarSelectButton(_ sender: UIButton) {
+        self.carSelection = sender.tag
     }
     
 }
@@ -146,7 +169,13 @@ extension SpecialOrderVC {
                 cell.configure(.destination, address: destination)
             }
             return cell
+        } else if indexPath.section == 1 && indexPath.row == 2 {
+            
+            let cell = tableView.dequeueReusableCell(withIdentifier: GoodsEditCell.className) as! GoodsEditCell
+            cell.updateBy(parameters: self.goodsParameters)
+            return cell
         }
+
         
         return super.tableView(tableView, cellForRowAt: indexPath)
     }
@@ -154,6 +183,10 @@ extension SpecialOrderVC {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == 0 {
             return 50
+        }
+        
+        if indexPath.section == 1 && indexPath.row == 2 {
+            return 44
         }
         
         return super.tableView(tableView, heightForRowAt: indexPath)
@@ -225,14 +258,24 @@ extension SpecialOrderVC {
             }
         }
         
+        if indexPath.section == 1 && indexPath.row == 2 {
+            self.performSegue(withIdentifier: "goGoodsEdit", sender: nil)
+        }
+        
+        
+        
     }
     
     override func tableView(_ tableView: UITableView, indentationLevelForRowAt indexPath: IndexPath) -> Int {
         
         if indexPath.section == 0 {
             return super.tableView(tableView, indentationLevelForRowAt: IndexPath(row: 1, section: 0))
-            
         }
+        
+        if indexPath.section == 1 && indexPath.row == 2 {
+            return super.tableView(tableView, indentationLevelForRowAt: IndexPath(row: 2, section: 1))
+        }
+
         return super.tableView(tableView, indentationLevelForRowAt: indexPath)
     }
 }

@@ -1,19 +1,139 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="GoodsEditCell" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <frame key="frameInset" width="320" height="43"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" id="xcC-aD-RlY" customClass="GoodsEditCell" customModule="DYTruck" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xcC-aD-RlY" id="XSt-Tm-nrl">
+                <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
                 <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请输入物品参数" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="62Q-Um-mJS">
+                        <rect key="frame" x="24" y="0.0" width="318" height="43.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KHw-MB-CVM">
+                        <rect key="frame" x="0.0" y="0.0" width="342" height="44"/>
+                        <subviews>
+                            <button opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8S3-eB-3GG">
+                                <rect key="frame" x="24" y="9" width="20" height="25"/>
+                                <color key="backgroundColor" red="0.0" green="0.63921568630000003" blue="0.90980392160000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="U0c-qx-oPh"/>
+                                </constraints>
+                                <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
+                                <state key="normal">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <button opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jOT-Iz-Fao">
+                                <rect key="frame" x="52" y="9" width="20" height="25"/>
+                                <color key="backgroundColor" red="0.71372549019999998" green="0.49803921569999998" blue="0.85882352939999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="Q8d-C8-jUh"/>
+                                </constraints>
+                                <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
+                                <state key="normal">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <button hidden="YES" opaque="NO" userInteractionEnabled="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wjL-bn-TiU">
+                                <rect key="frame" x="80" y="9" width="20" height="25"/>
+                                <color key="backgroundColor" red="0.98431372549999996" green="0.67843137249999996" blue="0.16862745100000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="W4M-hy-YYM"/>
+                                </constraints>
+                                <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
+                                <state key="normal">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <button hidden="YES" opaque="NO" userInteractionEnabled="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Amu-d2-VtY">
+                                <rect key="frame" x="108" y="9" width="20" height="25"/>
+                                <color key="backgroundColor" red="0.6588235294" green="0.47450980390000003" blue="0.40784313729999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="Wmm-4m-Dmx"/>
+                                </constraints>
+                                <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
+                                <state key="normal">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="8S3-eB-3GG" secondAttribute="bottom" constant="9" id="8rI-Vm-FT6"/>
+                            <constraint firstItem="wjL-bn-TiU" firstAttribute="centerY" secondItem="jOT-Iz-Fao" secondAttribute="centerY" id="9FX-Y5-C53"/>
+                            <constraint firstItem="jOT-Iz-Fao" firstAttribute="centerY" secondItem="8S3-eB-3GG" secondAttribute="centerY" id="CwN-O5-vcC"/>
+                            <constraint firstItem="Amu-d2-VtY" firstAttribute="centerY" secondItem="wjL-bn-TiU" secondAttribute="centerY" id="ITK-rV-JMn"/>
+                            <constraint firstItem="8S3-eB-3GG" firstAttribute="top" secondItem="KHw-MB-CVM" secondAttribute="top" constant="9" id="YXQ-h6-pMb"/>
+                            <constraint firstAttribute="trailing" secondItem="Amu-d2-VtY" secondAttribute="trailing" constant="10" id="ZsN-iW-L4V"/>
+                            <constraint firstItem="wjL-bn-TiU" firstAttribute="leading" secondItem="jOT-Iz-Fao" secondAttribute="trailing" constant="8" id="djQ-TJ-oAG"/>
+                            <constraint firstItem="8S3-eB-3GG" firstAttribute="leading" secondItem="KHw-MB-CVM" secondAttribute="leadingMargin" constant="16" id="j6S-uP-KDn"/>
+                            <constraint firstItem="Amu-d2-VtY" firstAttribute="leading" secondItem="wjL-bn-TiU" secondAttribute="trailing" constant="8" id="pfC-Yf-ft0"/>
+                            <constraint firstItem="jOT-Iz-Fao" firstAttribute="leading" secondItem="8S3-eB-3GG" secondAttribute="trailing" constant="8" id="u3C-hR-DPe"/>
+                        </constraints>
+                    </scrollView>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="62Q-Um-mJS" secondAttribute="trailing" id="2wH-BH-Qas"/>
+                    <constraint firstAttribute="bottom" secondItem="KHw-MB-CVM" secondAttribute="bottom" id="7QZ-rF-8jb"/>
+                    <constraint firstItem="KHw-MB-CVM" firstAttribute="top" secondItem="XSt-Tm-nrl" secondAttribute="top" id="aZA-oZ-Bbm"/>
+                    <constraint firstAttribute="bottom" secondItem="62Q-Um-mJS" secondAttribute="bottom" id="cKB-ID-1IL"/>
+                    <constraint firstAttribute="trailing" secondItem="KHw-MB-CVM" secondAttribute="trailing" id="gwb-q7-ZJr"/>
+                    <constraint firstItem="KHw-MB-CVM" firstAttribute="leading" secondItem="XSt-Tm-nrl" secondAttribute="leading" id="net-3x-ZAz"/>
+                    <constraint firstItem="62Q-Um-mJS" firstAttribute="leading" secondItem="XSt-Tm-nrl" secondAttribute="leading" constant="24" id="onh-68-3Dj"/>
+                    <constraint firstItem="62Q-Um-mJS" firstAttribute="top" secondItem="XSt-Tm-nrl" secondAttribute="top" id="zqy-mP-ceJ"/>
+                </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="nameButton" destination="8S3-eB-3GG" id="7A5-Ed-Aih"/>
+                <outlet property="nameButtonLeftConstraint" destination="j6S-uP-KDn" id="ijO-gc-qxB"/>
+                <outlet property="placeHolderLabel" destination="62Q-Um-mJS" id="I5k-iP-YNa"/>
+                <outlet property="quantityButton" destination="Amu-d2-VtY" id="tR2-Dc-k6W"/>
+                <outlet property="quantityButtonLeftConstraint" destination="pfC-Yf-ft0" id="VDc-tK-E28"/>
+                <outlet property="scrollView" destination="KHw-MB-CVM" id="lR7-hT-Zkh"/>
+                <outlet property="volumeButton" destination="wjL-bn-TiU" id="SQe-M2-36H"/>
+                <outlet property="volumeButtonLeftConstraint" destination="djQ-TJ-oAG" id="mUr-du-hCC"/>
+                <outlet property="weightButton" destination="jOT-Iz-Fao" id="he6-K4-RnZ"/>
+                <outlet property="weightButtonLeftConstraint" destination="u3C-hR-DPe" id="YpB-Cv-jSV"/>
+            </connections>
         </tableViewCell>
     </objects>
 </document>

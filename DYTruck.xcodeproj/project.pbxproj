@@ -28,6 +28,8 @@
 		3F1F942B1EB8357400499372 /* AddressCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1F94291EB8357400499372 /* AddressCell.swift */; };
 		3F1F942C1EB8357400499372 /* AddressCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F1F942A1EB8357400499372 /* AddressCell.xib */; };
 		3F1F94301EB8BC4600499372 /* AddressSelectVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1F942F1EB8BC4600499372 /* AddressSelectVC.swift */; };
+		3F2C9D4B1EC40B9C000E10FB /* GoodsEditCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2C9D491EC40B9C000E10FB /* GoodsEditCell.swift */; };
+		3F2C9D4C1EC40B9C000E10FB /* GoodsEditCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F2C9D4A1EC40B9C000E10FB /* GoodsEditCell.xib */; };
 		3F4CA11A1EA1C6AB00B19B46 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F4CA1191EA1C6AB00B19B46 /* CoreLocation.framework */; };
 		3F4CA11C1EA1C6B500B19B46 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F4CA11B1EA1C6B500B19B46 /* QuartzCore.framework */; };
 		3F4CA11E1EA1C6C100B19B46 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F4CA11D1EA1C6C100B19B46 /* OpenGLES.framework */; };
@@ -101,6 +103,17 @@
 		3F8EB9621EA07EB6000D9C9C /* ColorMacro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8EB9611EA07EB6000D9C9C /* ColorMacro.swift */; };
 		3F8EB96A1EA0A78B000D9C9C /* ViewUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8EB9691EA0A78B000D9C9C /* ViewUtil.swift */; };
 		3F8EB9D21EA0BFD6000D9C9C /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F8EB9D11EA0BFD6000D9C9C /* libz.tbd */; };
+		3F9E140E1EC8526C00ED3A9C /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9E140D1EC8526C00ED3A9C /* R.generated.swift */; };
+		3F9E14131EC86BA700ED3A9C /* RegistApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9E14121EC86BA700ED3A9C /* RegistApi.swift */; };
+		3F9E14161EC86C2800ED3A9C /* ApiModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9E14151EC86C2800ED3A9C /* ApiModel.swift */; };
+		3F9E14191EC86D6D00ED3A9C /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9E14181EC86D6D00ED3A9C /* UserInfo.swift */; };
+		3F9E141F1EC9834400ED3A9C /* DYRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9E141E1EC9834400ED3A9C /* DYRequest.swift */; };
+		3F9E14211EC9838A00ED3A9C /* DYResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9E14201EC9838A00ED3A9C /* DYResponse.swift */; };
+		3F9E14231EC984F500ED3A9C /* RegistResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9E14221EC984F500ED3A9C /* RegistResponse.swift */; };
+		3F9E14251EC989CB00ED3A9C /* DYListRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9E14241EC989CB00ED3A9C /* DYListRequest.swift */; };
+		3F9E14271EC98E2D00ED3A9C /* DYBaseRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9E14261EC98E2D00ED3A9C /* DYBaseRequest.swift */; };
+		3F9E14291EC9C0DD00ED3A9C /* StringUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9E14281EC9C0DD00ED3A9C /* StringUtil.swift */; };
+		3F9E142D1EC9E33100ED3A9C /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9E142C1EC9E33100ED3A9C /* Authentication.swift */; };
 		3FAAE1F71EBC178300E4097F /* Order.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FAAE1F61EBC178300E4097F /* Order.storyboard */; };
 		3FAAE1FC1EBC188D00E4097F /* OrderLinkmanCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAAE1FA1EBC188D00E4097F /* OrderLinkmanCell.swift */; };
 		3FAAE1FD1EBC188D00E4097F /* OrderLinkmanCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FAAE1FB1EBC188D00E4097F /* OrderLinkmanCell.xib */; };
@@ -127,6 +140,31 @@
 		3FB890371EAF9C3600811A09 /* CouponCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FB890351EAF9C3600811A09 /* CouponCell.xib */; };
 		3FB890391EAFA6A000811A09 /* RechargeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB890381EAFA6A000811A09 /* RechargeVC.swift */; };
 		3FB8903B1EB0A2CA00811A09 /* AccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB8903A1EB0A2CA00811A09 /* AccountVC.swift */; };
+		3FCDFC241EC16F3E008EE7E5 /* SharedOrderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCDFC231EC16F3E008EE7E5 /* SharedOrderVC.swift */; };
+		3FCDFC2A1EC1734B008EE7E5 /* ExpressageOrderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCDFC291EC1734B008EE7E5 /* ExpressageOrderVC.swift */; };
+		3FCDFC2C1EC1736E008EE7E5 /* LongJourneyOrderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCDFC2B1EC1736E008EE7E5 /* LongJourneyOrderVC.swift */; };
+		3FCDFC2E1EC3FD1C008EE7E5 /* DateUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCDFC2D1EC3FD1C008EE7E5 /* DateUtil.swift */; };
+		3FE078D51EC45DCD00EEDE4F /* SendOrderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE078D41EC45DCD00EEDE4F /* SendOrderVC.swift */; };
+		3FE078D71EC553E000EEDE4F /* WaitArriveVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE078D61EC553E000EEDE4F /* WaitArriveVC.swift */; };
+		3FE078D91EC5540900EEDE4F /* WaitLoadingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE078D81EC5540900EEDE4F /* WaitLoadingVC.swift */; };
+		3FE078DB1EC5543900EEDE4F /* PaymentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE078DA1EC5543900EEDE4F /* PaymentVC.swift */; };
+		3FE078E01EC5565600EEDE4F /* InfoProgressCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE078DE1EC5565600EEDE4F /* InfoProgressCell.swift */; };
+		3FE078E11EC5565600EEDE4F /* InfoProgressCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FE078DF1EC5565600EEDE4F /* InfoProgressCell.xib */; };
+		3FE078E41EC55CD700EEDE4F /* InfoDriverCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE078E21EC55CD700EEDE4F /* InfoDriverCell.swift */; };
+		3FE078E51EC55CD700EEDE4F /* InfoDriverCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FE078E31EC55CD700EEDE4F /* InfoDriverCell.xib */; };
+		3FE078E81EC55E8300EEDE4F /* OrderInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE078E61EC55E8300EEDE4F /* OrderInfoVC.swift */; };
+		3FE078E91EC55E8300EEDE4F /* OrderInfoVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FE078E71EC55E8300EEDE4F /* OrderInfoVC.xib */; };
+		3FE078EC1EC5606100EEDE4F /* SpecialOrderInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE078EA1EC5606100EEDE4F /* SpecialOrderInfoCell.swift */; };
+		3FE078ED1EC5606100EEDE4F /* SpecialOrderInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FE078EB1EC5606100EEDE4F /* SpecialOrderInfoCell.xib */; };
+		3FE078F01EC563C300EEDE4F /* InfoPaymentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE078EE1EC563C300EEDE4F /* InfoPaymentCell.swift */; };
+		3FE078F11EC563C300EEDE4F /* InfoPaymentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FE078EF1EC563C300EEDE4F /* InfoPaymentCell.xib */; };
+		3FE078F41EC5686400EEDE4F /* OrderIntroCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE078F21EC5686400EEDE4F /* OrderIntroCell.swift */; };
+		3FE078F51EC5686400EEDE4F /* OrderIntroCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FE078F31EC5686400EEDE4F /* OrderIntroCell.xib */; };
+		3FE078F71EC5725000EEDE4F /* TimeLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE078F61EC5725000EEDE4F /* TimeLabel.swift */; };
+		3FE078F91EC5765100EEDE4F /* SpecConfirmOrderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE078F81EC5765100EEDE4F /* SpecConfirmOrderVC.swift */; };
+		3FE078FB1EC5B7BA00EEDE4F /* EstimateVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE078FA1EC5B7BA00EEDE4F /* EstimateVC.swift */; };
+		3FE6A1301EC6E158003AC0E2 /* MZTimerLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE6A12F1EC6E158003AC0E2 /* MZTimerLabel.m */; };
+		3FE6A1321EC6E7CF003AC0E2 /* GoDestinationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE6A1311EC6E7CF003AC0E2 /* GoDestinationVC.swift */; };
 		3FF28C041EA4EFF200F23016 /* MainBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF28C031EA4EFF200F23016 /* MainBottomView.swift */; };
 		3FF28C061EA4F04800F23016 /* MainBottomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FF28C051EA4F04800F23016 /* MainBottomView.xib */; };
 		3FF28C0A1EA5116800F23016 /* MainAdressCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF28C081EA5116800F23016 /* MainAdressCell.swift */; };
@@ -161,6 +199,8 @@
 		3F1F94291EB8357400499372 /* AddressCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressCell.swift; sourceTree = "<group>"; };
 		3F1F942A1EB8357400499372 /* AddressCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddressCell.xib; sourceTree = "<group>"; };
 		3F1F942F1EB8BC4600499372 /* AddressSelectVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressSelectVC.swift; sourceTree = "<group>"; };
+		3F2C9D491EC40B9C000E10FB /* GoodsEditCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoodsEditCell.swift; sourceTree = "<group>"; };
+		3F2C9D4A1EC40B9C000E10FB /* GoodsEditCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GoodsEditCell.xib; sourceTree = "<group>"; };
 		3F4CA1191EA1C6AB00B19B46 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		3F4CA11B1EA1C6B500B19B46 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		3F4CA11D1EA1C6C100B19B46 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -278,6 +318,17 @@
 		3F8EB9651EA0A643000D9C9C /* DYTruck-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DYTruck-Bridging-Header.h"; sourceTree = "<group>"; };
 		3F8EB9691EA0A78B000D9C9C /* ViewUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewUtil.swift; sourceTree = "<group>"; };
 		3F8EB9D11EA0BFD6000D9C9C /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		3F9E140D1EC8526C00ED3A9C /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
+		3F9E14121EC86BA700ED3A9C /* RegistApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistApi.swift; sourceTree = "<group>"; };
+		3F9E14151EC86C2800ED3A9C /* ApiModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ApiModel.swift; path = DYTruck/Model/ApiModel.swift; sourceTree = SOURCE_ROOT; };
+		3F9E14181EC86D6D00ED3A9C /* UserInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
+		3F9E141E1EC9834400ED3A9C /* DYRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DYRequest.swift; sourceTree = "<group>"; };
+		3F9E14201EC9838A00ED3A9C /* DYResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DYResponse.swift; sourceTree = "<group>"; };
+		3F9E14221EC984F500ED3A9C /* RegistResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistResponse.swift; sourceTree = "<group>"; };
+		3F9E14241EC989CB00ED3A9C /* DYListRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DYListRequest.swift; sourceTree = "<group>"; };
+		3F9E14261EC98E2D00ED3A9C /* DYBaseRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DYBaseRequest.swift; sourceTree = "<group>"; };
+		3F9E14281EC9C0DD00ED3A9C /* StringUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringUtil.swift; sourceTree = "<group>"; };
+		3F9E142C1EC9E33100ED3A9C /* Authentication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
 		3FAAE1F61EBC178300E4097F /* Order.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Order.storyboard; sourceTree = "<group>"; };
 		3FAAE1FA1EBC188D00E4097F /* OrderLinkmanCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderLinkmanCell.swift; sourceTree = "<group>"; };
 		3FAAE1FB1EBC188D00E4097F /* OrderLinkmanCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OrderLinkmanCell.xib; sourceTree = "<group>"; };
@@ -304,6 +355,32 @@
 		3FB890351EAF9C3600811A09 /* CouponCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CouponCell.xib; sourceTree = "<group>"; };
 		3FB890381EAFA6A000811A09 /* RechargeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RechargeVC.swift; sourceTree = "<group>"; };
 		3FB8903A1EB0A2CA00811A09 /* AccountVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountVC.swift; sourceTree = "<group>"; };
+		3FCDFC231EC16F3E008EE7E5 /* SharedOrderVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharedOrderVC.swift; sourceTree = "<group>"; };
+		3FCDFC291EC1734B008EE7E5 /* ExpressageOrderVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpressageOrderVC.swift; sourceTree = "<group>"; };
+		3FCDFC2B1EC1736E008EE7E5 /* LongJourneyOrderVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LongJourneyOrderVC.swift; sourceTree = "<group>"; };
+		3FCDFC2D1EC3FD1C008EE7E5 /* DateUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateUtil.swift; sourceTree = "<group>"; };
+		3FE078D41EC45DCD00EEDE4F /* SendOrderVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendOrderVC.swift; sourceTree = "<group>"; };
+		3FE078D61EC553E000EEDE4F /* WaitArriveVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaitArriveVC.swift; sourceTree = "<group>"; };
+		3FE078D81EC5540900EEDE4F /* WaitLoadingVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaitLoadingVC.swift; sourceTree = "<group>"; };
+		3FE078DA1EC5543900EEDE4F /* PaymentVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentVC.swift; sourceTree = "<group>"; };
+		3FE078DE1EC5565600EEDE4F /* InfoProgressCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoProgressCell.swift; sourceTree = "<group>"; };
+		3FE078DF1EC5565600EEDE4F /* InfoProgressCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfoProgressCell.xib; sourceTree = "<group>"; };
+		3FE078E21EC55CD700EEDE4F /* InfoDriverCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoDriverCell.swift; sourceTree = "<group>"; };
+		3FE078E31EC55CD700EEDE4F /* InfoDriverCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfoDriverCell.xib; sourceTree = "<group>"; };
+		3FE078E61EC55E8300EEDE4F /* OrderInfoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderInfoVC.swift; sourceTree = "<group>"; };
+		3FE078E71EC55E8300EEDE4F /* OrderInfoVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OrderInfoVC.xib; sourceTree = "<group>"; };
+		3FE078EA1EC5606100EEDE4F /* SpecialOrderInfoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpecialOrderInfoCell.swift; sourceTree = "<group>"; };
+		3FE078EB1EC5606100EEDE4F /* SpecialOrderInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SpecialOrderInfoCell.xib; sourceTree = "<group>"; };
+		3FE078EE1EC563C300EEDE4F /* InfoPaymentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoPaymentCell.swift; sourceTree = "<group>"; };
+		3FE078EF1EC563C300EEDE4F /* InfoPaymentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfoPaymentCell.xib; sourceTree = "<group>"; };
+		3FE078F21EC5686400EEDE4F /* OrderIntroCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderIntroCell.swift; sourceTree = "<group>"; };
+		3FE078F31EC5686400EEDE4F /* OrderIntroCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OrderIntroCell.xib; sourceTree = "<group>"; };
+		3FE078F61EC5725000EEDE4F /* TimeLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeLabel.swift; sourceTree = "<group>"; };
+		3FE078F81EC5765100EEDE4F /* SpecConfirmOrderVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpecConfirmOrderVC.swift; sourceTree = "<group>"; };
+		3FE078FA1EC5B7BA00EEDE4F /* EstimateVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EstimateVC.swift; sourceTree = "<group>"; };
+		3FE6A12E1EC6E158003AC0E2 /* MZTimerLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZTimerLabel.h; sourceTree = "<group>"; };
+		3FE6A12F1EC6E158003AC0E2 /* MZTimerLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZTimerLabel.m; sourceTree = "<group>"; };
+		3FE6A1311EC6E7CF003AC0E2 /* GoDestinationVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoDestinationVC.swift; sourceTree = "<group>"; };
 		3FF28C031EA4EFF200F23016 /* MainBottomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainBottomView.swift; sourceTree = "<group>"; };
 		3FF28C051EA4F04800F23016 /* MainBottomView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainBottomView.xib; sourceTree = "<group>"; };
 		3FF28C081EA5116800F23016 /* MainAdressCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainAdressCell.swift; sourceTree = "<group>"; };
@@ -349,6 +426,8 @@
 		3F4CA1301EA1C7C200B19B46 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				3FE6A12E1EC6E158003AC0E2 /* MZTimerLabel.h */,
+				3FE6A12F1EC6E158003AC0E2 /* MZTimerLabel.m */,
 				3F1F94241EB82DB200499372 /* SPTextView.h */,
 				3F1F94251EB82DB200499372 /* SPTextView.m */,
 				3F82481F1EA8D650006C54A9 /* TLCityPicker */,
@@ -461,6 +540,7 @@
 				3FB8901E1EAE39B900811A09 /* SelectView.swift */,
 				3F85C8131EB1945400E84E70 /* TLScrollTableView.swift */,
 				3F06C0DD1EBD83260084D2A9 /* DashedBorderView.swift */,
+				3FE078F61EC5725000EEDE4F /* TimeLabel.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -471,9 +551,21 @@
 				3FAAE1F81EBC185700E4097F /* Cell */,
 				3FAAE1F91EBC185700E4097F /* View */,
 				3F06C0DF1EBD88770084D2A9 /* SpecialOrderVC.swift */,
+				3FCDFC231EC16F3E008EE7E5 /* SharedOrderVC.swift */,
+				3FCDFC291EC1734B008EE7E5 /* ExpressageOrderVC.swift */,
+				3FCDFC2B1EC1736E008EE7E5 /* LongJourneyOrderVC.swift */,
 				3F06C0EB1EBF0BF70084D2A9 /* FillOutVC.swift */,
 				3F06C0F21EC02EB30084D2A9 /* ExtNeedVC.swift */,
 				3F06C0F41EC03BBD0084D2A9 /* ConfirmOrderVC.swift */,
+				3FE078F81EC5765100EEDE4F /* SpecConfirmOrderVC.swift */,
+				3FE078D41EC45DCD00EEDE4F /* SendOrderVC.swift */,
+				3FE078D61EC553E000EEDE4F /* WaitArriveVC.swift */,
+				3FE078D81EC5540900EEDE4F /* WaitLoadingVC.swift */,
+				3FE6A1311EC6E7CF003AC0E2 /* GoDestinationVC.swift */,
+				3FE078DA1EC5543900EEDE4F /* PaymentVC.swift */,
+				3FE078FA1EC5B7BA00EEDE4F /* EstimateVC.swift */,
+				3FE078E61EC55E8300EEDE4F /* OrderInfoVC.swift */,
+				3FE078E71EC55E8300EEDE4F /* OrderInfoVC.xib */,
 			);
 			path = Order;
 			sourceTree = "<group>";
@@ -550,6 +642,8 @@
 			children = (
 				3F8EB9691EA0A78B000D9C9C /* ViewUtil.swift */,
 				3F58D03A1EA2074600B87F16 /* ViewControllerUtil.swift */,
+				3FCDFC2D1EC3FD1C008EE7E5 /* DateUtil.swift */,
+				3F9E14281EC9C0DD00ED3A9C /* StringUtil.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -589,6 +683,10 @@
 		3F8EB9531EA060F2000D9C9C /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				3F9E141E1EC9834400ED3A9C /* DYRequest.swift */,
+				3F9E14261EC98E2D00ED3A9C /* DYBaseRequest.swift */,
+				3F9E14241EC989CB00ED3A9C /* DYListRequest.swift */,
+				3F9E14111EC86B8000ED3A9C /* Api */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -606,6 +704,9 @@
 			isa = PBXGroup;
 			children = (
 				3F58D0381EA1F9DD00B87F16 /* DYEnum.swift */,
+				3F9E14151EC86C2800ED3A9C /* ApiModel.swift */,
+				3F9E14171EC86D3700ED3A9C /* Response */,
+				3F9E14141EC86C1700ED3A9C /* ApiModel */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -614,6 +715,7 @@
 			isa = PBXGroup;
 			children = (
 				3F8EB9441E9F9029000D9C9C /* Assets.xcassets */,
+				3F9E140D1EC8526C00ED3A9C /* R.generated.swift */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -625,6 +727,32 @@
 				3F8EB9491E9F9029000D9C9C /* Info.plist */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3F9E14111EC86B8000ED3A9C /* Api */ = {
+			isa = PBXGroup;
+			children = (
+				3F9E14121EC86BA700ED3A9C /* RegistApi.swift */,
+			);
+			path = Api;
+			sourceTree = "<group>";
+		};
+		3F9E14141EC86C1700ED3A9C /* ApiModel */ = {
+			isa = PBXGroup;
+			children = (
+				3F9E14181EC86D6D00ED3A9C /* UserInfo.swift */,
+				3F9E142C1EC9E33100ED3A9C /* Authentication.swift */,
+			);
+			path = ApiModel;
+			sourceTree = "<group>";
+		};
+		3F9E14171EC86D3700ED3A9C /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				3F9E14201EC9838A00ED3A9C /* DYResponse.swift */,
+				3F9E14221EC984F500ED3A9C /* RegistResponse.swift */,
+			);
+			path = Response;
 			sourceTree = "<group>";
 		};
 		3FA878441EB9C8D000C7F56C /* Cell */ = {
@@ -641,10 +769,22 @@
 		3FAAE1F81EBC185700E4097F /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				3FE078F21EC5686400EEDE4F /* OrderIntroCell.swift */,
+				3FE078F31EC5686400EEDE4F /* OrderIntroCell.xib */,
 				3FAAE1FA1EBC188D00E4097F /* OrderLinkmanCell.swift */,
 				3FAAE1FB1EBC188D00E4097F /* OrderLinkmanCell.xib */,
 				3F06C0E11EBDC9790084D2A9 /* OrderAddressCell.swift */,
 				3F06C0E21EBDC9790084D2A9 /* OrderAddressCell.xib */,
+				3F2C9D491EC40B9C000E10FB /* GoodsEditCell.swift */,
+				3F2C9D4A1EC40B9C000E10FB /* GoodsEditCell.xib */,
+				3FE078DE1EC5565600EEDE4F /* InfoProgressCell.swift */,
+				3FE078DF1EC5565600EEDE4F /* InfoProgressCell.xib */,
+				3FE078E21EC55CD700EEDE4F /* InfoDriverCell.swift */,
+				3FE078E31EC55CD700EEDE4F /* InfoDriverCell.xib */,
+				3FE078EA1EC5606100EEDE4F /* SpecialOrderInfoCell.swift */,
+				3FE078EB1EC5606100EEDE4F /* SpecialOrderInfoCell.xib */,
+				3FE078EE1EC563C300EEDE4F /* InfoPaymentCell.swift */,
+				3FE078EF1EC563C300EEDE4F /* InfoPaymentCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -793,6 +933,7 @@
 			buildConfigurationList = 3F8EB94C1E9F9029000D9C9C /* Build configuration list for PBXNativeTarget "DYTruck" */;
 			buildPhases = (
 				8C88F55A00EA96F8C8AD6D15 /* [CP] Check Pods Manifest.lock */,
+				3F9E140A1EC851D400ED3A9C /* ShellScript */,
 				3F8EB9361E9F9028000D9C9C /* Sources */,
 				3F8EB9371E9F9028000D9C9C /* Frameworks */,
 				3F8EB9381E9F9028000D9C9C /* Resources */,
@@ -854,8 +995,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F2C9D4C1EC40B9C000E10FB /* GoodsEditCell.xib in Resources */,
 				3FF28C061EA4F04800F23016 /* MainBottomView.xib in Resources */,
 				3F0298EF1EB0CA62003ABF40 /* AccountOrderCell.xib in Resources */,
+				3FE078F51EC5686400EEDE4F /* OrderIntroCell.xib in Resources */,
 				3F0298F31EB0CA81003ABF40 /* AccountRechargeCell.xib in Resources */,
 				3F8248371EA99B91006C54A9 /* MessageCell.xib in Resources */,
 				3F82483B1EA9B0A0006C54A9 /* MessageInfoVC.xib in Resources */,
@@ -870,11 +1013,16 @@
 				3FB890271EAE445900811A09 /* AppraiseCell.xib in Resources */,
 				3F82480E1EA75026006C54A9 /* MainUserView.xib in Resources */,
 				3FB8901D1EADDBBE00811A09 /* OrderCell.xib in Resources */,
+				3FE078E51EC55CD700EEDE4F /* InfoDriverCell.xib in Resources */,
 				3FAAE1F71EBC178300E4097F /* Order.storyboard in Resources */,
+				3FE078ED1EC5606100EEDE4F /* SpecialOrderInfoCell.xib in Resources */,
+				3FE078E91EC55E8300EEDE4F /* OrderInfoVC.xib in Resources */,
 				3FAAE1FD1EBC188D00E4097F /* OrderLinkmanCell.xib in Resources */,
+				3FE078F11EC563C300EEDE4F /* InfoPaymentCell.xib in Resources */,
 				3F8EB9451E9F9029000D9C9C /* Assets.xcassets in Resources */,
 				3F1F941D1EB8246D00499372 /* AddressHeaderView.xib in Resources */,
 				3F8248161EA8A5C6006C54A9 /* MainDateCell.xib in Resources */,
+				3FE078E11EC5565600EEDE4F /* InfoProgressCell.xib in Resources */,
 				3F82482C1EA8D650006C54A9 /* CityData.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -912,6 +1060,19 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DYTruck/Pods-DYTruck-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		3F9E140A1EC851D400ED3A9C /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"$PODS_ROOT/R.swift/rswift\" \"$SRCROOT\"";
+		};
 		8C88F55A00EA96F8C8AD6D15 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -940,16 +1101,24 @@
 				3FB8903B1EB0A2CA00811A09 /* AccountVC.swift in Sources */,
 				3F0298EE1EB0CA62003ABF40 /* AccountOrderCell.swift in Sources */,
 				3F4CA1951EA1D1CE00B19B46 /* NSTimer+YYAdd.m in Sources */,
+				3FE078D91EC5540900EEDE4F /* WaitLoadingVC.swift in Sources */,
 				3F1F94261EB82DB200499372 /* SPTextView.m in Sources */,
+				3FE6A1321EC6E7CF003AC0E2 /* GoDestinationVC.swift in Sources */,
 				3F4CA19E1EA1D1CE00B19B46 /* UIFont+YYAdd.m in Sources */,
 				3F4CA1A51EA1D1CE00B19B46 /* UIView+YYAdd.m in Sources */,
 				3FB890331EAF9AEC00811A09 /* CouponVC.swift in Sources */,
 				3F1F94191EB81D5100499372 /* AddressVC.swift in Sources */,
+				3F9E142D1EC9E33100ED3A9C /* Authentication.swift in Sources */,
 				3F82481D1EA8AB79006C54A9 /* Extracter.m in Sources */,
 				3F8248311EA8D650006C54A9 /* TLCityPickerSearchResultController.m in Sources */,
 				3F1F941F1EB82AD500499372 /* AddressTableView.swift in Sources */,
+				3FCDFC241EC16F3E008EE7E5 /* SharedOrderVC.swift in Sources */,
 				3F06C0E01EBD88770084D2A9 /* SpecialOrderVC.swift in Sources */,
+				3F9E14231EC984F500ED3A9C /* RegistResponse.swift in Sources */,
+				3F9E14131EC86BA700ED3A9C /* RegistApi.swift in Sources */,
 				3F1F94211EB82CCD00499372 /* PushSetVC.swift in Sources */,
+				3FE078E41EC55CD700EEDE4F /* InfoDriverCell.swift in Sources */,
+				3FCDFC2A1EC1734B008EE7E5 /* ExpressageOrderVC.swift in Sources */,
 				3F1F942B1EB8357400499372 /* AddressCell.swift in Sources */,
 				3F82482D1EA8D650006C54A9 /* TLCity.m in Sources */,
 				3F4CA18A1EA1D1CE00B19B46 /* NSData+YYAdd.m in Sources */,
@@ -958,20 +1127,26 @@
 				3F4CA19B1EA1D1CE00B19B46 /* UIColor+YYAdd.m in Sources */,
 				3F4CA1911EA1D1CE00B19B46 /* NSObject+YYAddForARC.m in Sources */,
 				3FF28C0A1EA5116800F23016 /* MainAdressCell.swift in Sources */,
+				3F9E14271EC98E2D00ED3A9C /* DYBaseRequest.swift in Sources */,
 				3F4CA1341EA1CC3E00B19B46 /* ConstantMacro.swift in Sources */,
 				3F4CA1991EA1D1CE00B19B46 /* UIBarButtonItem+YYAdd.m in Sources */,
+				3FE078FB1EC5B7BA00EEDE4F /* EstimateVC.swift in Sources */,
 				3F82480C1EA7501D006C54A9 /* MainUserView.swift in Sources */,
 				3F4CA18E1EA1D1CE00B19B46 /* NSNotificationCenter+YYAdd.m in Sources */,
+				3FE6A1301EC6E158003AC0E2 /* MZTimerLabel.m in Sources */,
 				3F1F94301EB8BC4600499372 /* AddressSelectVC.swift in Sources */,
 				3F58D03B1EA2074600B87F16 /* ViewControllerUtil.swift in Sources */,
+				3FE078E01EC5565600EEDE4F /* InfoProgressCell.swift in Sources */,
 				3F4CA1A11EA1D1CE00B19B46 /* UIScreen+YYAdd.m in Sources */,
 				3FB890361EAF9C3600811A09 /* CouponCell.swift in Sources */,
 				3F4CA1901EA1D1CE00B19B46 /* NSObject+YYAdd.m in Sources */,
 				3F82482F1EA8D650006C54A9 /* TLCityHeaderView.m in Sources */,
 				3F8248111EA8A1B6006C54A9 /* MessageVC.swift in Sources */,
 				3F4CA1891EA1D1CE00B19B46 /* NSBundle+YYAdd.m in Sources */,
+				3FE078E81EC55E8300EEDE4F /* OrderInfoVC.swift in Sources */,
 				3F85C8101EB193C400E84E70 /* SettingVC.swift in Sources */,
 				3F06C0E31EBDC9790084D2A9 /* OrderAddressCell.swift in Sources */,
+				3FE078D71EC553E000EEDE4F /* WaitArriveVC.swift in Sources */,
 				3F4CA19C1EA1D1CE00B19B46 /* UIControl+YYAdd.m in Sources */,
 				3F4CA18D1EA1D1CE00B19B46 /* NSKeyedUnarchiver+YYAdd.m in Sources */,
 				3F8EB93E1E9F9029000D9C9C /* AppDelegate.swift in Sources */,
@@ -984,12 +1159,15 @@
 				3F8248301EA8D650006C54A9 /* TLCityPickerController.m in Sources */,
 				3F4CA1A01EA1D1CE00B19B46 /* UIImage+YYAdd.m in Sources */,
 				3F4CA1A31EA1D1CE00B19B46 /* UITableView+YYAdd.m in Sources */,
+				3FE078F91EC5765100EEDE4F /* SpecConfirmOrderVC.swift in Sources */,
 				3F1F94231EB82D0900499372 /* FeedBackVC.swift in Sources */,
 				3F58D03F1EA344E900B87F16 /* BaseXibView.swift in Sources */,
 				3FB890311EAF75F000811A09 /* IntegralVC.swift in Sources */,
 				3FB890261EAE445900811A09 /* AppraiseCell.swift in Sources */,
 				3F4CA1961EA1D1CE00B19B46 /* CALayer+YYAdd.m in Sources */,
+				3FE078D51EC45DCD00EEDE4F /* SendOrderVC.swift in Sources */,
 				3FABB7491EA6F814003559EA /* MainVC.swift in Sources */,
+				3FE078EC1EC5606100EEDE4F /* SpecialOrderInfoCell.swift in Sources */,
 				3F82483A1EA9B0A0006C54A9 /* MessageInfoVC.swift in Sources */,
 				3FB8902B1EAF717300811A09 /* BalanceVC.swift in Sources */,
 				3F4CA1941EA1D1CE00B19B46 /* NSThread+YYAdd.m in Sources */,
@@ -998,35 +1176,49 @@
 				3FB890291EAF6DA200811A09 /* WalletVC.swift in Sources */,
 				3F4CA19D1EA1D1CE00B19B46 /* UIDevice+YYAdd.m in Sources */,
 				3FF28C041EA4EFF200F23016 /* MainBottomView.swift in Sources */,
+				3F9E14161EC86C2800ED3A9C /* ApiModel.swift in Sources */,
 				3F4CA18C1EA1D1CE00B19B46 /* NSDictionary+YYAdd.m in Sources */,
 				3FB8901F1EAE39B900811A09 /* SelectView.swift in Sources */,
 				3F82480A1EA706FC006C54A9 /* CatchTouchView.m in Sources */,
 				3FB890391EAFA6A000811A09 /* RechargeVC.swift in Sources */,
 				3F8248421EA9B704006C54A9 /* MyOrderVC.swift in Sources */,
+				3F9E14211EC9838A00ED3A9C /* DYResponse.swift in Sources */,
 				3F4CA1A21EA1D1CE00B19B46 /* UIScrollView+YYAdd.m in Sources */,
+				3F9E14191EC86D6D00ED3A9C /* UserInfo.swift in Sources */,
 				3F4CA1A41EA1D1CE00B19B46 /* UITextField+YYAdd.m in Sources */,
 				3F4CA1971EA1D1CE00B19B46 /* YYCGUtilities.m in Sources */,
+				3FE078F01EC563C300EEDE4F /* InfoPaymentCell.swift in Sources */,
 				3F8248361EA99B91006C54A9 /* MessageCell.swift in Sources */,
 				3F58D0351EA1F94A00B87F16 /* PatternSelectView.swift in Sources */,
 				3F85C8141EB1945400E84E70 /* TLScrollTableView.swift in Sources */,
 				3FABB74F1EA6F829003559EA /* ForgetVC.swift in Sources */,
 				3F4CA19A1EA1D1CE00B19B46 /* UIBezierPath+YYAdd.m in Sources */,
+				3FE078F41EC5686400EEDE4F /* OrderIntroCell.swift in Sources */,
 				3F06C0F31EC02EB30084D2A9 /* ExtNeedVC.swift in Sources */,
 				3F58D0391EA1F9DD00B87F16 /* DYEnum.swift in Sources */,
 				3F82482E1EA8D650006C54A9 /* TLCityGroupCell.m in Sources */,
+				3FE078DB1EC5543900EEDE4F /* PaymentVC.swift in Sources */,
 				3F4CA1981EA1D1CE00B19B46 /* UIApplication+YYAdd.m in Sources */,
 				3FAAE1FC1EBC188D00E4097F /* OrderLinkmanCell.swift in Sources */,
 				3F4CA1931EA1D1CE00B19B46 /* NSString+YYAdd.m in Sources */,
 				3FB8901C1EADDBBE00811A09 /* OrderCell.swift in Sources */,
+				3FCDFC2E1EC3FD1C008EE7E5 /* DateUtil.swift in Sources */,
+				3F9E140E1EC8526C00ED3A9C /* R.generated.swift in Sources */,
 				3FB8902E1EAF75E000811A09 /* IntegralCell.swift in Sources */,
 				3F85C80E1EB1903300E84E70 /* WithdrawVC.swift in Sources */,
+				3FCDFC2C1EC1736E008EE7E5 /* LongJourneyOrderVC.swift in Sources */,
 				3F4CA19F1EA1D1CE00B19B46 /* UIGestureRecognizer+YYAdd.m in Sources */,
+				3F9E141F1EC9834400ED3A9C /* DYRequest.swift in Sources */,
+				3F9E14291EC9C0DD00ED3A9C /* StringUtil.swift in Sources */,
 				3FB890091EABADBC00811A09 /* ETNavBarTransparent.swift in Sources */,
+				3F2C9D4B1EC40B9C000E10FB /* GoodsEditCell.swift in Sources */,
 				3F1F941B1EB8246400499372 /* AddressHeaderView.swift in Sources */,
 				3F0298F21EB0CA81003ABF40 /* AccountRechargeCell.swift in Sources */,
 				3FABB7511EA6F829003559EA /* RegistVC.swift in Sources */,
 				3F06C0ED1EBF0BF70084D2A9 /* FillOutVC.swift in Sources */,
+				3F9E14251EC989CB00ED3A9C /* DYListRequest.swift in Sources */,
 				3FF28C0D1EA5E43C00F23016 /* MainInfoView.swift in Sources */,
+				3FE078F71EC5725000EEDE4F /* TimeLabel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

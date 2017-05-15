@@ -7,29 +7,85 @@
 //
 
 import UIKit
+import EDStarRating
 
 class WaitArriveVC: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    @IBOutlet weak var mapView: MAMapView!
+    
+    @IBOutlet weak var avatarImageView: UIImageView!
+    @IBOutlet weak var driverNameLabel: UILabel!
+    @IBOutlet weak var plateNumLabel: UILabel!
+    @IBOutlet weak var truckModelLabel: UILabel!
+    @IBOutlet weak var truckTypeLabel: UILabel!
+    @IBOutlet weak var starView: EDStarRating!
+    @IBOutlet weak var scoreLabel: UILabel!
+    
+    @IBOutlet weak var priceLabel: UILabel!
+    
+    
+    @IBAction func onMessage(_ sender: Any) {
+        
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func onVoice(_ sender: Any) {
+        
     }
-    */
+    @IBAction func onTelephone(_ sender: Any) {
+        
+    }
+    
+    @IBAction func goOrderInfo(_ sender: Any) {
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.initSubviews()
+        self.perform(#selector(goWaitLoading), with: nil, afterDelay: 3.0)
+        self.setupBackItem(target: self, selector: #selector(goMain))
+    }
+    
+    func initSubviews() {
+        
+        
+        mapView.delegate = self
+        mapView.showsUserLocation = true;
+        mapView.userTrackingMode = .follow;
+        
+        starView.starImage = UIImage(named: "grzx_dj_02")
+        starView.starHighlightedImage = UIImage(named: "grzx_dj_01")
+        starView.maxRating = 5
+        starView.rating = 4
+        starView.editable = false
+        starView.horizontalMargin = 0
+        starView.displayMode = 2
+    }
+    
+    func goMain() {
+        self.navigationController?.dismiss(animated: true, completion: nil)
+    }
+    
+    func goWaitLoading() {
+        self.performSegue(withIdentifier: "goWaitLoading", sender: nil)
+    }
 
 }
+
+
+// MARK: - MapView Delegate
+extension WaitArriveVC: MAMapViewDelegate {
+    func mapViewRegionChanged(_ mapView: MAMapView!) {
+        
+    }
+    
+    func mapViewDidFinishLoadingMap(_ mapView: MAMapView!) {
+        
+    }
+    
+    func mapViewDidStopLocatingUser(_ mapView: MAMapView!) {
+        
+    }
+}
+
+

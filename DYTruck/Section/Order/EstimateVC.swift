@@ -7,29 +7,55 @@
 //
 
 import UIKit
+import EDStarRating
+
 
 class EstimateVC: UIViewController {
-
+    
+    @IBOutlet weak var avatarImageView: UIImageView!
+    
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var starView: EDStarRating!
+    @IBOutlet weak var textView: SPTextView!
+    
+    @IBOutlet weak var checkButton: UIButton!
+    var isCheck: Bool = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
+        
+        self.initSubviews()
+        self.setupBackItem(target: self, selector: #selector(goMain))
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func goMain() {
+        self.navigationController?.dismiss(animated: true, completion: nil)
     }
-    */
-
+    
+    
+    func initSubviews() {
+        
+        starView.starImage = UIImage(named: "grzx_dj_02")
+        starView.starHighlightedImage = UIImage(named: "grzx_dj_01")
+        starView.maxRating = 5
+        starView.rating = 0
+        starView.editable = true
+        starView.horizontalMargin = 0
+        starView.displayMode = 2
+    }
+    
+    @IBAction func onCheck(_ sender: Any) {
+        isCheck = !isCheck
+        if isCheck {
+            self.checkButton.setImage(UIImage(named: "01"), for: .normal)
+        } else {
+            self.checkButton.setImage(UIImage(named: "02"), for: .normal)
+        }
+    }
+    
+    
+    @IBAction func onEstimate(_ sender: Any) {
+        self.navigationController?.dismiss(animated: true, completion: nil)
+    }
 }

@@ -10,7 +10,7 @@ import UIKit
 
 class MyOrderVC: UIViewController {
 
-    var patterns: [Pattern] = [Pattern.all, Pattern.specialCar, Pattern.shareingCar, Pattern.espressage, Pattern.longJourney]
+    var patterns: [Pattern] = [Pattern.all, Pattern.special, Pattern.shared, Pattern.expressage, Pattern.longJourney]
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var patternView: PatternSelectView!
     var scrollTableView = TLScrollTableView(frame: CGRect.zero,
@@ -108,5 +108,8 @@ extension MyOrderVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        let infoVC = OrderInfoVC()
+        self.navigationController?.show(infoVC, sender: nil)
     }
 }

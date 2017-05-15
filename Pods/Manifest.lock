@@ -14,54 +14,66 @@ PODS:
   - AFNetworking/Serialization (3.1.0)
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
-  - Alamofire (4.4.0)
   - AMap3DMap (5.0.0):
     - AMapFoundation (~> 1.3)
   - AMapFoundation (1.4.0)
-  - AMapLocation (2.3.1):
-    - AMapFoundation (~> 1.3)
+  - AMapLocation (2.4.0):
+    - AMapFoundation (~> 1.4)
   - AMapSearch (5.0.0):
     - AMapFoundation (~> 1.2)
   - EDStarRating (1.1)
+  - HandyJSON (1.7.1)
+  - HorizontalProgress (0.1.1)
   - IQKeyboardManagerSwift (4.0.9)
-  - Kingfisher (3.6.2)
+  - Kingfisher (3.9.1)
   - MJRefresh (3.1.12)
+  - R.swift (3.2.0):
+    - R.swift.Library (~> 3.0.2)
+  - R.swift.Library (3.0.2)
   - SVProgressHUD (2.1.2)
   - SwiftyJSON (3.1.4)
+  - UITableView+FDTemplateLayoutCell (1.6)
   - WebViewJavascriptBridge (6.0.2)
   - YTKNetwork (2.0.3):
     - AFNetworking (~> 3.0)
 
 DEPENDENCIES:
-  - Alamofire
   - AMap3DMap
   - AMapLocation
   - AMapSearch
   - EDStarRating
+  - HandyJSON
+  - HorizontalProgress
   - IQKeyboardManagerSwift
   - Kingfisher
   - MJRefresh
+  - R.swift
   - SVProgressHUD
   - SwiftyJSON
+  - UITableView+FDTemplateLayoutCell
   - WebViewJavascriptBridge
   - YTKNetwork
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
-  Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
   AMap3DMap: 4d0a53d0e57c7c758560225dfdaf593b306bd468
   AMapFoundation: 458974f46a39df8407fd818ab83d2630d494c726
-  AMapLocation: 6016f0e09c127461c9c8e36945f34c0f037ad962
+  AMapLocation: 47b62b5381a66e4d0c2931b70ffde72682427896
   AMapSearch: cf7fd100d533995822d92c22586abfaf7cdf6eef
   EDStarRating: a41a6440a945020745d0e9ff8ada7d1afa952114
+  HandyJSON: 54b6ce942795f7b2e61b82fe73cf25d9f139d125
+  HorizontalProgress: 0dce789a3085d2a5464aef18ab4c84b12bb33457
   IQKeyboardManagerSwift: 2eefe6c429b86aa08bfbc1b5c891164d754adf91
-  Kingfisher: 2c94e72c6830622c71d06adf4ea024c37d316830
+  Kingfisher: 6729a0baaa458245bfb8cd5a1296c71c10d6eb6c
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
+  R.swift: 207a372a2b5977caef440c696a368009460641d1
+  R.swift.Library: fbdec16c9802ad104fc1ba53415dc190e6ec5c73
   SVProgressHUD: c404a55d78acbeb7ebb78b76d3faf986475a6994
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
+  UITableView+FDTemplateLayoutCell: 5c949b4a5059c404b442926c0e80f81d10a2d66f
   WebViewJavascriptBridge: 791ee0e26d1bf15efe5fb7fb9666a71a19b89d77
   YTKNetwork: c4b0c29c9d639dc050d475de69ee626d53eac598
 
-PODFILE CHECKSUM: 086e17060c9fafce5185db25733a71142cd01bdb
+PODFILE CHECKSUM: 8e628a3f141a87672121b998cd153161b2448dec
 
 COCOAPODS: 1.1.0.beta.1

@@ -9,7 +9,7 @@
 import UIKit
 
 class TimeLabel: UILabel {
-    fileprivate let timer = DispatchSource.makeTimerSource(flags: DispatchSource.TimerFlags(rawValue: 0), queue: DispatchQueue.global(priority: DispatchQueue.GlobalQueuePriority.default))
+    fileprivate var timer = DispatchSource.makeTimerSource(flags: DispatchSource.TimerFlags(rawValue: 0), queue: DispatchQueue.global())
     
     fileprivate var endTime: String!
     fileprivate var isTiming = true
@@ -24,7 +24,8 @@ class TimeLabel: UILabel {
     
     private func gcd(_ timeCount: Int) {
         var timeCount = timeCount
-        timer.setTimer(start: DispatchWallTime(time: nil), interval: NSEC_PER_SEC, leeway: 0)
+//        timer.setTimer(start: DispatchWallTime(time: nil), interval: NSEC_PER_SEC, leeway: 0)
+//        timer.scheduleRepeating(deadline: .now(), interval: NSEC_PER_SEC, leeway: 0)
         timer.setEventHandler(handler: { () -> Void in
             if timeCount <= 0 {
                 self.timer.cancel()
@@ -44,45 +45,45 @@ class TimeLabel: UILabel {
     
     fileprivate func timeformatFromSeconds(_ seconds: Int) {
         if seconds > 0 {
-            var text = "剩余:"
+            var text = ""
             if (seconds / 86400) >= 1 {
-                text += "\(seconds / 86400)天"
+                text += "\(seconds / 86400):"
                 if (seconds % 86400 / 3600) >= 1 {
-                    text += "\(seconds % 86400 / 3600)小时"
+                    text += "\(seconds % 86400 / 3600):"
                     if (seconds % 3600 / 60) >= 1 {
-                        text += "\(seconds % 3600 / 60)分\(seconds % 60)秒"
+                        text += "\(seconds % 3600 / 60):\(seconds % 60)"
                     } else {
-                        text += "00分\(seconds % 60)秒"
+                        text += "00:\(seconds % 60)"
                     }
                 } else {
-                    text += "00小时"
+                    text += "00:"
                     if (seconds % 86400 / 60) >= 1 {
-                        text += "\(seconds % 86400 / 60)分\(seconds % 60)秒"
+                        text += "\(seconds % 86400 / 60):\(seconds % 60):"
                     } else {
-                        text += "00分\(seconds % 60)秒"
+                        text += "00:\(seconds % 60)"
                     }
                 }
             } else {
-                text += "0天"
+                text += "0:"
                 if (seconds / 3600) >= 1 {
-                    text += "\(seconds / 3600)小时"
+                    text += "\(seconds / 3600):"
                     if (Int(seconds) % 3600 / 60) >= 1 {
-                        text += "\(seconds % 3600 / 60)分\(seconds % 60)秒"
+                        text += "\(seconds % 3600 / 60):\(seconds % 60)"
                     } else {
-                        text += "00分\(seconds % 60)秒"
+                        text += "00:\(seconds % 60)"
                     }
                 } else {
-                    text += "00小时"
+                    text += "00:"
                     if (seconds / 60) >= 1 {
-                        text += "\(seconds / 60)分\(seconds % 60)秒"
+                        text += "\(seconds / 60):\(seconds % 60)"
                     } else {
-                        text += "00分\(seconds % 60)秒"
+                        text += "00:\(seconds % 60)"
                     }
                 }
             }
             self.text = text
         } else {
-            self.text = "抢购已结束"
+            
         }
         self.sizeToFit()
     }

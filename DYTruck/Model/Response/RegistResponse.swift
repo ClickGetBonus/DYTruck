@@ -7,3 +7,8 @@
 //
 
 import Foundation
+
+class RegistResponse: DYResponse {
+    
+    var data: Authentication? = nil
+}

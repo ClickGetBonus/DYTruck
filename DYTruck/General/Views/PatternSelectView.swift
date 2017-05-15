@@ -31,11 +31,11 @@ class PatternSelectView: BaseXibView {
     var selectedPattern: Pattern {
         switch self.selectedIndex {
         case 0:
-            return Pattern.specialCar
+            return Pattern.special
         case 1:
-            return Pattern.espressage
+            return Pattern.expressage
         case 2:
-            return Pattern.shareingCar
+            return Pattern.shared
         case 3:
             return Pattern.longJourney
         case 4:

@@ -10,9 +10,9 @@ import Foundation
 
 
 enum Pattern {
-    case specialCar
-    case espressage
-    case shareingCar
+    case special
+    case expressage
+    case shared
     case longJourney
     case storage
     case all
@@ -20,11 +20,11 @@ enum Pattern {
     
     var name: String {
         switch self {
-        case .specialCar:
+        case .special:
             return "专车"
-        case .espressage:
+        case .expressage:
             return "快递"
-        case .shareingCar:
+        case .shared:
             return "拼车"
         case .longJourney:
             return "长途"
@@ -36,7 +36,42 @@ enum Pattern {
     }
 }
 
+enum OrderPattern {
+    case special
+    case expressage
+    case shared
+    case longJourney
+    
+    var name: String {
+        switch self {
+        case .special:
+            return "专车"
+        case .expressage:
+            return "快递"
+        case .shared:
+            return "拼车"
+        case .longJourney:
+            return "长途"
+        }
+    }
+}
+
+enum OrderState {
+    case waitReceiving
+    case deiverReceived
+    case sendingGoods
+    case completeSend
+}
+
 enum TimePattern {
     case now
     case order
+}
+
+
+enum GoodsParameterType {
+    case name
+    case weight
+    case volume
+    case quantity
 }

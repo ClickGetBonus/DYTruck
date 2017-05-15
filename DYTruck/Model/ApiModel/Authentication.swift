@@ -7,3 +7,8 @@
 //
 
 import Foundation
+
+struct Authentication {
+    var token: String
+    var userid: String
+}

@@ -8,6 +8,7 @@
 
 import UIKit
 import IQKeyboardManagerSwift
+import YTKNetwork
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,6 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         AMapServices.shared().apiKey = GDMapKey
+        YTKNetworkConfig.shared().baseUrl = DYBaseURL
+        
         
         let navBar = UINavigationBar.appearance()
         navBar.backIndicatorImage = UIImage(named: "ty_backarrow")
@@ -26,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window = UIWindow(frame: UIScreen.main.bounds)
         self.window!.backgroundColor = UIColor.white
         
-        self.window!.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController()
+        self.window!.rootViewController = UIStoryboard(name: "Login", bundle: nil).instantiateInitialViewController()
         self.window!.makeKeyAndVisible()
         
         return true

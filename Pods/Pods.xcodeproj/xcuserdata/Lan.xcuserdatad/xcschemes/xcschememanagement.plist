@@ -9,12 +9,17 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Alamofire.xcscheme</key>
+		<key>EDStarRating.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>EDStarRating.xcscheme</key>
+		<key>HandyJSON.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>HorizontalProgress.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -39,12 +44,22 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>R.swift.Library.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>SVProgressHUD.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
 		<key>SwiftyJSON.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>UITableView+FDTemplateLayoutCell.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -62,7 +77,7 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0DC5806740485C8AF98EDEE1BB66144D</key>
+		<key>1166F686F343ECA6EEB93DA183C69CD7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -87,32 +102,47 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>336A2BC62BD96BD3720C481879295A2C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>34389C94BE448DDFA8617707261D8260</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>389681F2F3716B44A0A5251998590D79</key>
+		<key>6264D4343C90A5E3B9BF4C109890B6C2</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3C3BA04DB2A7475FA4C576BA5D37294C</key>
+		<key>AFD28AD0E7B63180F52F257F0A984EFF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>78365613E85C461BBCB74A67A2030ECA</key>
+		<key>BC61D5427EA6F1967B39630800920A90</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>79C040AFDDCE1BCBF6D8B5EB0B85887F</key>
+		<key>EB3D6DB998FA48546E542A6D5D29CB23</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B3A89FE1BC22C63C06773615028956B8</key>
+		<key>EEC68195752B08D6BB12400BEE8FC9D8</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FC398DAA88F6716BDB00EE9D1D650355</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FE64293C967A0F06E617A620CC363B8B</key>
 		<dict>
 			<key>primary</key>
 			<true/>

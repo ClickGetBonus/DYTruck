@@ -7,3 +7,11 @@
 //
 
 import Foundation
+
+
+
+struct UserInfo: HandyJSON {
+    
+    var name: String?
+    var id: Int?
+}

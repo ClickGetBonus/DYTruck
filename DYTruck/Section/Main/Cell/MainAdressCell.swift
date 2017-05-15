@@ -17,6 +17,7 @@ class MainAdressCell: UITableViewCell {
     @IBOutlet weak var rightButton: UIButton!
     @IBOutlet weak var rightButtonWidthConstraint: NSLayoutConstraint!
     @IBOutlet weak var seperator: UIButton!
+    static let cellHeight: CGFloat = 44
     
     private var _isShowIndicator: Bool = false
     var isShowIndicator: Bool {

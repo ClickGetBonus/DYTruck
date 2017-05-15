@@ -1,0 +1,6 @@
+framework module HorizontalProgress {
+  umbrella header "HorizontalProgress-umbrella.h"
+
+  export *
+  module * { export * }
+}

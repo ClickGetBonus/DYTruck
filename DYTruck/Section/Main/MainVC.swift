@@ -24,10 +24,10 @@ class MainVC: UIViewController {
     @IBOutlet weak var topView: UIView!
     @IBOutlet weak var topViewTopConstrant: NSLayoutConstraint!
     
-    var bottomView: MainBottomView = MainBottomView(.specialCar)
+    var bottomView: MainBottomView = MainBottomView(.special)
     
     var patternSelectIndex: Int = 0
-    var selectedPattern: Pattern = .specialCar
+    var selectedPattern: Pattern = .special
     
     var informationView: MainInfoView = MainInfoView()
     var infoViewHidden: Bool = true
@@ -80,7 +80,7 @@ class MainVC: UIViewController {
         self.configure(self.bottomView)
         
         self.patternSelectView.selectCallBack = self.patternViewDidSelect
-        self.patternSelectView.patterns = [Pattern.specialCar, Pattern.shareingCar, Pattern.espressage, Pattern.longJourney, Pattern.storage]
+        self.patternSelectView.patterns = [Pattern.special, Pattern.shared, Pattern.expressage, Pattern.longJourney, Pattern.storage]
         
         informationView = MainInfoView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.currentBounds().width-30, height: 34))
         informationView.isHidden = true
@@ -116,6 +116,7 @@ class MainVC: UIViewController {
         if !self.userMenu.isHidden {
             self.isHiddenStatusBar = true
         }
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -416,10 +417,33 @@ extension MainVC {
         
         bottomView.completeEditBehavior = { bottomView in
             print("地址输入完毕!! 出发点: \(bottomView.departureArray) \n 目的地: \(bottomView.destination)")
-            let vc = UIStoryboard(name: "Order", bundle: nil).instantiateViewController(withIdentifier: "SpecialOrderVC") as! SpecialOrderVC
-            vc.configure(bottomView.departureTimeString, location: bottomView.departureArray, destination: bottomView.destination)
-            self.navigationController?.present(UINavigationController(rootViewController: vc),
-                                               animated: true, completion: nil)
+            
+            switch self.selectedPattern {
+            case .special:
+                let vc = UIStoryboard(name: "Order", bundle: nil).instantiateViewController(withIdentifier: "SpecialOrderVC") as! SpecialOrderVC
+                vc.configure(bottomView.departureTimeString, location: bottomView.departureArray, destination: bottomView.destination)
+                self.navigationController?.present(UINavigationController(rootViewController: vc),
+                                                   animated: true, completion: nil)
+            case .shared:
+               let vc = UIStoryboard(name: "Order", bundle: nil).instantiateViewController(withIdentifier: "SharedOrderVC") as! SharedOrderVC
+                vc.configure(bottomView.departureTimeString, location: bottomView.departureArray, destination: bottomView.destination)
+                self.navigationController?.present(UINavigationController(rootViewController: vc),
+                                                   animated: true, completion: nil)
+            case .expressage:
+                let vc = UIStoryboard(name: "Order", bundle: nil).instantiateViewController(withIdentifier: "ExpressageOrderVC") as! ExpressageOrderVC
+                vc.configure(bottomView.departureTimeString, location: bottomView.departureArray, destination: bottomView.destination)
+                self.navigationController?.present(UINavigationController(rootViewController: vc),
+                                                   animated: true, completion: nil)
+            case .longJourney:
+                let vc = UIStoryboard(name: "Order", bundle: nil).instantiateViewController(withIdentifier: "LongJourneyOrderVC") as! LongJourneyOrderVC
+                vc.configure(bottomView.departureTimeString, location: bottomView.departureArray, destination: bottomView.destination)
+                self.navigationController?.present(UINavigationController(rootViewController: vc),
+                                                   animated: true, completion: nil)
+            default:
+                break;
+            }
+            
+            self.bottomView.deleteAllSelection()
         }
     }
     
@@ -474,7 +498,7 @@ extension MainVC {
             return
         }
         
-        let patterns = [Pattern.specialCar, Pattern.shareingCar, Pattern.espressage, Pattern.longJourney, Pattern.storage]
+        let patterns = [Pattern.special, Pattern.shared, Pattern.expressage, Pattern.longJourney, Pattern.storage]
         let newBottomView = MainBottomView(patterns[index])
         newBottomView.frame = self.bottomView.frame
         self.configure(newBottomView)

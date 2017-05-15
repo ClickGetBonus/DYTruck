@@ -7,3 +7,19 @@
 //
 
 import Foundation
+
+
+extension Date {
+    
+    func stringWith(format: String) -> String {
+        let dateFormat: DateFormatter = DateFormatter()
+        dateFormat.dateFormat = format
+        return dateFormat.string(from: self)
+    }
+    
+    func dateWith(string: String, format: String) -> Date? {
+        let dateFormat: DateFormatter = DateFormatter()
+        dateFormat.dateFormat = format
+        return dateFormat.date(from: string)
+    }
+}

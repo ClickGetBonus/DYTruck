@@ -74,6 +74,17 @@ class RegistVC: UIViewController {
     
     
     @IBAction func onNextStep(_ sender: Any) {
+        
+        let registApi = RegistApi(phone: "18033313933", password: (self.pwTextField.text?.MD5())!, code: "")
+        registApi.isShowHud = true
+        registApi.startWithCompletionBlock(success: { (request) in
+            
+            let response = RegistApi.Response.parse(data: request.responseString)
+            DLog(response?.data?.token)
+        }) { (request) in
+            
+        }
+        
     }
     
     

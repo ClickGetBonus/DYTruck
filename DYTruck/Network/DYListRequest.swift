@@ -7,3 +7,14 @@
 //
 
 import Foundation
+import YTKNetwork
+
+
+class DYListRequest: DYBaseRequest {
+    
+    //分页
+    var rowSize: Int = 10
+    var isPaging = false
+    var pageNo: Int = 0
+    
+}

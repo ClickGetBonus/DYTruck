@@ -7,3 +7,16 @@
 //
 
 import Foundation
+import YTKNetwork
+import SVProgressHUD
+
+protocol DYRequest {
+    
+    func requestMethod() -> YTKRequestMethod
+    
+    func requestUrl() -> String
+    
+    func requestArgument() -> Any?
+    
+    associatedtype Response: Decodable
+}

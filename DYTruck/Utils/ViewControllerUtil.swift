@@ -23,6 +23,7 @@ extension UIViewController {
     }
     
     
+    
     func setupBackItem() {
         
         let backItem = UIBarButtonItem(image: UIImage(named: "ty_backarrow"),
@@ -33,7 +34,21 @@ extension UIViewController {
         self.navigationItem.leftBarButtonItem = backItem
     }
     
+    func setupBackItem(target: Any, selector: Selector) {
+        
+        let backItem = UIBarButtonItem(image: UIImage(named: "ty_backarrow"),
+                                       style: .done,
+                                       target: target,
+                                       action: selector)
+        backItem.tintColor = UIColor.lightGray
+        self.navigationItem.leftBarButtonItem = backItem
+    }
+    
+    
+    
     func onBack() {
+        
+        
         if (self.navigationController?.viewControllers.count)! > 0 {
             let _ = self.navigationController?.popViewController(animated: true)
         }
