@@ -9,8 +9,9 @@
 import UIKit
 
 class BaseNavController: UINavigationController,UINavigationControllerDelegate {
-  
-    override class func initialize() {
+    
+    override func loadView() {
+        super.loadView()
         
         let navBar = UINavigationBar.appearance()
         

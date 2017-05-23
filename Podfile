@@ -13,6 +13,8 @@ pod 'SVProgressHUD'
 pod 'HorizontalProgress'
 pod 'R.swift'
 pod 'HandyJSON'
+pod 'YYModel'
+pod 'ImagePicker'
 
 pod 'AMap3DMap'
 pod 'AMapLocation'

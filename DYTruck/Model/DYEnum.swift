@@ -34,6 +34,21 @@ enum Pattern {
             return "全部"
         }
     }
+    
+    func toOrderPattern() -> OrderPattern {
+        switch self {
+        case .special:
+            return .special
+        case .shared:
+            return .shared
+        case .expressage:
+            return .expressage
+        case .longJourney:
+            return .longJourney
+        default:
+            return .special
+        }
+    }
 }
 
 enum OrderPattern {
@@ -52,6 +67,19 @@ enum OrderPattern {
             return "拼车"
         case .longJourney:
             return "长途"
+        }
+    }
+    
+    init( _ index: Int) {
+        switch index {
+        case 0:
+            self = .special
+        case 1:
+            self = .expressage
+        case 2:
+            self = .shared
+        default:
+            self = .longJourney
         }
     }
 }

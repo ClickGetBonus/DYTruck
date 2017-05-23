@@ -11,34 +11,46 @@
 #import "TLCityHeaderView.h"
 #import "TLCityGroupCell.h"
 
-@interface TLCityPickerController () <TLCityGroupCellDelegate, TLSearchResultControllerDelegate>
+@interface TLCityPickerController ()
+<
+UITableViewDelegate,
+UITableViewDataSource,
+UITextFieldDelegate
+>
 
-@property (nonatomic, strong) UISearchController *searchController;
-@property (nonatomic, strong) TLCityPickerSearchResultController *searchResultVC;
 
 @property (nonatomic, strong) NSMutableArray *cityData;
-@property (nonatomic, strong) NSMutableArray *localCityData;
-@property (nonatomic, strong) NSMutableArray *hotCityData;
-@property (nonatomic, strong) NSMutableArray *commonCityData;
 @property (nonatomic, strong) NSMutableArray *arraySection;
+
+@property (nonatomic, strong) NSMutableArray *searchResults;
 
 @end
 
 @implementation TLCityPickerController
 @synthesize data = _data;
-@synthesize commonCitys = _commonCitys;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.navigationItem setTitle:@"城市选择"];
-    UIBarButtonItem *cancelBarButton = [[UIBarButtonItem alloc] initWithTitle:@"取消" style:UIBarButtonItemStylePlain target:self action:@selector(cancelButtonDown:)];
-    [self.navigationItem setLeftBarButtonItem:cancelBarButton];
     
-//    [self.tableView setTableHeaderView:self.searchController.searchBar];
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0,
+                                                                   0,
+                                                                   self.view.bounds.size.width,
+                                                                   self.view.bounds.size.height)
+                                                  style:UITableViewStylePlain];
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    self.tableView.layer.shadowColor = UIColorFromRGB(0x0b0b0b).CGColor;
+    self.tableView.layer.shadowRadius = 5.0;
+    self.tableView.layer.shadowOpacity = 0.2;
+    self.tableView.layer.shadowOffset = CGSizeMake(0, 0);
+    self.tableView.clipsToBounds = false;
+    [self.view addSubview:self.tableView];
+    
+    
     [self.tableView setSectionIndexBackgroundColor:[UIColor clearColor]];
     [self.tableView setSectionIndexColor:UIColorFromRGB(0x999999)];
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"UITableViewCell"];
-    [self.tableView registerClass:[TLCityGroupCell class] forCellReuseIdentifier:@"TLCityGroupCell"];
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     [self.tableView registerClass:[TLCityHeaderView class] forHeaderFooterViewReuseIdentifier:@"TLCityHeaderView"];
     if ([self.tableView respondsToSelector:@selector (setSeparatorInset:)]) {
         
@@ -47,43 +59,38 @@
     }
 }
 
+- (void)updateSubviewsFrame {
+    self.tableView.frame = self.view.bounds;
+}
 
 #pragma mark UITableViewDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return self.data.count + 2;
+    return self.arraySection.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (section == 0) {
-        return self.localCityData.count;
-    } else if (section == 1) {
-        return self.hotCityData.count;
+        return 1;
     } else {
-        TLCityGroup *group = [self.data objectAtIndex:section - 2];
-        return group.arrayCitys.count;
+        NSString *keyword = self.arraySection[section];
+        NSArray *array = self.data[keyword];
+        return array.count;
     }
+    
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.section < 2) {
-        
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell"];
-        
-        if (indexPath.section == 0) {
-            TLCity *city =  [self.localCityData objectAtIndex:indexPath.row];
-            [cell.textLabel setText:city.cityName];
-        }
-        else if (indexPath.section == 1) {
-            TLCity *city =  [self.hotCityData objectAtIndex:indexPath.row];
-            [cell.textLabel setText:city.cityName];
-        }
-        
-        return cell;
-    }
+    
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell"];
-    TLCityGroup *group = [self.data objectAtIndex:indexPath.section - 2];
-    TLCity *city =  [group.arrayCitys objectAtIndex:indexPath.row];
-    [cell.textLabel setText:city.cityName];
+    
+    if (indexPath.section == 0) {
+        [cell.textLabel setText:self.locationCity.cityName];
+    } else {
+        
+        NSString *keyword = self.arraySection[indexPath.section];
+        TLCity *city = self.data[keyword][indexPath.row];
+        [cell.textLabel setText:city.cityName];
+    }
     
     return cell;
 }
@@ -100,74 +107,57 @@
 
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//    if (indexPath.section == 0) {
-//        return [TLCityGroupCell getCellHeightOfCityArray:self.localCityData];
-//    }
-//    else if (indexPath.section == 1) {
-//        return [TLCityGroupCell getCellHeightOfCityArray:self.commonCityData];
-//    }
-//    else if (indexPath.section == 1){
-//        return [TLCityGroupCell getCellHeightOfCityArray:self.hotCityData];
-//    }
     return 48.0f;
 }
 
 - (CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
     return 27.0f;
+    
 }
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     TLCity *city;
     if (indexPath.section == 0) {
-        city = [self.localCityData objectAtIndex:0];
-    } else if (indexPath.section == 1) {
-        city = [self.hotCityData objectAtIndex:indexPath.row];
+        city = self.locationCity;
     } else {
-        TLCityGroup *group = [self.data objectAtIndex:indexPath.section-2];
-        city = [group.arrayCitys objectAtIndex:indexPath.row];
+        NSString *keyword = self.arraySection[indexPath.section];
+        city = self.data[keyword][indexPath.row];
     }
     [self didSelctedCity:city];
+    
 }
 
 - (NSArray *) sectionIndexTitlesForTableView:(UITableView *)tableView
 {
     NSMutableArray *array = [self.arraySection mutableCopy];
-    array[0] = @"";
-    array[1] = @"★";
+    array[0] = @"定位";
     return array;
 }
 
-- (NSInteger) tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index
-{
-//    if(index == 0) {
-//        [self.tableView scrollRectToVisible:self.searchController.searchBar.frame animated:NO];
-//        return -1;
-//    }
-    return index;
-}
+//- (NSInteger) tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index
+//{
+//    //    if(index == 0) {
+//    //        [self.tableView scrollRectToVisible:self.searchController.searchBar.frame animated:NO];
+//    //        return -1;
+//    //    }
+//    return index;
+//}
 
-#pragma mark TLCityGroupCellDelegate
-- (void) cityGroupCellDidSelectCity:(TLCity *)city
-{
-    [self didSelctedCity:city];
-}
-
-#pragma mark TLSearchResultControllerDelegate
-- (void) searchResultControllerDidSelectCity:(TLCity *)city
-{
-    [self.searchController dismissViewControllerAnimated:YES completion:^{
-        
-    }];
-    [self didSelctedCity:city];
-}
 
 #pragma mark - Event Response
 - (void) cancelButtonDown:(UIBarButtonItem *)sender
 {
+    if (_delegate && [_delegate respondsToSelector:@selector(cityPickerControllerDidCancel:)]) {
+        [_delegate cityPickerControllerDidCancel:self];
+    }
+}
+
+- (void)onCancel:(UIButton *)button {
     if (_delegate && [_delegate respondsToSelector:@selector(cityPickerControllerDidCancel:)]) {
         [_delegate cityPickerControllerDidCancel:self];
     }
@@ -179,173 +169,64 @@
     if (_delegate && [_delegate respondsToSelector:@selector(cityPickerController:didSelectCity:)]) {
         [_delegate cityPickerController:self didSelectCity:city];
     }
-    
-    if (self.commonCitys.count >= MAX_COMMON_CITY_NUMBER) {
-        [self.commonCitys removeLastObject];
-    }
-    for (NSString *str in self.commonCitys) {
-        if ([city.cityID isEqualToString:str]) {
-            [self.commonCitys removeObject:str];
-            break;
-        }
-    }
-    [self.commonCitys insertObject:city.cityID atIndex:0];
-    [[NSUserDefaults standardUserDefaults] setValue:self.commonCitys forKey:COMMON_CITY_DATA_KEY];
-    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 #pragma mark - Setter
-- (void) setCommonCitys:(NSMutableArray *)commonCitys
-{
-    _commonCitys = commonCitys;
-    if (commonCitys != nil && commonCitys.count > 0) {
-        [[NSUserDefaults standardUserDefaults] setValue:commonCitys forKey:COMMON_CITY_DATA_KEY];
-        [[NSUserDefaults standardUserDefaults] synchronize];
-    }
-}
-
-#pragma mark - Getter 
-- (UISearchController *) searchController
-{
-    if (_searchController == nil) {
-        _searchController = [[UISearchController alloc] initWithSearchResultsController:self.searchResultVC];
-        [_searchController.searchBar setPlaceholder:@"请输入城市中文名称或拼音"];
-        [_searchController.searchBar setBarTintColor:[UIColor colorWithWhite:0.95 alpha:1.0]];
-        [_searchController.searchBar sizeToFit];
-        [_searchController setSearchResultsUpdater:self.searchResultVC];
-        [_searchController.searchBar.layer setBorderWidth:0.5f];
-        [_searchController.searchBar.layer setBorderColor:[UIColor colorWithWhite:0.7 alpha:1.0].CGColor];
-    }
-    return _searchController;
-}
-
-- (TLCityPickerSearchResultController *) searchResultVC
-{
-    if (_searchResultVC == nil) {
-        _searchResultVC = [[TLCityPickerSearchResultController alloc] init];
-        _searchResultVC.cityData = self.cityData;
-        _searchResultVC.searchResultDelegate = self;
-    }
-    return _searchResultVC;
-}
-
-- (NSMutableArray *) data
-{
-    if (_data == nil) {
-        NSArray *array = [NSArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"CityData" ofType:@"plist"]];
-        _data = [[NSMutableArray alloc] init];
-        for (NSDictionary *groupDic in array) {
-            TLCityGroup *group = [[TLCityGroup alloc] init];
-            group.groupName = [groupDic objectForKey:@"initial"];
-            for (NSDictionary *dic in [groupDic objectForKey:@"citys"]) {
-                TLCity *city = [[TLCity alloc] init];
-                city.cityID = [dic objectForKey:@"city_key"];
-                city.cityName = [dic objectForKey:@"city_name"];
-                city.shortName = [dic objectForKey:@"short_name"];
-                city.pinyin = [dic objectForKey:@"pinyin"];
-                city.initials = [dic objectForKey:@"initials"];
-                [group.arrayCitys addObject:city];
-                [self.cityData addObject:city];
-            }
-            [self.arraySection addObject:group.groupName];
-            [_data addObject:group];
+- (void)setCitys:(NSMutableArray<TLCity *> *)citys {
+    
+    _data = [[NSMutableDictionary alloc] init];
+    
+    for (TLCity *city in citys) {
+        NSString *initials = city.initials;
+        if ([_data.allKeys containsObject:initials]) {
+            NSMutableArray *array = _data[initials];
+            [array addObject:city];
+        } else {
+            [_data setObject:[NSMutableArray arrayWithObject:city]
+                      forKey:initials];
         }
     }
-    return _data;
+    
+    self.arraySection = [NSMutableArray arrayWithObject:@"当前定位城市"];
+    for (NSString *key in _data.allKeys) {
+        [self.arraySection addObject:key];
+    }
+    
+    _citys = citys;
 }
 
-- (NSMutableArray *) cityData
-{
-    if (_cityData == nil) {
-        _cityData = [[NSMutableArray alloc] init];
-    }
-    return _cityData;
-}
+#pragma mark - Getter
 
-- (NSMutableArray *) localCityData
-{
-    if (_localCityData == nil) {
-        _localCityData = [[NSMutableArray alloc] init];
-        if (self.locationCityID != nil) {
-            TLCity *city = nil;
-            for (TLCity *item in self.cityData) {
-                if ([item.cityID isEqualToString:self.locationCityID]) {
-                    city = item;
-                    break;
-                }
-            }
-            if (city == nil) {
-                NSLog(@"Not Found City: %@", self.locationCityID);
-            }
-            else {
-                [_localCityData addObject:city];
-            }
-        }
-    }
-    return _localCityData;
-}
+//- (NSMutableArray *) localCityData
+//{
+//    if (_localCityData == nil) {
+//        _localCityData = [[NSMutableArray alloc] init];
+//        if (self.locationCityID != nil) {
+//            TLCity *city = nil;
+//            for (TLCity *item in self.cityData) {
+//                if ([item.cityID isEqualToString:self.locationCityID]) {
+//                    city = item;
+//                    break;
+//                }
+//            }
+//            if (city == nil) {
+//                NSLog(@"Not Found City: %@", self.locationCityID);
+//            }
+//            else {
+//                [_localCityData addObject:city];
+//            }
+//        }
+//    }
+//    return _localCityData;
+//}
 
-- (NSMutableArray *) hotCityData
-{
-    if (_hotCityData == nil) {
-        _hotCityData = [[NSMutableArray alloc] init];
-        for (NSString *str in self.hotCitys) {
-            TLCity *city = nil;
-            for (TLCity *item in self.cityData) {
-                if ([item.cityID isEqualToString:str]) {
-                    city = item;
-                    break;
-                }
-            }
-            if (city == nil) {
-                NSLog(@"Not Found City: %@", str);
-            }
-            else {
-                [_hotCityData addObject:city];
-            }
-        }
-    }
-    return _hotCityData;
-}
 
-- (NSMutableArray *)commonCityData
-{
-    if (_commonCityData == nil) {
-        _commonCityData = [[NSMutableArray alloc] init];
-        for (NSString *str in self.commonCitys) {
-            TLCity *city = nil;
-            for (TLCity *item in self.cityData) {
-                if ([item.cityID isEqualToString:str]) {
-                    city = item;
-                    break;
-                }
-            }
-            if (city == nil) {
-                NSLog(@"Not Found City: %@", str);
-            }
-            else {
-                [_commonCityData addObject:city];
-            }
-        }
-    }
-    return _commonCityData;
-}
-
-- (NSMutableArray *) arraySection
-{
-    if (_arraySection == nil) {
-        _arraySection = [[NSMutableArray alloc] initWithObjects:@"当前定位城市", @"★热门城市", nil];
-    }
-    return _arraySection;
-}
-
-- (NSMutableArray *) commonCitys
-{
-    if (_commonCitys == nil) {
-        NSArray *array = [[NSUserDefaults standardUserDefaults] objectForKey:COMMON_CITY_DATA_KEY];
-        _commonCitys = (array == nil ? [[NSMutableArray alloc] init] : [[NSMutableArray alloc] initWithArray:array copyItems:YES]);
-    }
-    return _commonCitys;
-}
+//- (NSMutableArray *) arraySection
+//{
+//    if (_arraySection == nil) {
+//        _arraySection = [[NSMutableArray alloc] initWithObjects:@"当前定位城市", @"★热门城市", nil];
+//    }
+//    return _arraySection;
+//}
 
 @end

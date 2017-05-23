@@ -30,6 +30,14 @@
 		3F1F94301EB8BC4600499372 /* AddressSelectVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1F942F1EB8BC4600499372 /* AddressSelectVC.swift */; };
 		3F2C9D4B1EC40B9C000E10FB /* GoodsEditCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2C9D491EC40B9C000E10FB /* GoodsEditCell.swift */; };
 		3F2C9D4C1EC40B9C000E10FB /* GoodsEditCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F2C9D4A1EC40B9C000E10FB /* GoodsEditCell.xib */; };
+		3F4257541ED2976F00273779 /* UploadImageResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4257531ED2976F00273779 /* UploadImageResponse.swift */; };
+		3F4257561ED29E2B00273779 /* UploadImageApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4257551ED29E2B00273779 /* UploadImageApi.swift */; };
+		3F4257581ED2A60800273779 /* GetAutosApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4257571ED2A60800273779 /* GetAutosApi.swift */; };
+		3F42575A1ED2A6C500273779 /* GetAutosResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4257591ED2A6C500273779 /* GetAutosResponse.swift */; };
+		3F42575C1ED2A6CE00273779 /* Auto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F42575B1ED2A6CE00273779 /* Auto.swift */; };
+		3F42575E1ED2A74700273779 /* GetNearAutoApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F42575D1ED2A74700273779 /* GetNearAutoApi.swift */; };
+		3F4257601ED2A88500273779 /* NearAuto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F42575F1ED2A88500273779 /* NearAuto.swift */; };
+		3F4257621ED2A8C000273779 /* GetNearAutosResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4257611ED2A8C000273779 /* GetNearAutosResponse.swift */; };
 		3F4CA11A1EA1C6AB00B19B46 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F4CA1191EA1C6AB00B19B46 /* CoreLocation.framework */; };
 		3F4CA11C1EA1C6B500B19B46 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F4CA11B1EA1C6B500B19B46 /* QuartzCore.framework */; };
 		3F4CA11E1EA1C6C100B19B46 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F4CA11D1EA1C6C100B19B46 /* OpenGLES.framework */; };
@@ -75,6 +83,7 @@
 		3F58D0391EA1F9DD00B87F16 /* DYEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F58D0381EA1F9DD00B87F16 /* DYEnum.swift */; };
 		3F58D03B1EA2074600B87F16 /* ViewControllerUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F58D03A1EA2074600B87F16 /* ViewControllerUtil.swift */; };
 		3F58D03F1EA344E900B87F16 /* BaseXibView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F58D03E1EA344E900B87F16 /* BaseXibView.swift */; };
+		3F6CEE671ED3F3840026A25A /* NullSafe.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F6CEE661ED3F3840026A25A /* NullSafe.m */; };
 		3F82480A1EA706FC006C54A9 /* CatchTouchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F8248091EA706FC006C54A9 /* CatchTouchView.m */; };
 		3F82480C1EA7501D006C54A9 /* MainUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F82480B1EA7501D006C54A9 /* MainUserView.swift */; };
 		3F82480E1EA75026006C54A9 /* MainUserView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F82480D1EA75026006C54A9 /* MainUserView.xib */; };
@@ -103,6 +112,9 @@
 		3F8EB9621EA07EB6000D9C9C /* ColorMacro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8EB9611EA07EB6000D9C9C /* ColorMacro.swift */; };
 		3F8EB96A1EA0A78B000D9C9C /* ViewUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8EB9691EA0A78B000D9C9C /* ViewUtil.swift */; };
 		3F8EB9D21EA0BFD6000D9C9C /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F8EB9D11EA0BFD6000D9C9C /* libz.tbd */; };
+		3F9363C21ED182BF0032454E /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9363C11ED182BF0032454E /* LocationManager.swift */; };
+		3F9363C41ED27DC90032454E /* UserInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9363C31ED27DC90032454E /* UserInfoVC.swift */; };
+		3F9363C61ED285820032454E /* UserEditVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9363C51ED285820032454E /* UserEditVC.swift */; };
 		3F9E140E1EC8526C00ED3A9C /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9E140D1EC8526C00ED3A9C /* R.generated.swift */; };
 		3F9E14131EC86BA700ED3A9C /* RegistApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9E14121EC86BA700ED3A9C /* RegistApi.swift */; };
 		3F9E14161EC86C2800ED3A9C /* ApiModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9E14151EC86C2800ED3A9C /* ApiModel.swift */; };
@@ -114,6 +126,9 @@
 		3F9E14271EC98E2D00ED3A9C /* DYBaseRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9E14261EC98E2D00ED3A9C /* DYBaseRequest.swift */; };
 		3F9E14291EC9C0DD00ED3A9C /* StringUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9E14281EC9C0DD00ED3A9C /* StringUtil.swift */; };
 		3F9E142D1EC9E33100ED3A9C /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9E142C1EC9E33100ED3A9C /* Authentication.swift */; };
+		3F9E142F1ECAD61B00ED3A9C /* LoginApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9E142E1ECAD61B00ED3A9C /* LoginApi.swift */; };
+		3F9E14311ECAD7FB00ED3A9C /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9E14301ECAD7FB00ED3A9C /* LoginResponse.swift */; };
+		3F9E14351ECAE14F00ED3A9C /* LoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9E14341ECAE14F00ED3A9C /* LoginManager.swift */; };
 		3FAAE1F71EBC178300E4097F /* Order.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FAAE1F61EBC178300E4097F /* Order.storyboard */; };
 		3FAAE1FC1EBC188D00E4097F /* OrderLinkmanCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAAE1FA1EBC188D00E4097F /* OrderLinkmanCell.swift */; };
 		3FAAE1FD1EBC188D00E4097F /* OrderLinkmanCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FAAE1FB1EBC188D00E4097F /* OrderLinkmanCell.xib */; };
@@ -140,6 +155,20 @@
 		3FB890371EAF9C3600811A09 /* CouponCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FB890351EAF9C3600811A09 /* CouponCell.xib */; };
 		3FB890391EAFA6A000811A09 /* RechargeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB890381EAFA6A000811A09 /* RechargeVC.swift */; };
 		3FB8903B1EB0A2CA00811A09 /* AccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB8903A1EB0A2CA00811A09 /* AccountVC.swift */; };
+		3FB9B0D81ED156AD00C89E2F /* DYAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB9B0D71ED156AD00C89E2F /* DYAddress.swift */; };
+		3FB9B0DA1ED1573D00C89E2F /* MyAddressApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB9B0D91ED1573D00C89E2F /* MyAddressApi.swift */; };
+		3FB9B0DC1ED1578600C89E2F /* MyAddressResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB9B0DB1ED1578600C89E2F /* MyAddressResponse.swift */; };
+		3FB9B0DE1ED15AC300C89E2F /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB9B0DD1ED15AC300C89E2F /* UserProfile.swift */; };
+		3FB9B0E01ED15B3900C89E2F /* GetUserProfileApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB9B0DF1ED15B3900C89E2F /* GetUserProfileApi.swift */; };
+		3FB9B0E21ED15B6000C89E2F /* GetUserProfileResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB9B0E11ED15B6000C89E2F /* GetUserProfileResponse.swift */; };
+		3FCAFBD31ECE96D8001A9223 /* GetCitysApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCAFBD21ECE96D8001A9223 /* GetCitysApi.swift */; };
+		3FCAFBD51ECE96FE001A9223 /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCAFBD41ECE96FE001A9223 /* City.swift */; };
+		3FCAFBD71ECE9A25001A9223 /* GetCitysResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCAFBD61ECE9A25001A9223 /* GetCitysResponse.swift */; };
+		3FCAFBD91ECECAE0001A9223 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCAFBD81ECECAE0001A9223 /* UserManager.swift */; };
+		3FCAFBDB1ECED233001A9223 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCAFBDA1ECED233001A9223 /* Address.swift */; };
+		3FCAFBDD1ECED55B001A9223 /* Street.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCAFBDC1ECED55B001A9223 /* Street.swift */; };
+		3FCAFBDF1ECEDA2A001A9223 /* DYManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCAFBDE1ECEDA2A001A9223 /* DYManager.swift */; };
+		3FCAFBE11ECEEB33001A9223 /* MapPOI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCAFBE01ECEEB33001A9223 /* MapPOI.swift */; };
 		3FCDFC241EC16F3E008EE7E5 /* SharedOrderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCDFC231EC16F3E008EE7E5 /* SharedOrderVC.swift */; };
 		3FCDFC2A1EC1734B008EE7E5 /* ExpressageOrderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCDFC291EC1734B008EE7E5 /* ExpressageOrderVC.swift */; };
 		3FCDFC2C1EC1736E008EE7E5 /* LongJourneyOrderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCDFC2B1EC1736E008EE7E5 /* LongJourneyOrderVC.swift */; };
@@ -170,6 +199,7 @@
 		3FF28C0A1EA5116800F23016 /* MainAdressCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF28C081EA5116800F23016 /* MainAdressCell.swift */; };
 		3FF28C0B1EA5116800F23016 /* MainAdressCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FF28C091EA5116800F23016 /* MainAdressCell.xib */; };
 		3FF28C0D1EA5E43C00F23016 /* MainInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF28C0C1EA5E43C00F23016 /* MainInfoView.swift */; };
+		3FFA76C51ED097CF00AF6FE7 /* AddAddressApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFA76C41ED097CF00AF6FE7 /* AddAddressApi.swift */; };
 		A7F62FD26C854B819466010A /* Pods_DYTruck.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3410BEEE83BDD2E1F37BFEC6 /* Pods_DYTruck.framework */; };
 /* End PBXBuildFile section */
 
@@ -201,6 +231,14 @@
 		3F1F942F1EB8BC4600499372 /* AddressSelectVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressSelectVC.swift; sourceTree = "<group>"; };
 		3F2C9D491EC40B9C000E10FB /* GoodsEditCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoodsEditCell.swift; sourceTree = "<group>"; };
 		3F2C9D4A1EC40B9C000E10FB /* GoodsEditCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GoodsEditCell.xib; sourceTree = "<group>"; };
+		3F4257531ED2976F00273779 /* UploadImageResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UploadImageResponse.swift; sourceTree = "<group>"; };
+		3F4257551ED29E2B00273779 /* UploadImageApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UploadImageApi.swift; sourceTree = "<group>"; };
+		3F4257571ED2A60800273779 /* GetAutosApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetAutosApi.swift; sourceTree = "<group>"; };
+		3F4257591ED2A6C500273779 /* GetAutosResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetAutosResponse.swift; sourceTree = "<group>"; };
+		3F42575B1ED2A6CE00273779 /* Auto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Auto.swift; sourceTree = "<group>"; };
+		3F42575D1ED2A74700273779 /* GetNearAutoApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetNearAutoApi.swift; sourceTree = "<group>"; };
+		3F42575F1ED2A88500273779 /* NearAuto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NearAuto.swift; sourceTree = "<group>"; };
+		3F4257611ED2A8C000273779 /* GetNearAutosResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetNearAutosResponse.swift; sourceTree = "<group>"; };
 		3F4CA1191EA1C6AB00B19B46 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		3F4CA11B1EA1C6B500B19B46 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		3F4CA11D1EA1C6C100B19B46 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -277,6 +315,7 @@
 		3F58D0381EA1F9DD00B87F16 /* DYEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DYEnum.swift; sourceTree = "<group>"; };
 		3F58D03A1EA2074600B87F16 /* ViewControllerUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerUtil.swift; sourceTree = "<group>"; };
 		3F58D03E1EA344E900B87F16 /* BaseXibView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseXibView.swift; sourceTree = "<group>"; };
+		3F6CEE661ED3F3840026A25A /* NullSafe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NullSafe.m; sourceTree = "<group>"; };
 		3F8248081EA706FC006C54A9 /* CatchTouchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CatchTouchView.h; sourceTree = "<group>"; };
 		3F8248091EA706FC006C54A9 /* CatchTouchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CatchTouchView.m; sourceTree = "<group>"; };
 		3F82480B1EA7501D006C54A9 /* MainUserView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainUserView.swift; sourceTree = "<group>"; };
@@ -318,6 +357,9 @@
 		3F8EB9651EA0A643000D9C9C /* DYTruck-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DYTruck-Bridging-Header.h"; sourceTree = "<group>"; };
 		3F8EB9691EA0A78B000D9C9C /* ViewUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewUtil.swift; sourceTree = "<group>"; };
 		3F8EB9D11EA0BFD6000D9C9C /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		3F9363C11ED182BF0032454E /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		3F9363C31ED27DC90032454E /* UserInfoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoVC.swift; sourceTree = "<group>"; };
+		3F9363C51ED285820032454E /* UserEditVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserEditVC.swift; sourceTree = "<group>"; };
 		3F9E140D1EC8526C00ED3A9C /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		3F9E14121EC86BA700ED3A9C /* RegistApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistApi.swift; sourceTree = "<group>"; };
 		3F9E14151EC86C2800ED3A9C /* ApiModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ApiModel.swift; path = DYTruck/Model/ApiModel.swift; sourceTree = SOURCE_ROOT; };
@@ -329,6 +371,9 @@
 		3F9E14261EC98E2D00ED3A9C /* DYBaseRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DYBaseRequest.swift; sourceTree = "<group>"; };
 		3F9E14281EC9C0DD00ED3A9C /* StringUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringUtil.swift; sourceTree = "<group>"; };
 		3F9E142C1EC9E33100ED3A9C /* Authentication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
+		3F9E142E1ECAD61B00ED3A9C /* LoginApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginApi.swift; sourceTree = "<group>"; };
+		3F9E14301ECAD7FB00ED3A9C /* LoginResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
+		3F9E14341ECAE14F00ED3A9C /* LoginManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginManager.swift; sourceTree = "<group>"; };
 		3FAAE1F61EBC178300E4097F /* Order.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Order.storyboard; sourceTree = "<group>"; };
 		3FAAE1FA1EBC188D00E4097F /* OrderLinkmanCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderLinkmanCell.swift; sourceTree = "<group>"; };
 		3FAAE1FB1EBC188D00E4097F /* OrderLinkmanCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OrderLinkmanCell.xib; sourceTree = "<group>"; };
@@ -355,6 +400,20 @@
 		3FB890351EAF9C3600811A09 /* CouponCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CouponCell.xib; sourceTree = "<group>"; };
 		3FB890381EAFA6A000811A09 /* RechargeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RechargeVC.swift; sourceTree = "<group>"; };
 		3FB8903A1EB0A2CA00811A09 /* AccountVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountVC.swift; sourceTree = "<group>"; };
+		3FB9B0D71ED156AD00C89E2F /* DYAddress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DYAddress.swift; sourceTree = "<group>"; };
+		3FB9B0D91ED1573D00C89E2F /* MyAddressApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyAddressApi.swift; sourceTree = "<group>"; };
+		3FB9B0DB1ED1578600C89E2F /* MyAddressResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyAddressResponse.swift; sourceTree = "<group>"; };
+		3FB9B0DD1ED15AC300C89E2F /* UserProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
+		3FB9B0DF1ED15B3900C89E2F /* GetUserProfileApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetUserProfileApi.swift; sourceTree = "<group>"; };
+		3FB9B0E11ED15B6000C89E2F /* GetUserProfileResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetUserProfileResponse.swift; sourceTree = "<group>"; };
+		3FCAFBD21ECE96D8001A9223 /* GetCitysApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetCitysApi.swift; sourceTree = "<group>"; };
+		3FCAFBD41ECE96FE001A9223 /* City.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
+		3FCAFBD61ECE9A25001A9223 /* GetCitysResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetCitysResponse.swift; sourceTree = "<group>"; };
+		3FCAFBD81ECECAE0001A9223 /* UserManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
+		3FCAFBDA1ECED233001A9223 /* Address.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
+		3FCAFBDC1ECED55B001A9223 /* Street.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Street.swift; sourceTree = "<group>"; };
+		3FCAFBDE1ECEDA2A001A9223 /* DYManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DYManager.swift; sourceTree = "<group>"; };
+		3FCAFBE01ECEEB33001A9223 /* MapPOI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapPOI.swift; sourceTree = "<group>"; };
 		3FCDFC231EC16F3E008EE7E5 /* SharedOrderVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharedOrderVC.swift; sourceTree = "<group>"; };
 		3FCDFC291EC1734B008EE7E5 /* ExpressageOrderVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpressageOrderVC.swift; sourceTree = "<group>"; };
 		3FCDFC2B1EC1736E008EE7E5 /* LongJourneyOrderVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LongJourneyOrderVC.swift; sourceTree = "<group>"; };
@@ -386,6 +445,7 @@
 		3FF28C081EA5116800F23016 /* MainAdressCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainAdressCell.swift; sourceTree = "<group>"; };
 		3FF28C091EA5116800F23016 /* MainAdressCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainAdressCell.xib; sourceTree = "<group>"; };
 		3FF28C0C1EA5E43C00F23016 /* MainInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainInfoView.swift; sourceTree = "<group>"; };
+		3FFA76C41ED097CF00AF6FE7 /* AddAddressApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddAddressApi.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -426,6 +486,7 @@
 		3F4CA1301EA1C7C200B19B46 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				3F6CEE661ED3F3840026A25A /* NullSafe.m */,
 				3FE6A12E1EC6E158003AC0E2 /* MZTimerLabel.h */,
 				3FE6A12F1EC6E158003AC0E2 /* MZTimerLabel.m */,
 				3F1F94241EB82DB200499372 /* SPTextView.h */,
@@ -651,6 +712,7 @@
 		3F8EB9501EA060DD000D9C9C /* General */ = {
 			isa = PBXGroup;
 			children = (
+				3F9E14331ECAE14600ED3A9C /* Manager */,
 				3FB890071EABADB100811A09 /* Add */,
 				3F4CA1A81EA1F23C00B19B46 /* Views */,
 				3FF28C071EA5112200F23016 /* Cell */,
@@ -732,7 +794,9 @@
 		3F9E14111EC86B8000ED3A9C /* Api */ = {
 			isa = PBXGroup;
 			children = (
-				3F9E14121EC86BA700ED3A9C /* RegistApi.swift */,
+				3FCAFBCF1ECE96AA001A9223 /* Order */,
+				3FCAFBD01ECE96AA001A9223 /* System */,
+				3FCAFBD11ECE96AA001A9223 /* User */,
 			);
 			path = Api;
 			sourceTree = "<group>";
@@ -742,6 +806,14 @@
 			children = (
 				3F9E14181EC86D6D00ED3A9C /* UserInfo.swift */,
 				3F9E142C1EC9E33100ED3A9C /* Authentication.swift */,
+				3FCAFBD41ECE96FE001A9223 /* City.swift */,
+				3FCAFBDA1ECED233001A9223 /* Address.swift */,
+				3FCAFBDC1ECED55B001A9223 /* Street.swift */,
+				3FCAFBE01ECEEB33001A9223 /* MapPOI.swift */,
+				3FB9B0D71ED156AD00C89E2F /* DYAddress.swift */,
+				3FB9B0DD1ED15AC300C89E2F /* UserProfile.swift */,
+				3F42575B1ED2A6CE00273779 /* Auto.swift */,
+				3F42575F1ED2A88500273779 /* NearAuto.swift */,
 			);
 			path = ApiModel;
 			sourceTree = "<group>";
@@ -751,8 +823,26 @@
 			children = (
 				3F9E14201EC9838A00ED3A9C /* DYResponse.swift */,
 				3F9E14221EC984F500ED3A9C /* RegistResponse.swift */,
+				3F9E14301ECAD7FB00ED3A9C /* LoginResponse.swift */,
+				3FCAFBD61ECE9A25001A9223 /* GetCitysResponse.swift */,
+				3FB9B0DB1ED1578600C89E2F /* MyAddressResponse.swift */,
+				3FB9B0E11ED15B6000C89E2F /* GetUserProfileResponse.swift */,
+				3F4257531ED2976F00273779 /* UploadImageResponse.swift */,
+				3F4257591ED2A6C500273779 /* GetAutosResponse.swift */,
+				3F4257611ED2A8C000273779 /* GetNearAutosResponse.swift */,
 			);
 			path = Response;
+			sourceTree = "<group>";
+		};
+		3F9E14331ECAE14600ED3A9C /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				3F9E14341ECAE14F00ED3A9C /* LoginManager.swift */,
+				3FCAFBD81ECECAE0001A9223 /* UserManager.swift */,
+				3F9363C11ED182BF0032454E /* LocationManager.swift */,
+				3FCAFBDE1ECEDA2A001A9223 /* DYManager.swift */,
+			);
+			path = Manager;
 			sourceTree = "<group>";
 		};
 		3FA878441EB9C8D000C7F56C /* Cell */ = {
@@ -837,6 +927,8 @@
 				3F1F94181EB81D5100499372 /* AddressVC.swift */,
 				3F1F94201EB82CCD00499372 /* PushSetVC.swift */,
 				3F1F94221EB82D0800499372 /* FeedBackVC.swift */,
+				3F9363C31ED27DC90032454E /* UserInfoVC.swift */,
+				3F9363C51ED285820032454E /* UserEditVC.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -886,6 +978,36 @@
 			children = (
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		3FCAFBCF1ECE96AA001A9223 /* Order */ = {
+			isa = PBXGroup;
+			children = (
+				3F4257571ED2A60800273779 /* GetAutosApi.swift */,
+				3F42575D1ED2A74700273779 /* GetNearAutoApi.swift */,
+			);
+			path = Order;
+			sourceTree = "<group>";
+		};
+		3FCAFBD01ECE96AA001A9223 /* System */ = {
+			isa = PBXGroup;
+			children = (
+				3F9E14121EC86BA700ED3A9C /* RegistApi.swift */,
+				3F9E142E1ECAD61B00ED3A9C /* LoginApi.swift */,
+				3FCAFBD21ECE96D8001A9223 /* GetCitysApi.swift */,
+				3F4257551ED29E2B00273779 /* UploadImageApi.swift */,
+			);
+			path = System;
+			sourceTree = "<group>";
+		};
+		3FCAFBD11ECE96AA001A9223 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				3FFA76C41ED097CF00AF6FE7 /* AddAddressApi.swift */,
+				3FB9B0D91ED1573D00C89E2F /* MyAddressApi.swift */,
+				3FB9B0DF1ED15B3900C89E2F /* GetUserProfileApi.swift */,
+			);
+			path = User;
 			sourceTree = "<group>";
 		};
 		3FF28C071EA5112200F23016 /* Cell */ = {
@@ -956,7 +1078,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0820;
-				LastUpgradeCheck = 0820;
+				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = TL;
 				TargetAttributes = {
 					3F8EB9391E9F9028000D9C9C = {
@@ -1099,6 +1221,7 @@
 				3FB890221EAE429700811A09 /* MyAppraiseVC.swift in Sources */,
 				3F4CA1921EA1D1CE00B19B46 /* NSObject+YYAddForKVO.m in Sources */,
 				3FB8903B1EB0A2CA00811A09 /* AccountVC.swift in Sources */,
+				3FB9B0D81ED156AD00C89E2F /* DYAddress.swift in Sources */,
 				3F0298EE1EB0CA62003ABF40 /* AccountOrderCell.swift in Sources */,
 				3F4CA1951EA1D1CE00B19B46 /* NSTimer+YYAdd.m in Sources */,
 				3FE078D91EC5540900EEDE4F /* WaitLoadingVC.swift in Sources */,
@@ -1109,31 +1232,42 @@
 				3FB890331EAF9AEC00811A09 /* CouponVC.swift in Sources */,
 				3F1F94191EB81D5100499372 /* AddressVC.swift in Sources */,
 				3F9E142D1EC9E33100ED3A9C /* Authentication.swift in Sources */,
+				3F4257621ED2A8C000273779 /* GetNearAutosResponse.swift in Sources */,
+				3F9E142F1ECAD61B00ED3A9C /* LoginApi.swift in Sources */,
 				3F82481D1EA8AB79006C54A9 /* Extracter.m in Sources */,
 				3F8248311EA8D650006C54A9 /* TLCityPickerSearchResultController.m in Sources */,
 				3F1F941F1EB82AD500499372 /* AddressTableView.swift in Sources */,
 				3FCDFC241EC16F3E008EE7E5 /* SharedOrderVC.swift in Sources */,
 				3F06C0E01EBD88770084D2A9 /* SpecialOrderVC.swift in Sources */,
+				3F9E14311ECAD7FB00ED3A9C /* LoginResponse.swift in Sources */,
 				3F9E14231EC984F500ED3A9C /* RegistResponse.swift in Sources */,
 				3F9E14131EC86BA700ED3A9C /* RegistApi.swift in Sources */,
 				3F1F94211EB82CCD00499372 /* PushSetVC.swift in Sources */,
+				3F4257541ED2976F00273779 /* UploadImageResponse.swift in Sources */,
+				3F9363C21ED182BF0032454E /* LocationManager.swift in Sources */,
 				3FE078E41EC55CD700EEDE4F /* InfoDriverCell.swift in Sources */,
 				3FCDFC2A1EC1734B008EE7E5 /* ExpressageOrderVC.swift in Sources */,
 				3F1F942B1EB8357400499372 /* AddressCell.swift in Sources */,
 				3F82482D1EA8D650006C54A9 /* TLCity.m in Sources */,
+				3FB9B0DA1ED1573D00C89E2F /* MyAddressApi.swift in Sources */,
+				3F6CEE671ED3F3840026A25A /* NullSafe.m in Sources */,
 				3F4CA18A1EA1D1CE00B19B46 /* NSData+YYAdd.m in Sources */,
 				3F8EB96A1EA0A78B000D9C9C /* ViewUtil.swift in Sources */,
+				3FCAFBD91ECECAE0001A9223 /* UserManager.swift in Sources */,
 				3FB890141EAC79DB00811A09 /* BaseNavController.swift in Sources */,
 				3F4CA19B1EA1D1CE00B19B46 /* UIColor+YYAdd.m in Sources */,
 				3F4CA1911EA1D1CE00B19B46 /* NSObject+YYAddForARC.m in Sources */,
 				3FF28C0A1EA5116800F23016 /* MainAdressCell.swift in Sources */,
 				3F9E14271EC98E2D00ED3A9C /* DYBaseRequest.swift in Sources */,
+				3FB9B0E01ED15B3900C89E2F /* GetUserProfileApi.swift in Sources */,
 				3F4CA1341EA1CC3E00B19B46 /* ConstantMacro.swift in Sources */,
+				3F9363C61ED285820032454E /* UserEditVC.swift in Sources */,
 				3F4CA1991EA1D1CE00B19B46 /* UIBarButtonItem+YYAdd.m in Sources */,
 				3FE078FB1EC5B7BA00EEDE4F /* EstimateVC.swift in Sources */,
 				3F82480C1EA7501D006C54A9 /* MainUserView.swift in Sources */,
 				3F4CA18E1EA1D1CE00B19B46 /* NSNotificationCenter+YYAdd.m in Sources */,
 				3FE6A1301EC6E158003AC0E2 /* MZTimerLabel.m in Sources */,
+				3FCAFBDB1ECED233001A9223 /* Address.swift in Sources */,
 				3F1F94301EB8BC4600499372 /* AddressSelectVC.swift in Sources */,
 				3F58D03B1EA2074600B87F16 /* ViewControllerUtil.swift in Sources */,
 				3FE078E01EC5565600EEDE4F /* InfoProgressCell.swift in Sources */,
@@ -1143,6 +1277,7 @@
 				3F82482F1EA8D650006C54A9 /* TLCityHeaderView.m in Sources */,
 				3F8248111EA8A1B6006C54A9 /* MessageVC.swift in Sources */,
 				3F4CA1891EA1D1CE00B19B46 /* NSBundle+YYAdd.m in Sources */,
+				3FCAFBD31ECE96D8001A9223 /* GetCitysApi.swift in Sources */,
 				3FE078E81EC55E8300EEDE4F /* OrderInfoVC.swift in Sources */,
 				3F85C8101EB193C400E84E70 /* SettingVC.swift in Sources */,
 				3F06C0E31EBDC9790084D2A9 /* OrderAddressCell.swift in Sources */,
@@ -1153,6 +1288,7 @@
 				3FABB7501EA6F829003559EA /* LoginVC.swift in Sources */,
 				3F8248151EA8A5C6006C54A9 /* MainDateCell.swift in Sources */,
 				3F06C0F51EC03BBD0084D2A9 /* ConfirmOrderVC.swift in Sources */,
+				3FB9B0E21ED15B6000C89E2F /* GetUserProfileResponse.swift in Sources */,
 				3F4CA18B1EA1D1CE00B19B46 /* NSDate+YYAdd.m in Sources */,
 				3F82481E1EA8AB79006C54A9 /* TLPicker.m in Sources */,
 				3F06C0DE1EBD83260084D2A9 /* DashedBorderView.swift in Sources */,
@@ -1160,18 +1296,26 @@
 				3F4CA1A01EA1D1CE00B19B46 /* UIImage+YYAdd.m in Sources */,
 				3F4CA1A31EA1D1CE00B19B46 /* UITableView+YYAdd.m in Sources */,
 				3FE078F91EC5765100EEDE4F /* SpecConfirmOrderVC.swift in Sources */,
+				3FB9B0DE1ED15AC300C89E2F /* UserProfile.swift in Sources */,
 				3F1F94231EB82D0900499372 /* FeedBackVC.swift in Sources */,
 				3F58D03F1EA344E900B87F16 /* BaseXibView.swift in Sources */,
+				3F42575C1ED2A6CE00273779 /* Auto.swift in Sources */,
+				3FCAFBE11ECEEB33001A9223 /* MapPOI.swift in Sources */,
 				3FB890311EAF75F000811A09 /* IntegralVC.swift in Sources */,
 				3FB890261EAE445900811A09 /* AppraiseCell.swift in Sources */,
 				3F4CA1961EA1D1CE00B19B46 /* CALayer+YYAdd.m in Sources */,
 				3FE078D51EC45DCD00EEDE4F /* SendOrderVC.swift in Sources */,
 				3FABB7491EA6F814003559EA /* MainVC.swift in Sources */,
 				3FE078EC1EC5606100EEDE4F /* SpecialOrderInfoCell.swift in Sources */,
+				3F9E14351ECAE14F00ED3A9C /* LoginManager.swift in Sources */,
+				3F4257561ED29E2B00273779 /* UploadImageApi.swift in Sources */,
+				3F42575A1ED2A6C500273779 /* GetAutosResponse.swift in Sources */,
 				3F82483A1EA9B0A0006C54A9 /* MessageInfoVC.swift in Sources */,
+				3FB9B0DC1ED1578600C89E2F /* MyAddressResponse.swift in Sources */,
 				3FB8902B1EAF717300811A09 /* BalanceVC.swift in Sources */,
 				3F4CA1941EA1D1CE00B19B46 /* NSThread+YYAdd.m in Sources */,
 				3F4CA18F1EA1D1CE00B19B46 /* NSNumber+YYAdd.m in Sources */,
+				3FCAFBDD1ECED55B001A9223 /* Street.swift in Sources */,
 				3F4CA1881EA1D1CE00B19B46 /* NSArray+YYAdd.m in Sources */,
 				3FB890291EAF6DA200811A09 /* WalletVC.swift in Sources */,
 				3F4CA19D1EA1D1CE00B19B46 /* UIDevice+YYAdd.m in Sources */,
@@ -1179,16 +1323,19 @@
 				3F9E14161EC86C2800ED3A9C /* ApiModel.swift in Sources */,
 				3F4CA18C1EA1D1CE00B19B46 /* NSDictionary+YYAdd.m in Sources */,
 				3FB8901F1EAE39B900811A09 /* SelectView.swift in Sources */,
+				3F4257601ED2A88500273779 /* NearAuto.swift in Sources */,
 				3F82480A1EA706FC006C54A9 /* CatchTouchView.m in Sources */,
 				3FB890391EAFA6A000811A09 /* RechargeVC.swift in Sources */,
 				3F8248421EA9B704006C54A9 /* MyOrderVC.swift in Sources */,
 				3F9E14211EC9838A00ED3A9C /* DYResponse.swift in Sources */,
 				3F4CA1A21EA1D1CE00B19B46 /* UIScrollView+YYAdd.m in Sources */,
 				3F9E14191EC86D6D00ED3A9C /* UserInfo.swift in Sources */,
+				3FCAFBD71ECE9A25001A9223 /* GetCitysResponse.swift in Sources */,
 				3F4CA1A41EA1D1CE00B19B46 /* UITextField+YYAdd.m in Sources */,
 				3F4CA1971EA1D1CE00B19B46 /* YYCGUtilities.m in Sources */,
 				3FE078F01EC563C300EEDE4F /* InfoPaymentCell.swift in Sources */,
 				3F8248361EA99B91006C54A9 /* MessageCell.swift in Sources */,
+				3FCAFBDF1ECEDA2A001A9223 /* DYManager.swift in Sources */,
 				3F58D0351EA1F94A00B87F16 /* PatternSelectView.swift in Sources */,
 				3F85C8141EB1945400E84E70 /* TLScrollTableView.swift in Sources */,
 				3FABB74F1EA6F829003559EA /* ForgetVC.swift in Sources */,
@@ -1196,10 +1343,12 @@
 				3FE078F41EC5686400EEDE4F /* OrderIntroCell.swift in Sources */,
 				3F06C0F31EC02EB30084D2A9 /* ExtNeedVC.swift in Sources */,
 				3F58D0391EA1F9DD00B87F16 /* DYEnum.swift in Sources */,
+				3FFA76C51ED097CF00AF6FE7 /* AddAddressApi.swift in Sources */,
 				3F82482E1EA8D650006C54A9 /* TLCityGroupCell.m in Sources */,
 				3FE078DB1EC5543900EEDE4F /* PaymentVC.swift in Sources */,
 				3F4CA1981EA1D1CE00B19B46 /* UIApplication+YYAdd.m in Sources */,
 				3FAAE1FC1EBC188D00E4097F /* OrderLinkmanCell.swift in Sources */,
+				3F42575E1ED2A74700273779 /* GetNearAutoApi.swift in Sources */,
 				3F4CA1931EA1D1CE00B19B46 /* NSString+YYAdd.m in Sources */,
 				3FB8901C1EADDBBE00811A09 /* OrderCell.swift in Sources */,
 				3FCDFC2E1EC3FD1C008EE7E5 /* DateUtil.swift in Sources */,
@@ -1207,6 +1356,7 @@
 				3FB8902E1EAF75E000811A09 /* IntegralCell.swift in Sources */,
 				3F85C80E1EB1903300E84E70 /* WithdrawVC.swift in Sources */,
 				3FCDFC2C1EC1736E008EE7E5 /* LongJourneyOrderVC.swift in Sources */,
+				3FCAFBD51ECE96FE001A9223 /* City.swift in Sources */,
 				3F4CA19F1EA1D1CE00B19B46 /* UIGestureRecognizer+YYAdd.m in Sources */,
 				3F9E141F1EC9834400ED3A9C /* DYRequest.swift in Sources */,
 				3F9E14291EC9C0DD00ED3A9C /* StringUtil.swift in Sources */,
@@ -1215,10 +1365,12 @@
 				3F1F941B1EB8246400499372 /* AddressHeaderView.swift in Sources */,
 				3F0298F21EB0CA81003ABF40 /* AccountRechargeCell.swift in Sources */,
 				3FABB7511EA6F829003559EA /* RegistVC.swift in Sources */,
+				3F4257581ED2A60800273779 /* GetAutosApi.swift in Sources */,
 				3F06C0ED1EBF0BF70084D2A9 /* FillOutVC.swift in Sources */,
 				3F9E14251EC989CB00ED3A9C /* DYListRequest.swift in Sources */,
 				3FF28C0D1EA5E43C00F23016 /* MainInfoView.swift in Sources */,
 				3FE078F71EC5725000EEDE4F /* TimeLabel.swift in Sources */,
+				3F9363C41ED27DC90032454E /* UserInfoVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1320,10 +1472,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 040727022F1A1C0C76A35AA2 /* Pods-DYTruck.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer: chunxiao liu (HSNM5Q547V)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = XY62Q8VUQ7;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1344,8 +1498,6 @@
 					"$(inherited)",
 					"-framework",
 					"\"AFNetworking\"",
-					"-framework",
-					"\"Alamofire\"",
 					"-framework",
 					"\"IQKeyboardManagerSwift\"",
 					"-framework",
@@ -1376,10 +1528,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 36E46B9C538E6ACE682B418F /* Pods-DYTruck.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer: chunxiao liu (HSNM5Q547V)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = XY62Q8VUQ7;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1400,8 +1554,6 @@
 					"$(inherited)",
 					"-framework",
 					"\"AFNetworking\"",
-					"-framework",
-					"\"Alamofire\"",
 					"-framework",
 					"\"IQKeyboardManagerSwift\"",
 					"-framework",

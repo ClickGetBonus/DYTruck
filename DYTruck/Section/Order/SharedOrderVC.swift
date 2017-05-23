@@ -30,9 +30,9 @@ class SharedOrderVC: UITableViewController {
     
     var departureDateString: String = ""
     var departureDate: Date = Date()
-    var locations: [String] = [""]
-    var destination: String = ""
-    var approach: String = ""
+    var locations: [MapPOI] = [MapPOI()]
+    var destination: MapPOI = MapPOI()
+    var approach: MapPOI = MapPOI()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,7 +71,7 @@ class SharedOrderVC: UITableViewController {
         self.navigationController?.dismiss(animated: true, completion: nil)
     }
     
-    func configure( _ dateString: String, location: [String], destination: String) {
+    func configure( _ dateString: String, location: [MapPOI], destination: MapPOI) {
         self.departureDateString = dateString
         self.destination = destination
         if location.count > 0 {
@@ -184,11 +184,11 @@ extension SharedOrderVC {
         if indexPath.section == 0 && indexPath.row > 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: OrderAddressCell.className) as! OrderAddressCell
             if indexPath.row <= locations.count {
-                cell.configure(.location, address: locations[indexPath.row-1])
+                cell.configure(.location, address: locations[indexPath.row-1].name)
             } else if indexPath.row == locations.count+1 {
-                cell.configure(.approach, address: approach)
+                cell.configure(.approach, address: approach.name)
             } else {
-                cell.configure(.destination, address: destination)
+                cell.configure(.destination, address: destination.name)
             }
             return cell
         } else if indexPath.section == 1 && indexPath.row == 2 {
@@ -265,7 +265,7 @@ extension SharedOrderVC {
                         self.destination = address
                     }
                     
-                    cell.textField.text = address
+                    cell.textField.text = address.name
                 }
                 
                 addressSelectVC.dismissBehavior = { vc in

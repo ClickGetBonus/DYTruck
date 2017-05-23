@@ -38,7 +38,7 @@ class DYBaseRequest: YTKRequest {
     }
     
     override func statusCodeValidator() -> Bool {
-        return self.responseStatusCode == 1
+        return self.responseStatusCode == 1 || self.responseStatusCode == 200
     }
     
     override func requestSerializerType() -> YTKRequestSerializerType {
@@ -63,7 +63,7 @@ class DYBaseRequest: YTKRequest {
         super.requestCompleteFilter()
         
         
-        var url = YTKNetworkConfig.shared().baseUrl + self.requestUrl()
+        let url = YTKNetworkConfig.shared().baseUrl + self.requestUrl()
         DLog("请求URL = \(url)")
         var requestMethod: String
         switch self.requestMethod() {
@@ -83,9 +83,39 @@ class DYBaseRequest: YTKRequest {
         DLog("请求方式 = \(requestMethod)")
         DLog("请求参数 = \(self.requestArgument() ?? "")")
         
-        if isShowHud {
-            SVProgressHUD.dismiss()
+        
+        let bean = DYResponse.parse(data: self.responseString!)!
+        if self.isDataFromCache() {
+            DLog("缓存数据====\(self.responseString!)")
+        } else {
+            DLog("statusCode = \(self.responseStatusCode) , \(url)\n 返回数据 = \(self.responseString ?? "")")
         }
+        
+        if bean.isOperateSuccess() {
+            DLog("返回成功")
+            
+            if isShowHud {
+                SVProgressHUD.dismiss()
+            }
+            
+        } else {
+            
+            if !self.isSilent {
+                SVProgressHUD.showError(withStatus: bean.message)
+                SVProgressHUD.dismiss(withDelay: DYHudPresentationInterval)
+            }
+            
+            DLog("请求操作执行失败")
+            if self.failureCompletionBlock != nil {
+                self.failureCompletionBlock!(self)
+            }
+            self.stop()
+            if !self.isCancelled {
+                self.successCompletionBlock = nil
+                self.failureCompletionBlock = nil
+            }
+        }
+        
     }
     
     override func requestFailedFilter() {
@@ -121,7 +151,7 @@ class DYBaseRequest: YTKRequest {
             
             if self.isSilent {
                 SVProgressHUD.show(withStatus: "网络不给力,请稍后再试!")
-                SVProgressHUD.dismiss(withDelay: HudPresentationInterval)
+                SVProgressHUD.dismiss(withDelay: DYHudPresentationInterval)
             }
         }
     }

@@ -7,9 +7,34 @@
 //
 
 import Foundation
+import SVProgressHUD
 
+extension String {
+    func guardEmptyWith(msg: String) -> Bool {
+        
+        if self.isEmpty {
+            SVProgressHUD.show(withStatus: msg)
+            SVProgressHUD.dismiss(withDelay: DYHudPresentationInterval)
+            return true
+        }
+        
+        return false
+    }
+}
 
-
+extension Optional where Wrapped == String {
+    
+    func guardEmptyWith(msg: String) -> String? {
+        
+        if self == nil || self!.isEmpty {
+            SVProgressHUD.showError(withStatus: msg)
+            SVProgressHUD.dismiss(withDelay: DYHudPresentationInterval)
+            return nil
+        }
+        
+        return self
+    }
+}
 
 //MARK: - MD5
 extension Int

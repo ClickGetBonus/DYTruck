@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class MainVC: UIViewController {
     
     
@@ -15,10 +16,15 @@ class MainVC: UIViewController {
     @IBOutlet weak var titleIndicator: UIImageView!
     
     let userMenuWidth: CGFloat = 270
+    var firstUpdateLocation: Bool = true
     
+    var locationCity: String = "" {
+        didSet {
+            self.titleLabel.text = locationCity
+        }
+    }
     
     @IBOutlet weak var patternSelectView: PatternSelectView!
-    
     
     @IBOutlet weak var mapView: MAMapView!
     @IBOutlet weak var topView: UIView!
@@ -32,7 +38,6 @@ class MainVC: UIViewController {
     var informationView: MainInfoView = MainInfoView()
     var infoViewHidden: Bool = true
     var isInAnimated: Bool = false
-    var veilView = UIView()
     
     var isHiddenStatusBar: Bool = false {
         didSet {
@@ -53,6 +58,11 @@ class MainVC: UIViewController {
     var cityVC: TLCityPickerController = TLCityPickerController()
     var cityView: UIView = UIView()
     
+    var departures: [MapPOI] = []
+    var destination: MapPOI? = nil
+    
+    let searchApi: AMapSearchAPI = AMapSearchAPI()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -60,14 +70,12 @@ class MainVC: UIViewController {
         
         
         initSubviews()
-        
-        
     }
     
     
     func initSubviews() {
         
-        
+        searchApi.delegate = self
         AMapServices.shared().enableHTTPS = true
         mapView.delegate = self
         mapView.showsUserLocation = true;
@@ -78,6 +86,8 @@ class MainVC: UIViewController {
         
         self.bottomView.frame = self.mapView.frame
         self.configure(self.bottomView)
+        
+        self.topView.addShadow()
         
         self.patternSelectView.selectCallBack = self.patternViewDidSelect
         self.patternSelectView.patterns = [Pattern.special, Pattern.shared, Pattern.expressage, Pattern.longJourney, Pattern.storage]
@@ -104,6 +114,7 @@ class MainVC: UIViewController {
         self.userMenu.settingCallBack = self.onClickSetting
         self.view.insertSubview(self.userMenu, aboveSubview: self.topView)
     }
+    
     override func viewDidLayoutSubviews() {
         
         self.patternSelectView.itemWidthConstraint.constant = self.view.width/5
@@ -113,10 +124,7 @@ class MainVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        if !self.userMenu.isHidden {
-            self.isHiddenStatusBar = true
-        }
-        
+        self.isHiddenStatusBar = !self.userMenu.isHidden
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -132,18 +140,42 @@ class MainVC: UIViewController {
     }
     
     
+    func hideMainItems() {
+        
+        self.bottomView.frame = self.mapView.frame
+        self.bottomView.transitionOut(UIOffset(horizontal: 0, vertical: self.bottomView.height),
+                                      complete: {})
+        self.topView.transitionOut(UIOffset(horizontal: 0, vertical: -self.topView.height),
+                                   complete: {})
+        
+        self.topViewTopConstrant.constant = -self.topView.height
+        UIView.animate(withDuration: 0.3, animations: {
+            self.topView.layoutSubviews()
+        }, completion: nil)
+    }
+    
+    func showMainItems() {
+        
+        self.bottomView.frame = self.mapView.frame
+        self.bottomView.transitionIn(UIOffset(horizontal: 0, vertical: self.bottomView.height),
+                                     complete: {})
+        self.topView.transitionOut(UIOffset(horizontal: 0, vertical: self.topView.height),
+                                   complete: {})
+        self.topViewTopConstrant.constant = 0
+        UIView.animate(withDuration: 0.3, animations: {
+            self.topView.layoutSubviews()
+        }, completion: nil)
+    }
+    
+    
     @IBAction func onClickUserItem(_ sender: Any) {
         
-        veilView = UIView(frame: self.view.frame)
-        let tapRes = UITapGestureRecognizer(target: self, action: #selector(hideUserMenu))
-        veilView.addGestureRecognizer(tapRes)
-        veilView.backgroundColor = UIColor.black
-        veilView.alpha = 0
-        self.view.insertSubview(veilView, belowSubview: self.userMenu)
-        
-        UIView.animate(withDuration: 0.5) {
-            self.veilView.alpha = 0.6
+        guard UserManager.isLogin else {
+            self.navigationController?.present(R.storyboard.login().instantiateInitialViewController()!, animated: true, completion: nil)
+            return
         }
+        
+        self.view.addVeilViewBelow(self.userMenu, target:self, selector: #selector(hideUserMenu))
         
         self.isHiddenStatusBar = true
         
@@ -151,41 +183,58 @@ class MainVC: UIViewController {
     }
     
     @IBAction func onSelectCity(_ sender: Any) {
-        showCityPicker()
+        
+        self.getCitys { (citys) in
+            self.showCityPicker(citys)
+        }
+    }
+    
+    @IBAction func onClickMessage(_ sender: Any) {
+        guard UserManager.isLogin else {
+            self.navigationController?.present(R.storyboard.login.instantiateInitialViewController()!, animated: true, completion: nil)
+            return
+        }
+        
+        self.performSegue(withIdentifier: "goMessage", sender: nil)
     }
 }
+
 
 // MARK: - TLCityPicker
 extension MainVC: TLCityPickerDelegate {
     
-    func showCityPicker() {
-        self.titleIndicator.rotation(by: Double(M_PI))
+    func showCityPicker( _ cityData: [City]) {
+        self.titleIndicator.rotation(by: Double.pi)
         
         self.cityVC = TLCityPickerController()
         self.cityVC.delegate = self
-        self.cityVC.hotCitys = ["100010000", "200010000", "300210000", "600010000", "300110000"]
+        let array = City.changeToTLCity(cityData)
+        self.cityVC.citys = array as! NSMutableArray
+        let locationCityName = LocationManager.address.city ?? array.first?.cityName
+        var locationCity = array.first!
+        for city in array {
+            if city.cityName == locationCityName {
+                locationCity = city
+            }
+        }
+        self.cityVC.locationCity = locationCity
         
         self.cityView = self.cityVC.view
-        let padding: CGFloat = 20
-        self.cityView.frame = CGRect(x:padding ,
-                                     y: self.topView.bottom+padding,
-                                     width: self.mapView.width-2*padding,
-                                     height: self.mapView.height-padding)
+        self.cityView.frame = CGRect(x: 16,
+                                     y: 40,
+                                     width: self.mapView.width - 32,
+                                     height: self.mapView.height - 40)
         self.addChildViewController(self.cityVC)
         self.view.addSubview(self.cityView)
+        self.cityVC.updateSubviewsFrame()
         
-        self.catchView = CatchTouchView(frame: self.view.bounds, respondView: self.cityView) { (view) in
-            self.hideCityPicker()
-            view?.removeFromSuperview()
-        }
-        self.view.addSubview(self.catchView)
-        self.cityView.transitionIn(UIOffset(horizontal: 0, vertical: self.mapView.height), complete: {
-            
-        })
+        self.cityView.transitionIn(UIOffset(horizontal: 0, vertical: self.mapView.height), complete:nil)
+        
+        self.hideMainItems()
     }
-    
+        
     func hideCityPicker() {
-        self.titleIndicator.rotation(by: Double(-M_PI))
+        self.titleIndicator.rotation(by: -Double.pi)
         
         self.cityView.transitionOut(UIOffset(horizontal: 0, vertical: self.mapView.height), complete: {
             self.cityVC.delegate = nil
@@ -194,15 +243,35 @@ extension MainVC: TLCityPickerDelegate {
             self.catchView.removeFromSuperview()
         })
         
+        self.showMainItems()
     }
     
     func cityPickerControllerDidCancel(_ cityPickerViewController: TLCityPickerController!) {
-        
+        self.hideCityPicker()
     }
     
     func cityPickerController(_ cityPickerViewController: TLCityPickerController!, didSelect city: TLCity!) {
         self.titleLabel.text = city.cityName
         self.hideCityPicker()
+    }
+}
+
+// MARK: - Network
+extension MainVC {
+    func getCitys( _ complete: @escaping ([City]) -> Void ) {
+        
+        let citysApi = GetCitysApi(pattern: self.selectedPattern.toOrderPattern())
+        citysApi.ignoreCache = true
+        citysApi.startWithCompletionBlock(success: { (request) in
+            
+            let response: GetCitysResponse? = GetCitysApi.Response.parse(data: request.responseString)
+            let citys: [City]? = response?.data
+            DYManager.citys = citys ?? []
+            
+            complete(citys!)
+        }) { (request) in
+            
+        }
     }
 }
 
@@ -257,7 +326,7 @@ extension MainVC {
         } else if panRecognizer.state == .ended || panRecognizer.state == .cancelled {
             
             if self.shouldHideLeftMenu {
-                self.hideUserMenu()
+                self.hideUserMenu(true)
             } else {
                 UIView.animate(withDuration: 0.3, animations: {
                     self.userMenu.left = 0
@@ -268,57 +337,19 @@ extension MainVC {
     }
     
     
-    func hideUserMenu() {
+    func hideUserMenu( _ anim: Bool) {
         self.isHiddenStatusBar = false
+        
+        self.view.hideVeilView((anim ? 0.5 : 0))
         
         self.view.removeGestureRecognizer(panRecognizer)
         
-        UIView.animate(withDuration: 0.5, animations: {
-            self.veilView.alpha = 0
+        UIView.animate(withDuration: (anim ? 0.5 : 0), animations: {
             self.userMenu.left = -self.userMenu.width
         }) { _ in
-            self.veilView.removeFromSuperview()
             self.userMenu.isHidden = true
         }
     }
-    
-    func onClickAvatar() {
-        
-    }
-    
-    func onClickIntegral() {
-        
-    }
-    
-    func onClickFollow() {
-        
-    }
-    
-    
-    func onClickOrder() {
-        
-        self.isHiddenStatusBar = false
-        
-        self.performSegue(withIdentifier: "goOrder", sender: nil)
-    }
-    
-    func onClickWallet() {
-        self.isHiddenStatusBar = false
-        
-        self.performSegue(withIdentifier: "goWallet", sender: nil)
-    }
-    
-    func onClickService() {
-        
-    }
-    
-    func onClickSetting() {
-        
-        self.isHiddenStatusBar = false
-        
-        self.performSegue(withIdentifier: "goSetting", sender: nil)
-    }
-    
     
     
     override var preferredStatusBarUpdateAnimation: UIStatusBarAnimation {
@@ -334,7 +365,60 @@ extension MainVC {
             self.setNeedsStatusBarAppearanceUpdate()
         }
     }
+    
+    func onClickAvatar() {
+        
+        self.isHiddenStatusBar = false
+        self.performSegue(withIdentifier: "goUserInfo", sender: nil)
+        self.hideUserMenu(false)
+    }
+    
+    func onClickIntegral() {
+        
+    }
+    
+    func onClickFollow() {
+        
+    }
+    
+    
+    func onClickOrder() {
+        
+        self.isHiddenStatusBar = false
+        self.performSegue(withIdentifier: "goOrder", sender: nil)
+        self.hideUserMenu(false)
+    }
+    
+    func onClickWallet() {
+        
+        self.isHiddenStatusBar = false
+        self.performSegue(withIdentifier: "goWallet", sender: nil)
+        self.hideUserMenu(false)
+    }
+    
+    func onClickService() {
+        
+    }
+    
+    func onClickSetting() {
+        
+        self.isHiddenStatusBar = false
+        self.performSegue(withIdentifier: "goSetting", sender: nil)
+        self.hideUserMenu(false)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goSetting" {
+            let vc = segue.destination as! SettingVC
+            vc.logoutBehavior = {
+                self.hideUserMenu(false)
+                
+            }
+        }
+    }
+    
 }
+
 
 // MARK: - Nav View
 extension MainVC {
@@ -345,13 +429,26 @@ extension MainVC {
 // MARK: - Pattern View
 extension MainVC {
     
-    
-    
     func patternViewDidSelect( _ index: Int) {
-        
+        if index < 3 {
+            /*
+            let getAutoApi = GetNearAutoApi(city: LocationManager.address.city!,
+                                            range: 10000,
+                                            lat: LocationManager.location.latitude,
+                                            lon: LocationManager.location.longitude,
+                                            type: OrderPattern(index))
+            getAutoApi.startWithCompletionBlock(success: { (request) in
+                
+                let response = GetNearAutoApi.Response.parse(data: request.responseString!)!
+                let autos: [NearAuto] = response.data!
+                DLog(autos)
+            }, failure: { (request) in
+                
+            })
+             */
+        }
         updateBottomView(index)
     }
-    
 }
 
 
@@ -416,51 +513,57 @@ extension MainVC {
         bottomView.requestSelectAddressBehavior = self.selectAddress
         
         bottomView.completeEditBehavior = { bottomView in
-            print("地址输入完毕!! 出发点: \(bottomView.departureArray) \n 目的地: \(bottomView.destination)")
+            print("地址输入完毕!! 出发点: \(bottomView.departureArray.map{$0!.name}) \n 目的地: \(bottomView.destination?.name ?? "")")
             
-            switch self.selectedPattern {
-            case .special:
-                let vc = UIStoryboard(name: "Order", bundle: nil).instantiateViewController(withIdentifier: "SpecialOrderVC") as! SpecialOrderVC
-                vc.configure(bottomView.departureTimeString, location: bottomView.departureArray, destination: bottomView.destination)
-                self.navigationController?.present(UINavigationController(rootViewController: vc),
-                                                   animated: true, completion: nil)
-            case .shared:
-               let vc = UIStoryboard(name: "Order", bundle: nil).instantiateViewController(withIdentifier: "SharedOrderVC") as! SharedOrderVC
-                vc.configure(bottomView.departureTimeString, location: bottomView.departureArray, destination: bottomView.destination)
-                self.navigationController?.present(UINavigationController(rootViewController: vc),
-                                                   animated: true, completion: nil)
-            case .expressage:
-                let vc = UIStoryboard(name: "Order", bundle: nil).instantiateViewController(withIdentifier: "ExpressageOrderVC") as! ExpressageOrderVC
-                vc.configure(bottomView.departureTimeString, location: bottomView.departureArray, destination: bottomView.destination)
-                self.navigationController?.present(UINavigationController(rootViewController: vc),
-                                                   animated: true, completion: nil)
-            case .longJourney:
-                let vc = UIStoryboard(name: "Order", bundle: nil).instantiateViewController(withIdentifier: "LongJourneyOrderVC") as! LongJourneyOrderVC
-                vc.configure(bottomView.departureTimeString, location: bottomView.departureArray, destination: bottomView.destination)
-                self.navigationController?.present(UINavigationController(rootViewController: vc),
-                                                   animated: true, completion: nil)
-            default:
-                break;
+            guard UserManager.isLogin else {
+                let loginVC = R.storyboard.login().instantiateViewController(withIdentifier: "LoginVC") as! LoginVC
+                let nav = UINavigationController(rootViewController: loginVC)
+                loginVC.loginCompleteBehavior = {
+                    self.goOrder(pattern: self.selectedPattern, bottomView: bottomView)
+                }
+                self.navigationController?.present(nav, animated: true, completion: nil)
+                return
             }
             
-            self.bottomView.deleteAllSelection()
+            self.goOrder(pattern: self.selectedPattern, bottomView: bottomView)
         }
     }
     
+    func goOrder(pattern: Pattern, bottomView: MainBottomView) {
+        
+        switch pattern {
+        case .special:
+            let vc = UIStoryboard(name: "Order", bundle: nil).instantiateViewController(withIdentifier: "SpecialOrderVC") as! SpecialOrderVC
+            vc.configure(bottomView.departureTimeString, location: bottomView.departureArray as! [MapPOI], destination: bottomView.destination!)
+            self.navigationController?.present(UINavigationController(rootViewController: vc),
+                                               animated: true, completion: nil)
+        case .shared:
+            let vc = UIStoryboard(name: "Order", bundle: nil).instantiateViewController(withIdentifier: "SharedOrderVC") as! SharedOrderVC
+            vc.configure(bottomView.departureTimeString, location: bottomView.departureArray as! [MapPOI], destination: bottomView.destination!)
+            self.navigationController?.present(UINavigationController(rootViewController: vc),
+                                               animated: true, completion: nil)
+        case .expressage:
+            let vc = UIStoryboard(name: "Order", bundle: nil).instantiateViewController(withIdentifier: "ExpressageOrderVC") as! ExpressageOrderVC
+            vc.configure(bottomView.departureTimeString, location: bottomView.departureArray as! [MapPOI], destination: bottomView.destination!)
+            self.navigationController?.present(UINavigationController(rootViewController: vc),
+                                               animated: true, completion: nil)
+        case .longJourney:
+            let vc = UIStoryboard(name: "Order", bundle: nil).instantiateViewController(withIdentifier: "LongJourneyOrderVC") as! LongJourneyOrderVC
+            vc.configure(bottomView.departureTimeString, location: bottomView.departureArray as! [MapPOI], destination: bottomView.destination!)
+            self.navigationController?.present(UINavigationController(rootViewController: vc),
+                                               animated: true, completion: nil)
+        default:
+            break;
+        }
+        
+        bottomView.deleteAllSelection()
+    }
+    
     func selectAddress(for index: Int) {
-        self.bottomView.transitionOut(UIOffset(horizontal: 0, vertical: self.bottomView.height),
-                                      complete: {})
-        self.topView.transitionOut(UIOffset(horizontal: 0, vertical: -self.topView.height),
-                                   complete: {})
-        
-        self.topViewTopConstrant.constant = -self.topView.height
-        UIView.animate(withDuration: 0.3, animations: {
-            self.topView.layoutSubviews()
-        }, completion: nil)
-        
+        self.hideMainItems()
         
         let addressSelectVC = AddressSelectVC()
-        
+        addressSelectVC.searchCity = self.locationCity
         self.addChildViewController(addressSelectVC)
         self.view.addSubview(addressSelectVC.view)
         addressSelectVC.view.frame = self.view.bounds
@@ -470,8 +573,9 @@ extension MainVC {
                                                            left: 10,
                                                            bottom: 10,
                                                            right: 10)
-        addressSelectVC.selectCallBack = { address in
-            self.bottomView.setAddress(address, in: index)
+        addressSelectVC.selectCallBack = { poi in
+            
+            self.bottomView.setAddress(poi, in: index)
         }
         
         addressSelectVC.dismissBehavior = { vc in
@@ -480,15 +584,7 @@ extension MainVC {
                 vc.removeFromParentViewController()
             })
             
-            self.bottomView.transitionOut(UIOffset(horizontal: 0, vertical: -self.bottomView.height),
-                                          complete: {})
-            self.topView.transitionOut(UIOffset(horizontal: 0, vertical: self.topView.height),
-                                       complete: {})
-            self.topViewTopConstrant.constant = 0
-            UIView.animate(withDuration: 0.3, animations: {
-                self.topView.layoutSubviews()
-            }, completion: nil)
-            
+            self.showMainItems()
         }
     }
     
@@ -537,8 +633,11 @@ extension MainVC {
 
 
 
-// MARK: - MapView Delegate
+// MARK: - MapView
 extension MainVC: MAMapViewDelegate {
+    
+    
+    
     func mapViewRegionChanged(_ mapView: MAMapView!) {
         
     }
@@ -550,9 +649,49 @@ extension MainVC: MAMapViewDelegate {
     func mapViewDidStopLocatingUser(_ mapView: MAMapView!) {
         
     }
+    
+    func mapView(_ mapView: MAMapView!, didUpdate userLocation: MAUserLocation!, updatingLocation: Bool) {
+        
+        if firstUpdateLocation {
+            firstUpdateLocation = false
+            let coordinate = userLocation.location.coordinate
+            LocationManager.location = coordinate
+            let request = AMapReGeocodeSearchRequest()
+            request.location = AMapGeoPoint.location(withLatitude: CGFloat(coordinate.latitude),
+                                                     longitude: CGFloat(coordinate.longitude))
+            request.requireExtension = true
+            self.searchApi.aMapReGoecodeSearch(request)
+        }
+    }
 }
 
 
-
-
-
+// MARK: - Map Search Delegate
+extension MainVC: AMapSearchDelegate {
+    func onReGeocodeSearchDone(_ request: AMapReGeocodeSearchRequest!, response: AMapReGeocodeSearchResponse!) {
+        
+        guard let regeocode: AMapReGeocode = response.regeocode else { return }
+        let addressComponent: AMapAddressComponent = regeocode.addressComponent
+        let streetNumber: AMapStreetNumber = addressComponent.streetNumber
+        let street: Street = Street(street: streetNumber.street,
+                                    number: streetNumber.number,
+                                    latitude: Double(streetNumber.location.latitude),
+                                    longitude: Double(streetNumber.location.longitude),
+                                    distance: streetNumber.distance,
+                                    direction: streetNumber.direction)
+        
+        let address: Address = Address(province: addressComponent.province,
+                                       city: addressComponent.city,
+                                       citycode: addressComponent.citycode,
+                                       district: addressComponent.district,
+                                       adcode: addressComponent.adcode,
+                                       township: addressComponent.township,
+                                       towncode: addressComponent.towncode,
+                                       neighborhood: addressComponent.neighborhood,
+                                       building: addressComponent.building,
+                                       street: street)
+        LocationManager.address = address
+        
+        self.locationCity = address.city!
+    }
+}

@@ -28,8 +28,8 @@ class MainBottomView: BaseXibView {
     var requestSelectAddressBehavior: (Int) -> Swift.Void = { _ in }
     
     var departureTimeString: String = NSDate().string(withFormat: "YYYY年MM月dd日 HH:mm:ss")!
-    var departureArray: [String] = [""]
-    var destination: String = ""
+    var departureArray: [MapPOI?] = [nil]
+    var destination: MapPOI? = nil
     
     let topViewHeight: CGFloat = 50
     
@@ -51,9 +51,9 @@ class MainBottomView: BaseXibView {
     
     func deleteAllSelection() {
         self.departureTimeString = NSDate().string(withFormat: "YYYY年MM月dd日 HH:mm:ss")!
-        self.departureArray = [""]
+        self.departureArray = [nil]
         self.cellIdentifiers = [MainAdressCell.className, MainAdressCell.className]
-        self.destination = ""
+        self.destination = MapPOI()
         self.tableView.reloadData()
         self.tableViewHeightConstraint.constant = CGFloat(self.rowCount) * self.rowHeight
         self.topView.layoutSubviews()
@@ -149,11 +149,11 @@ class MainBottomView: BaseXibView {
             }
         }
     }
-    func setAddress( _ address: String, in index: Int) {
+    func setAddress( _ poi: MapPOI, in index: Int) {
         if index < departureArray.count {
-            self.departureArray[index] = address
+            self.departureArray[index] = poi
         } else {
-            self.destination = address
+            self.destination = poi
         }
         
         self.tableView.reloadData()
@@ -164,13 +164,14 @@ class MainBottomView: BaseXibView {
     }
     
     func isCompleteSelect() -> Bool {
-        for v in departureArray {
-            if v.isEmpty {
+        for poi in departureArray {
+            if poi == nil || poi!.name!.isEmpty {
                 return false
             }
+            
         }
         
-        if destination.isEmpty {
+        if destination == nil || destination!.name!.isEmpty {
             return false
         }
         
@@ -184,7 +185,7 @@ class MainBottomView: BaseXibView {
         }
         
         cellIdentifiers.insert(MainAdressCell.className, at: self.rowCount - 2)
-        departureArray.append("")
+        departureArray.append(nil)
         UIView.animate(withDuration: 0.2) {
             self.tableViewHeightConstraint.constant = CGFloat(self.rowCount) * self.rowHeight
             self.topView.layoutSubviews()
@@ -201,7 +202,8 @@ class MainBottomView: BaseXibView {
         }
         
         cellIdentifiers.remove(at: indexPath.row)
-        departureArray.remove(at: (timePattern == .order) ? indexPath.row+1 : indexPath.row)
+        let index = (timePattern == .order) ? indexPath.row-1 : indexPath.row
+        departureArray.remove(at: index)
         UIView.animate(withDuration: 0.2) {
             self.tableViewHeightConstraint.constant = CGFloat(self.rowCount) * self.rowHeight
             self.topView.layoutSubviews()
@@ -294,16 +296,16 @@ extension MainBottomView: UITableViewDelegate, UITableViewDataSource {
                 
                 let index = (self.timePattern == .order) ? indexPath.row-1 : indexPath.row
                 if index < departureArray.count {
-                    if departureArray.count > 1 && indexPath.row > 0 {
+                    if departureArray.count > 1 && index > 0 {
                         cell.style = .departureAdd
                     } else {
                         cell.style = .departure
                     }
                     
-                    cell.textField.text = self.departureArray[index]
+                    cell.textField.text = self.departureArray[index]?.name ?? ""
                 } else {
                     cell.style = .destination
-                    cell.textField.text = self.destination
+                    cell.textField.text = self.destination?.name ?? ""
                 }
                 
                 cell.rightButtonBehavior = { cell in

@@ -29,7 +29,7 @@
         <!--登录-->
         <scene sceneID="zm0-uO-dsI">
             <objects>
-                <viewController id="glx-bF-d5c" customClass="LoginVC" customModule="DYTruck" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="glx-bF-d5c" customClass="LoginVC" customModule="DYTruck" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="3Ih-Jm-IrS"/>
                         <viewControllerLayoutGuide type="bottom" id="ZUK-te-kIA"/>
@@ -129,7 +129,6 @@
                                     <color key="titleColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="onForget:" destination="glx-bF-d5c" eventType="touchUpInside" id="pHn-R1-EEH"/>
                                     <segue destination="Ueg-oy-ghg" kind="show" id="TXD-of-eO1"/>
                                 </connections>
                             </button>
@@ -144,7 +143,6 @@
                                     <color key="titleColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="onRegist:" destination="glx-bF-d5c" eventType="touchUpInside" id="g3c-l2-z9n"/>
                                     <segue destination="pn7-Ts-D8y" kind="show" id="2o9-W4-Bph"/>
                                 </connections>
                             </button>

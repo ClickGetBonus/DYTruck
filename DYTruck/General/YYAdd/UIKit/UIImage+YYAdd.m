@@ -13,7 +13,6 @@
 #import "UIDevice+YYAdd.h"
 #import "NSString+YYAdd.h"
 #import "YYKitMacro.h"
-#import "YYCGUtilities.h"
 #import <ImageIO/ImageIO.h>
 #import <Accelerate/Accelerate.h>
 #import <CoreText/CoreText.h>

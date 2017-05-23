@@ -4,10 +4,14 @@
 <dict>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>嘀约货车需要使用您的定位信息</string>
+	<key>NSCameraUsageDescription</key>
+	<string>嘀约货车需要打开您的相机</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>嘀约货车需要访问您的相册</string>
 	<key>CFBundleDisplayName</key>
 	<string>滴约货车</string>
 	<key>CFBundleDevelopmentRegion</key>
-	<string>en</string>
+	<string>zh_CN</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -38,11 +42,10 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
-    
-    <key>NSAppTransportSecurity</key>
-    <dict>
-        <key>NSAllowsArbitraryLoads</key>
-        <true/>
-    </dict>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
 </dict>
 </plist>

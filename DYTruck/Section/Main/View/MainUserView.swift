@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class MainUserView: BaseXibView {
     
@@ -20,6 +21,15 @@ class MainUserView: BaseXibView {
     var walletCallBack: () -> Void = {}
     var serviceCallBack: () -> Void = {}
     var settingCallBack: () -> Void = {}
+    
+    var userProfile: UserProfile = UserManager.userProfile
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        self.avatarButton.kf.setImage(with: URL(string: userProfile.avatar), for: .normal)
+        self.nameLabel.text = userProfile.nickname
+    }
     
     
     @IBAction func onClickAvatar(_ sender: Any) {

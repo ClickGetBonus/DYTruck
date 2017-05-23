@@ -7,11 +7,13 @@
 //
 
 import Foundation
-
-
+import HandyJSON
 
 struct UserInfo: HandyJSON {
     
-    var name: String?
-    var id: Int?
+//    var nickname: String?
+    var userid: String?
+    var status: Int?
+//    var avatar: String?
+    var token: String?
 }

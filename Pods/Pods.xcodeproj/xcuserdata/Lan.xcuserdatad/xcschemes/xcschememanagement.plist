@@ -29,6 +29,16 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>ImagePicker-ImagePicker.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>ImagePicker.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Kingfisher.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -74,10 +84,20 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>YYModel.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>1166F686F343ECA6EEB93DA183C69CD7</key>
+		<key>05123B82DFC143B021772BDC53939C56</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>1166907ED3B44C812A4D8B4031A9AAC7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -97,12 +117,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>29DD99664D189A7CA206368F493B1E0B</key>
+		<key>1EED98E631409F03D66DBD5515D60FC2</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>336A2BC62BD96BD3720C481879295A2C</key>
+		<key>1F52FF56D185DDDBCBE01E4E8EB4ABA7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>29DD99664D189A7CA206368F493B1E0B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -112,27 +137,32 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6264D4343C90A5E3B9BF4C109890B6C2</key>
+		<key>55BD3033702F62283C42C1F6E037342D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>AFD28AD0E7B63180F52F257F0A984EFF</key>
+		<key>606B28F5219F7FD3DC497CF15DAEBCEE</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>BC61D5427EA6F1967B39630800920A90</key>
+		<key>7C4108C3722F95AE55CEDD665AC9630D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>EB3D6DB998FA48546E542A6D5D29CB23</key>
+		<key>82B4E852F94D782872B8B7247B3A823B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>EEC68195752B08D6BB12400BEE8FC9D8</key>
+		<key>CD46B8657449BA4EE0C88F7B66ABDAB7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>CF1D6DE0C878B12D77E5740C043D8ACE</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 class SettingVC: UITableViewController {
+    
+    var logoutBehavior: () -> Void = {}
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,5 +38,11 @@ class SettingVC: UITableViewController {
     
     func onLogout() {
         
+        UserManager.authentication = Authentication()
+        logoutBehavior()
+        self.navigationController?.popViewController(animated: true)
+        
+        SVProgressHUD.showInfo(withStatus: "注销成功")
+        SVProgressHUD.dismiss(withDelay: DYHudPresentationInterval)
     }
 }

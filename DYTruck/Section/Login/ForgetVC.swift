@@ -73,5 +73,10 @@ class ForgetVC: UIViewController {
     
     @IBAction func onNext(_ sender: Any) {
         
+        
+        guard let phone = self.phoneTextField.text.guardEmptyWith(msg: "请输入手机号码") else {return}
+        guard let code = self.verifyTextField.text.guardEmptyWith(msg: "请输入验证码") else {return}
+        guard let password = self.pwTextField.text.guardEmptyWith(msg: "请输入密码") else {return}
+        
     }
 }

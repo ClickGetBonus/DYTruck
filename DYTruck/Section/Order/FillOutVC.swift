@@ -109,6 +109,13 @@ extension FillOutVC {
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let type = cellTypes[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: type.identifier)!
+        let textField = cell.contentView.viewWithTag(textFieldTag) as! UITextField
+        textField.becomeFirstResponder()
+    }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let height = cellTypes[indexPath.row].cellHeight

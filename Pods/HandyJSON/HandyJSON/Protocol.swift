@@ -268,7 +268,7 @@ extension String: PlainJSONValue {
             }
             return num.stringValue
         default:
-            return "\(object)"
+            return nil
         }
     }
 }

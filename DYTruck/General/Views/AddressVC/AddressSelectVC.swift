@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 class AddressSelectVC: UIViewController {
     
@@ -26,8 +27,20 @@ class AddressSelectVC: UIViewController {
             }
         }
     }
+    let headerView: AddressHeaderView = AddressHeaderView()
+    let addressTableView: AddressTableView = AddressTableView(frame: CGRect.zero, style: .plain)
     
-    var selectCallBack: (String) -> Void = { _ in } {
+    let searchApi: AMapSearchAPI = AMapSearchAPI()
+    var searchCity: String? = LocationManager.address.city {
+        didSet {
+            self.headerView.cityLabel.text = searchCity
+        }
+    }
+    let cityPicker: TLCityPickerController = TLCityPickerController()
+    var cityPickerView: UIView = UIView()
+    var keywords: String = ""
+    
+    var selectCallBack: (MapPOI) -> Void = { _ in } {
         didSet {
             self.addressTableView.selectedCallBack = {
                 self.selectCallBack($0)
@@ -35,15 +48,12 @@ class AddressSelectVC: UIViewController {
             }
         }
     }
+    
     var dismissBehavior: (AddressSelectVC) -> Swift.Void = {
         $0.dismiss(animated: true, completion: nil)
     }
     
     
-    let headerView: AddressHeaderView = AddressHeaderView()
-    let addressTableView: AddressTableView = AddressTableView(frame: CGRect.zero, style: .plain)
-    let cityPicker: TLCityPickerController = TLCityPickerController()
-    var cityPickerView: UIView = UIView()
     var tableViewEdgeInsets: UIEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0) {
         didSet {
             self.updateSubviewsFrame()
@@ -60,6 +70,9 @@ class AddressSelectVC: UIViewController {
     
     func initSubviews() {
         
+        
+        searchApi.delegate = self
+        
         self.headerView.cancelCallBack = {
             self.dismissBehavior(self)
         }
@@ -73,7 +86,13 @@ class AddressSelectVC: UIViewController {
         self.headerView.editCallBack = { key in
             
             self.state = .address
-            self.addressTableView.setSearchKey(key)
+            self.keywords = key ?? ""
+            if !self.keywords.isEmpty {
+                self.searchPOI()
+            }
+            
+            self.addressTableView.showRecently = self.keywords.isEmpty
+            
         }
         self.view.addSubview(self.headerView)
         
@@ -84,14 +103,26 @@ class AddressSelectVC: UIViewController {
         self.view.addSubview(self.addressTableView)
         
         
-        self.cityPickerView = self.cityPicker.view
+        
         self.cityPicker.delegate = self
-        self.cityPicker.hotCitys = ["100010000", "200010000", "300210000", "600010000", "300110000"]
+        let array = City.changeToTLCity(DYManager.citys)
+        self.cityPicker.citys = array as! NSMutableArray
+        let locationCityName = LocationManager.address.city ?? array.first?.cityName
+        var locationCity = array.first!
+        for city in array {
+            if city.cityName == locationCityName {
+                locationCity = city
+            }
+        }
+        self.cityPicker.locationCity = locationCity
+        
+        self.cityPickerView = self.cityPicker.view
         self.addChildViewController(self.cityPicker)
         self.view.addSubview(self.cityPickerView)
         
         self.cityPickerView.isHidden = true
-        self.addressTableView.isHidden = false
+        
+        self.headerView.addShadow()
         
         self.updateSubviewsFrame()
     }
@@ -104,7 +135,11 @@ class AddressSelectVC: UIViewController {
                                              y: self.headerView.height + tableViewEdgeInsets.top,
                                              width: self.view.width - tableViewEdgeInsets.left - tableViewEdgeInsets.right,
                                              height: self.view.height - self.headerView.height - tableViewEdgeInsets.top - tableViewEdgeInsets.bottom)
-        self.cityPickerView.frame = self.addressTableView.frame
+        self.cityPickerView.frame = CGRect(x: tableViewEdgeInsets.left,
+                                           y: self.headerView.height + tableViewEdgeInsets.top,
+                                           width: self.view.width - tableViewEdgeInsets.left - tableViewEdgeInsets.right,
+                                           height: self.view.height - self.headerView.height - tableViewEdgeInsets.top - tableViewEdgeInsets.bottom)
+        self.cityPicker.updateSubviewsFrame()
     }
 }
 
@@ -112,10 +147,41 @@ extension AddressSelectVC: TLCityPickerDelegate {
     
     func cityPickerController(_ cityPickerViewController: TLCityPickerController!, didSelect city: TLCity!) {
         self.headerView.cityLabel.text = city.cityName
+        self.searchCity = city.cityName
         self.state = .address
     }
     
     func cityPickerControllerDidCancel(_ cityPickerViewController: TLCityPickerController!) {
         
+    }
+}
+
+//MARK: - AMapSearch
+extension AddressSelectVC: AMapSearchDelegate {
+    
+    func searchPOI() {
+        let request = AMapPOIKeywordsSearchRequest()
+        request.keywords = self.keywords
+        request.requireExtension = true
+        request.city = self.searchCity
+        
+        request.cityLimit = true
+        request.requireSubPOIs = true
+        
+        self.searchApi.aMapPOIKeywordsSearch(request)
+    }
+    
+    func aMapSearchRequest(_ request: Any!, didFailWithError error: Error!) {
+        SVProgressHUD.showError(withStatus: "获取定位信息失败")
+        SVProgressHUD.dismiss(withDelay: DYHudPresentationInterval)
+    }
+    
+    func onPOISearchDone(_ request: AMapPOISearchBaseRequest!, response: AMapPOISearchResponse!) {
+        let pois: [AMapPOI] = response.pois
+        var localPois: [MapPOI] = []
+        for poi in pois {
+            localPois.append(MapPOI(poi))
+        }
+        self.addressTableView.pois = localPois
     }
 }

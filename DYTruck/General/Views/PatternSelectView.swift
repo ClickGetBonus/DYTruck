@@ -22,11 +22,8 @@ class PatternSelectView: BaseXibView {
         }
     }
     
-    
     private var selectedIndex: Int = 0
     private let buttonCount = 5
-    
-    
     
     var selectedPattern: Pattern {
         switch self.selectedIndex {

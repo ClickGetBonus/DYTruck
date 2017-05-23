@@ -9,6 +9,7 @@
 import UIKit
 import IQKeyboardManagerSwift
 import YTKNetwork
+import EDStarRating
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -19,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         AMapServices.shared().apiKey = GDMapKey
+        
         YTKNetworkConfig.shared().baseUrl = DYBaseURL
         
         
@@ -29,7 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window = UIWindow(frame: UIScreen.main.bounds)
         self.window!.backgroundColor = UIColor.white
         
-        self.window!.rootViewController = UIStoryboard(name: "Login", bundle: nil).instantiateInitialViewController()
+        self.window!.rootViewController = R.storyboard.main.instantiateInitialViewController()!
         self.window!.makeKeyAndVisible()
         
         return true

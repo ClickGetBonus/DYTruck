@@ -25,7 +25,7 @@ class RegistApi: DYBaseRequest, DYRequest {
     }
     
     override func requestArgument() -> Any? {
-        var param = super.requestArgument() as! [String: Any?]
+        var param = super.requestArgument() as! [String: Any]
         param["phone"] = self.phone
         param["password"] = self.password
         param["code"] = self.code

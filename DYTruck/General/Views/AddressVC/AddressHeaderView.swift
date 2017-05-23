@@ -36,10 +36,8 @@ class AddressHeaderView: BaseXibView, UITextFieldDelegate {
     @IBAction func onCancel(_ sender: Any) {
         self.cancelCallBack()
     }
-    
     @IBAction func onSelectCity(_ sender: Any) {
         self.selectCallBack()
     }
-    
     
 }

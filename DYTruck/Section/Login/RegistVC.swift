@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 class RegistVC: UIViewController {
     
@@ -75,12 +76,20 @@ class RegistVC: UIViewController {
     
     @IBAction func onNextStep(_ sender: Any) {
         
-        let registApi = RegistApi(phone: "18033313933", password: (self.pwTextField.text?.MD5())!, code: "")
+        guard let phone = self.phoneTextField.text.guardEmptyWith(msg: "请输入手机号码") else {return}
+        guard let code = self.verifyTextField.text.guardEmptyWith(msg: "请输入验证码") else {return}
+        guard let password = self.pwTextField.text.guardEmptyWith(msg: "请输入密码") else {return}
+        
+        let registApi = RegistApi(phone: phone, password: password.MD5(), code: code)
         registApi.isShowHud = true
         registApi.startWithCompletionBlock(success: { (request) in
             
             let response = RegistApi.Response.parse(data: request.responseString)
             DLog(response?.data?.token)
+            self.navigationController?.popViewController(animated: true)
+            
+            SVProgressHUD.showInfo(withStatus: "注册成功")
+            SVProgressHUD.dismiss(withDelay: DYHudPresentationInterval)
         }) { (request) in
             
         }

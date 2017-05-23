@@ -13,7 +13,16 @@ class AddressTableView: UITableView {
     
     fileprivate var searchKey: String? = nil
     
-    var selectedCallBack: (String) -> Void = { _ in }
+    var recentlyPOI: [MapPOI] = LocationManager.recentlyPOI
+    
+    var pois: [MapPOI] = [] {
+        didSet {
+            self.showRecently = (pois.count == 0 ? true : false)
+            self.reloadData()
+        }
+    }
+    
+    var selectedCallBack: (MapPOI) -> Void = { _ in }
     var showRecently: Bool = true {
         didSet {
             self.reloadData()
@@ -43,12 +52,7 @@ class AddressTableView: UITableView {
         self.dataSource = self
         
         self.backgroundColor = UIColor.white
-    }
-    
-    func setSearchKey( _ key: String?) {
-        
-        self.showRecently = ((key == nil || key!.isEmpty) ? true : false)
-        self.searchKey = key
+        self.tableFooterView = UIView(frame: CGRect.zero)
     }
     
     
@@ -92,22 +96,26 @@ extension AddressTableView: UITableViewDelegate, UITableViewDataSource {
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if showRecently {
-            return 2
+            return self.recentlyPOI.count
         } else {
-            return 5
+            return self.pois.count
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if showRecently {
             let cell = tableView.dequeueReusableCell(withIdentifier: AddressCell.className) as! AddressCell
+            let poi: MapPOI = self.recentlyPOI[indexPath.row]
+            cell.titleLabel.text = poi.name
+            cell.subTitleLabel.text = poi.address
             return cell
         } else {
-            let cell = UITableViewCell(style: .default, reuseIdentifier: "cell")
-            cell.textLabel?.text = "搜索 \(self.searchKey!) 的结果"
+            let cell = tableView.dequeueReusableCell(withIdentifier: AddressCell.className) as! AddressCell
+            let poi = pois[indexPath.row]
+            cell.titleLabel.text = poi.name
+            cell.subTitleLabel.text = poi.address
             return cell
         }
-        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -116,13 +124,16 @@ extension AddressTableView: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-
         if showRecently {
-            let cell = tableView.cellForRow(at: indexPath) as! AddressCell
-            selectedCallBack((cell.titleLabel.text)!)
+            selectedCallBack(self.recentlyPOI[indexPath.row])
+            LocationManager.addRecentlyPOI(self.recentlyPOI[indexPath.row])
         } else {
-            let cell = tableView.cellForRow(at: indexPath)
-            selectedCallBack((cell?.textLabel?.text)!)
+            selectedCallBack(pois[indexPath.row])
+            LocationManager.addRecentlyPOI(pois[indexPath.row])
         }
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        superview?.endEditing(true)
     }
 }

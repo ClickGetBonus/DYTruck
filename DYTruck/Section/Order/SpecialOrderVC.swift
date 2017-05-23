@@ -41,6 +41,8 @@ class SpecialOrderVC: UITableViewController {
     let imageViewTag = 11
     let labelTag = 12
     
+    var autos: [Auto] = []
+    
     var carSelection: Int = 0 {
         didSet {
             guard carSelection <= 3 else {
@@ -68,9 +70,9 @@ class SpecialOrderVC: UITableViewController {
     
     var departureDateString: String = ""
     var departureDate: Date = Date()
-    var locations: [String] = [""]
-    var destination: String = ""
-    var approach: String = ""
+    var locations: [MapPOI] = [MapPOI()]
+    var destination: MapPOI = MapPOI()
+    var approach: MapPOI = MapPOI()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -81,6 +83,8 @@ class SpecialOrderVC: UITableViewController {
         self.tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: CGFloat.leastNormalMagnitude))
         self.tableView.register(OrderAddressCell.nib, forCellReuseIdentifier: OrderAddressCell.className)
         self.tableView.register(GoodsEditCell.nib, forCellReuseIdentifier: GoodsEditCell.className)
+        
+        self.getAutos()
     }
     
     
@@ -99,7 +103,7 @@ class SpecialOrderVC: UITableViewController {
         self.navigationController?.dismiss(animated: true, completion: nil)
     }
     
-    func configure( _ dateString: String, location: [String], destination: String) {
+    func configure( _ dateString: String, location: [MapPOI], destination: MapPOI) {
         self.departureDateString = dateString
         self.destination = destination
         if location.count > 0 {
@@ -146,6 +150,12 @@ class SpecialOrderVC: UITableViewController {
         self.carSelection = sender.tag
     }
     
+    
+    //MARK: - Network
+    func getAutos() {
+        
+        //let getAutosApi = GetAutosApi(city: <#T##String#>, type: <#T##OrderPattern#>)
+    }
 }
 
 
@@ -162,11 +172,11 @@ extension SpecialOrderVC {
         if indexPath.section == 0 && indexPath.row > 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: OrderAddressCell.className) as! OrderAddressCell
             if indexPath.row <= locations.count {
-                cell.configure(.location, address: locations[indexPath.row-1])
+                cell.configure(.location, address: locations[indexPath.row-1].name)
             } else if indexPath.row == locations.count+1 {
-                cell.configure(.approach, address: approach)
+                cell.configure(.approach, address: approach.name)
             } else {
-                cell.configure(.destination, address: destination)
+                cell.configure(.destination, address: destination.name)
             }
             return cell
         } else if indexPath.section == 1 && indexPath.row == 2 {
@@ -245,7 +255,7 @@ extension SpecialOrderVC {
                         self.destination = address
                     }
                     
-                    cell.textField.text = address
+                    cell.textField.text = address.name
                 }
                 
                 addressSelectVC.dismissBehavior = { vc in

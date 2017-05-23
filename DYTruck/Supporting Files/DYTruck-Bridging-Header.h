@@ -8,14 +8,15 @@
 #define DYTruck_Bridging_Header_h
 
 #import <UITableView_FDTemplateLayoutCell/UITableView+FDTemplateLayoutCell.h>
-#import <EDStarRating/EDStarRating.h>
+//#import "EDStarRating.h"
 #import <MJRefresh/MJRefresh.h>
-#import <HorizontalProgress/HorizontalProgressView.h>
+//#import <HorizontalProgress/HorizontalProgressView.h>
 #import <YTKNetwork/YTKNetwork.h>
-#import <SVProgressHUD/SVProgressHUD.h>
+//#import <SVProgressHUD/SVProgressHUD.h>
 #import <CommonCrypto/CommonDigest.h>
 
-#import <HandyJSON/HandyJSON.h>
+
+//#import <HandyJSON/HandyJSON.h>
 
 #import "UIApplication+YYAdd.h"
 #import "UIImage+YYAdd.h"
@@ -43,5 +44,7 @@
 //高德地图
 #import <MAMapKit/MAMapKit.h>
 #import <AMapFoundationKit/AMapFoundationKit.h>
+
+#import <AMapSearchKit/AMapSearchKit.h>
 
 #endif

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import HandyJSON
 
 protocol Decodable {
     static func parse(data: String?) -> Self?
@@ -28,5 +29,9 @@ class DYResponse : Decodable, HandyJSON {
             return object
         }
         return nil
+    }
+    
+    func isOperateSuccess() -> Bool {
+        return self.code == 1
     }
 }

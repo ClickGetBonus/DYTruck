@@ -7,8 +7,9 @@
 //
 
 import Foundation
+import HandyJSON
 
-struct Authentication {
-    var token: String
-    var userid: String
+struct Authentication: HandyJSON {
+    var token: String?
+    var userid: String?
 }

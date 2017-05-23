@@ -853,7 +853,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.segue` struct is generated, and contains static references to 10 view controllers.
+  /// This `R.segue` struct is generated, and contains static references to 12 view controllers.
   struct segue {
     /// This struct is generated for `ExpressageOrderVC`, and contains static references to 5 segues.
     struct expressageOrderVC {
@@ -957,14 +957,25 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
     
-    /// This struct is generated for `MainVC`, and contains static references to 3 segues.
+    /// This struct is generated for `MainVC`, and contains static references to 5 segues.
     struct mainVC {
+      /// Segue identifier `goMessage`.
+      static let goMessage: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, MainVC, MessageVC> = Rswift.StoryboardSegueIdentifier(identifier: "goMessage")
       /// Segue identifier `goOrder`.
       static let goOrder: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, MainVC, MyOrderVC> = Rswift.StoryboardSegueIdentifier(identifier: "goOrder")
       /// Segue identifier `goSetting`.
       static let goSetting: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, MainVC, SettingVC> = Rswift.StoryboardSegueIdentifier(identifier: "goSetting")
+      /// Segue identifier `goUserInfo`.
+      static let goUserInfo: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, MainVC, UserInfoVC> = Rswift.StoryboardSegueIdentifier(identifier: "goUserInfo")
       /// Segue identifier `goWallet`.
       static let goWallet: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, MainVC, WalletVC> = Rswift.StoryboardSegueIdentifier(identifier: "goWallet")
+      
+      /// Optionally returns a typed version of segue `goMessage`.
+      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
+      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
+      static func goMessage(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, MainVC, MessageVC>? {
+        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.mainVC.goMessage, segue: segue)
+      }
       
       /// Optionally returns a typed version of segue `goOrder`.
       /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
@@ -978,6 +989,13 @@ struct R: Rswift.Validatable {
       /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
       static func goSetting(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, MainVC, SettingVC>? {
         return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.mainVC.goSetting, segue: segue)
+      }
+      
+      /// Optionally returns a typed version of segue `goUserInfo`.
+      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
+      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
+      static func goUserInfo(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, MainVC, UserInfoVC>? {
+        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.mainVC.goUserInfo, segue: segue)
       }
       
       /// Optionally returns a typed version of segue `goWallet`.
@@ -1108,6 +1126,36 @@ struct R: Rswift.Validatable {
       /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
       static func goSpecConfirmOrder(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, SpecialOrderVC, SpecConfirmOrderVC>? {
         return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.specialOrderVC.goSpecConfirmOrder, segue: segue)
+      }
+      
+      fileprivate init() {}
+    }
+    
+    /// This struct is generated for `UINavigationController`, and contains static references to 1 segues.
+    struct uIKitUINavigationController {
+      /// Segue identifier `goShared`.
+      static let goShared: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, UIKit.UINavigationController, SharedOrderVC> = Rswift.StoryboardSegueIdentifier(identifier: "goShared")
+      
+      /// Optionally returns a typed version of segue `goShared`.
+      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
+      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
+      static func goShared(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, UIKit.UINavigationController, SharedOrderVC>? {
+        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.uIKitUINavigationController.goShared, segue: segue)
+      }
+      
+      fileprivate init() {}
+    }
+    
+    /// This struct is generated for `UserInfoVC`, and contains static references to 1 segues.
+    struct userInfoVC {
+      /// Segue identifier `goUserEdit`.
+      static let goUserEdit: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, UserInfoVC, UserEditVC> = Rswift.StoryboardSegueIdentifier(identifier: "goUserEdit")
+      
+      /// Optionally returns a typed version of segue `goUserEdit`.
+      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
+      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
+      static func goUserEdit(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, UserInfoVC, UserEditVC>? {
+        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.userInfoVC.goUserEdit, segue: segue)
       }
       
       fileprivate init() {}
@@ -1595,12 +1643,18 @@ struct _R: Rswift.Validatable {
       typealias InitialController = UIKit.UINavigationController
       
       let bundle = R.hostingBundle
+      let loginVC = StoryboardViewControllerResource<LoginVC>(identifier: "LoginVC")
       let name = "Login"
+      
+      func loginVC(_: Void = ()) -> LoginVC? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: loginVC)
+      }
       
       static func validate() throws {
         if UIKit.UIImage(named: "login_yzm_icn") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'login_yzm_icn' is used in storyboard 'Login', but couldn't be loaded.") }
         if UIKit.UIImage(named: "login_mm_icn") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'login_mm_icn' is used in storyboard 'Login', but couldn't be loaded.") }
         if UIKit.UIImage(named: "login_zh_icn") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'login_zh_icn' is used in storyboard 'Login', but couldn't be loaded.") }
+        if _R.storyboard.login().loginVC() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'loginVC' could not be loaded from storyboard 'Login' as 'LoginVC'.") }
       }
       
       fileprivate init() {}
@@ -1611,16 +1665,27 @@ struct _R: Rswift.Validatable {
       
       let bundle = R.hostingBundle
       let name = "Main"
+      let userInfoVC = StoryboardViewControllerResource<UserInfoVC>(identifier: "UserInfoVC")
+      
+      func userInfoVC(_: Void = ()) -> UserInfoVC? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: userInfoVC)
+      }
       
       static func validate() throws {
+        if UIKit.UIImage(named: "grzx_s_icn") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'grzx_s_icn' is used in storyboard 'Main', but couldn't be loaded.") }
         if UIKit.UIImage(named: "sy_xx_icn") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'sy_xx_icn' is used in storyboard 'Main', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "ty_xl_01") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ty_xl_01' is used in storyboard 'Main', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "zf_wechat_icn") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'zf_wechat_icn' is used in storyboard 'Main', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "zf_ye_icn") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'zf_ye_icn' is used in storyboard 'Main', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "ty_backarrow_04") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ty_backarrow_04' is used in storyboard 'Main', but couldn't be loaded.") }
         if UIKit.UIImage(named: "zf_kq_icn") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'zf_kq_icn' is used in storyboard 'Main', but couldn't be loaded.") }
         if UIKit.UIImage(named: "zf_zhib_icn") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'zf_zhib_icn' is used in storyboard 'Main', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "King") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'King' is used in storyboard 'Main', but couldn't be loaded.") }
         if UIKit.UIImage(named: "login_zh_icn") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'login_zh_icn' is used in storyboard 'Main', but couldn't be loaded.") }
         if UIKit.UIImage(named: "zfym_pic") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'zfym_pic' is used in storyboard 'Main', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "ty_xl_01") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ty_xl_01' is used in storyboard 'Main', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "grzx_bg_02") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'grzx_bg_02' is used in storyboard 'Main', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "zf_wechat_icn") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'zf_wechat_icn' is used in storyboard 'Main', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "zf_ye_icn") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'zf_ye_icn' is used in storyboard 'Main', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "grzx_dz_icn") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'grzx_dz_icn' is used in storyboard 'Main', but couldn't be loaded.") }
+        if _R.storyboard.main().userInfoVC() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'userInfoVC' could not be loaded from storyboard 'Main' as 'UserInfoVC'.") }
       }
       
       fileprivate init() {}

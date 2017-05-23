@@ -55,6 +55,42 @@ extension UIView {
         return UINib(nibName: self.className, bundle: nil)
     }
     
+    func addShadow() {
+        self.addShadow(color: kRGBColorFromHex(0x0b0b0b).cgColor, opacity: 0.3, radius: 8)
+    }
+    
+    func addShadow(color: CGColor, opacity: Float, radius: CGFloat) {
+        self.layer.shadowColor = color
+        self.layer.shadowOpacity = opacity
+        self.layer.shadowRadius = radius
+        self.layer.shadowOffset = CGSize(width: 0, height: 0)
+        self.clipsToBounds = false
+    }
+    
+    func addVeilViewBelow(_ view: UIView, target: AnyObject, selector: Selector) {
+        let veilView = UIView(frame: self.bounds)
+        veilView.tag = 180333
+        let tapRes = UITapGestureRecognizer(target: target, action: selector)
+        veilView.addGestureRecognizer(tapRes)
+        veilView.backgroundColor = UIColor.black
+        veilView.alpha = 0
+        self.insertSubview(veilView, belowSubview: view)
+        
+        UIView.animate(withDuration: 0.5) {
+            veilView.alpha = 0.6
+        }
+    }
+    
+    func hideVeilView(_ timeInterval: TimeInterval) {
+        if let veilView = self.viewWithTag(180333) {
+            UIView.animate(withDuration: timeInterval, animations: { 
+                veilView.alpha = 0
+            }, completion: { (_) in
+                veilView.removeFromSuperview()
+            })
+        }
+    }
+    
 }
 
 
@@ -63,7 +99,7 @@ extension UIView {
 // MARK: - Animation
 extension UIView {
     
-    func transitionIn(_ offset: UIOffset, complete: @escaping () -> Void) {
+    func transitionIn(_ offset: UIOffset, complete: (() -> Void)?) {
         
         let pointFrame = self.frame
         
@@ -75,7 +111,9 @@ extension UIView {
         UIView.animate(withDuration: 0.5, animations: {
             self.frame = pointFrame
         }) { _ in
-            complete()
+            if complete != nil {
+                complete!()
+            }
         }
     }
     
